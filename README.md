@@ -1,4 +1,4 @@
-# Service_App_Bbackend (FastAPI + Vite React)
+# Service_App_Backend (FastAPI + Vite React)
 
 Short README documenting the integration between a FastAPI backend and a Vite/React frontend, plus Docker setup.
 
