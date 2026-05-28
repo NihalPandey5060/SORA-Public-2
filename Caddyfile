@@ -1,0 +1,24 @@
+:80 {
+	# REST APIs
+	handle /api/* {
+		reverse_proxy localhost:8086
+	}
+
+	# WebSockets
+	handle /ws/* {
+		reverse_proxy localhost:8086
+	}
+
+	# Frontend (React / static files)
+	handle {
+		root * /workspace/newServer/audio_encoder/client/dist
+		file_server
+	}
+
+	# Testing media
+	handle_path /media/* {
+		root * /workspace/newServer/audio_encoder/media
+		file_server
+	}
+}
+

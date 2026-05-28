@@ -1,0 +1,61 @@
+services:
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped 
+    networks:
+      - yardhouse_network
+  client: 
+    container_name: yardhouse_client
+    build: 
+      context: ./client
+      dockerfile: Dockerfile.dev
+    ports: 
+      - "5173:5173"
+    networks:
+      - yardhouse_network 
+    
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+
+    restart: unless-stopped 
+
+    depends_on:
+      - server 
+  server:
+    container_name: yardhouse_server
+    build: 
+      context: ./
+      dockerfile: Dockerfile.dev
+    ports: 
+      - "8000:8000"
+    networks:
+      - yardhouse_network 
+    
+    volumes:
+      - ./:/app
+
+    restart: unless-stopped 
+
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_DB=0
+
+volumes:
+  redis_data: 
+
+networks:
+  yardhouse_network:
+    driver: bridge
+

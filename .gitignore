@@ -1,0 +1,155 @@
+# Media files
+
+# Python
+
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# FastAPI
+.pytest_cache/
+.coverage
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+media/audio/*
+media/video/*
+media/output/*
+media/verification/*
+copy_yardhouse.db
+cpu_id_ed25519
+*test*.*
+*.env
+
+backend.err.log
+backend.log
+backend.logs
+backend.out.log
+Caddyfile.save
+#pipeline
+tmp/*
+
+*/.env
+*test.py
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Environment Variables
+.env
+.env.*
+*.env
+
+# Logs
+*.log
+
+# =========================
+# Node.js / Frontend
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build Outputs
+dist/
+build/
+.next/
+out/
+
+# =========================
+# IDE / Editor Files
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Media Files
+# =========================
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.gif
+*.png
+*.jpg
+*.jpeg
+*.wav
+*.mp3
+*.flac
+
+# Generated Media Folders
+media/
+outputs/
+generated/
+uploads/
+temp/
+tmp/
+
+# =========================
+# AI / Model Files
+# =========================
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.bin
+models/
+checkpoints/
+
+# =========================
+# Cache Files
+# =========================
+.cache/
+pytest_cache/
+.mypy_cache/
+
+# =========================
+# Database Files
+# =========================
+*.sqlite3
+*.db
+
+# =========================
+# Misc
+# =========================
+coverage/
+htmlcov/
+```

@@ -1,0 +1,2252 @@
+[
+ {
+  "Category": "Soups",
+  "Name": "Hot & Sour Chicken",
+  "Price": "$8.99",
+  "Description": "A flavorful broth with tender chicken pieces, balanced with a blend of spicy & tangy notes, and loaded with soup fresh vegetables for a hearty and invigorating dish."
+ },
+ {
+  "Category": "Soups",
+  "Name": "Sweet Corn Soup",
+  "Price": "$7.99",
+  "Description": "A light & creamy soup made with tender sweet corn, flavored with mild spices & herbs, perfect as a warm starter or a comforting meal."
+ },
+ {
+  "Category": "Soups",
+  "Name": "Sweet Corn Chicken Soup",
+  "Price": "$8.99",
+  "Description": "A light & creamy soup made with tender sweet corn, juicy chicken & egg, flavored with mild spices & herbs, perfect as a warm starter or a comforting meal."
+ },
+ {
+  "Category": "Soups / Shorba",
+  "Name": "Veg Manchow",
+  "Price": "$7.99",
+  "Description": "Various veggies, Thickened with broth and served with fried noodles on side."
+ },
+ {
+  "Category": "Soups / Shorba",
+  "Name": "Chicken Manchow",
+  "Price": "$8.99",
+  "Description": "Veggies & Chicken, Thickened with Broth and Fried Noodles on side."
+ },
+ {
+  "Category": "Soup and Shorba",
+  "Name": "Cream of Tomato Soup",
+  "Price": "$7.99",
+  "Description": "Tomato soup floured with cream and tangy and rich in garlic and black pepper."
+ },
+ {
+  "Category": "Soup and Shorba",
+  "Name": "veg Hot and Sour Soup",
+  "Price": "$7.99",
+  "Description": "Spicy soup made with fresh vegetables, and medley of mushroom and soya sauce."
+ },
+ {
+  "Category": "Soup and Shorba",
+  "Name": "Chicken Hot & Sour Soup",
+  "Price": "$8.99",
+  "Description": "Savoury soup with a balance of spicy and tangy flavours."
+ },
+ {
+  "Category": "Chaats",
+  "Name": "Pani Puri",
+  "Price": "$9.99",
+  "Description": "Crisp, flavorful puri shells filled with spiced potatoes, chickpeas, and tangy tamarind water, served with a side of zesty chutney."
+ },
+ {
+  "Category": "Chaats",
+  "Name": "Chicken Chatkara Gol gappe",
+  "Price": "$12.99",
+  "Description": "Tender chicken cooked in a rich tomato-based curry, served in crispy gol gappe shells with a hint of cumin and coriander."
+ },
+ {
+  "Category": "Chaats",
+  "Name": "Vodka Pani Puri Shots",
+  "Price": "$15.99",
+  "Description": "Crunchy puri shells filled with spiced potatoes, onions, and tangy tamarind broth, served with a shot of chilled vodka."
+ },
+ {
+  "Category": "Chaats",
+  "Name": "Chaat Papdi",
+  "Price": "$9.99",
+  "Description": "Crunchy fried flour bread crisps served with a zesty yogurt-based sauce, fresh cilantro, and a hint of cumin."
+ },
+ {
+  "Category": "Chaats",
+  "Name": "Dahi Puri",
+  "Price": "$10.99",
+  "Description": "Crunchy puri shells filled with yogurt, tamarind chutney, and crispy potatoes, served chilled."
+ },
+ {
+  "Category": "Chaats",
+  "Name": "Aloo Chaat",
+  "Price": "$8.99",
+  "Description": "Crisp fried potatoes, tangy yogurt, and zesty tamarind come together in a harmonious balance of flavors and textures."
+ },
+ {
+  "Category": "Chaats",
+  "Name": "Dahi Bhalla",
+  "Price": "$9.99",
+  "Description": "Crisp fried lentil dough balls served in a tangy yogurt sauce with a hint of cumin and coriander."
+ },
+ {
+  "Category": "Chaats",
+  "Name": "Tikki Chaat",
+  "Price": "$10.99",
+  "Description": "Crispy fried potato and pea patty served in a tangy tamarind broth with crunchy onions and cilantro."
+ },
+ {
+  "Category": "Momos Lovers",
+  "Name": "Veg Kurkure Momos",
+  "Price": "$16.99",
+  "Description": "Crispy, deep fried veg dumplings, offering a crunchy texture, bold flavor & served with in house sauce."
+ },
+ {
+  "Category": "Momos Lovers",
+  "Name": "Veg Tandoori Momos",
+  "Price": "$17.99",
+  "Description": "Marinated with tandoori spices, grilled to perfection for a smoky flavorful twist."
+ },
+ {
+  "Category": "Momos Lovers",
+  "Name": "Veg Makhani Momos",
+  "Price": "$17.99",
+  "Description": "Delhi special momos in Shahi makhani gravy."
+ },
+ {
+  "Category": "Momos Lovers",
+  "Name": "Steamed Chicken Momos",
+  "Price": "$16.99",
+  "Description": "Steamed dumplings filled with minced chicken and spices served with spicy sauce.."
+ },
+ {
+  "Category": "Momos Lovers",
+  "Name": "Chicken Chilli Momos",
+  "Price": "$17.99",
+  "Description": "Steamed dumplings filled with minced chicken and spices tossed with peppers, onions, chilli sauce & served with spicy sauce."
+ },
+ {
+  "Category": "Momos Lovers",
+  "Name": "Chicken Tandoori Momos",
+  "Price": "$17.99",
+  "Description": "Marinated with tandoori spices, & grilled to perfection for a smoky flavorful twist."
+ },
+ {
+  "Category": "Momos Lovers",
+  "Name": "Chicken Kurkure Momos",
+  "Price": "$17.99",
+  "Description": "Cripy, deep fried chicken dumplings, offering a crunchy texture, bold flavor & served with in house sauce"
+ },
+ {
+  "Category": "Momos Lovers",
+  "Name": "Butter Chicken Momos",
+  "Price": "$17.99",
+  "Description": "In house momos in chef's special butter chicken gravy."
+ },
+ {
+  "Category": "Momos Lovers",
+  "Name": "Veg Chilli Momos",
+  "Price": "$16.99",
+  "Description": "Pan fried veg momos tossed in savoury sauce with coloured peppers, and onions and chilly."
+ },
+ {
+  "Category": "Momos Lovers",
+  "Name": "Chilli Chicken Momos",
+  "Price": "$17.99",
+  "Description": "Pan fried chicken momos tossed in savoury sauce with coloured peppers, and onions and chilly."
+ },
+ {
+  "Category": "Delhi Style Rumali Rolls and Naan Rolls",
+  "Name": "Chicken Seekh Kabab Roll (2 pcs)",
+  "Price": "$11.99",
+  "Description": "Tender chicken seekh kabab wrapped in a soft roll."
+ },
+ {
+  "Category": "Delhi Style Rumali Rolls and Naan Rolls",
+  "Name": "Chicken Tikka Wrap",
+  "Price": "$11.99",
+  "Description": "Tender chicken in a flavorful wrap."
+ },
+ {
+  "Category": "Delhi Style Rumali Rolls and Naan Rolls",
+  "Name": "Paneer Tikka Wrap",
+  "Price": "$10.99",
+  "Description": "Soft and creamy paneer wrapped in a delicate roll."
+ },
+ {
+  "Category": "Delhi Style Rumali Rolls and Naan Rolls",
+  "Name": "Mutton Seekh Kabab Roll (2 pcs)",
+  "Price": "$12.99",
+  "Description": "Tender mutton seekh kabab wrapped in a soft roll."
+ },
+ {
+  "Category": "Delhi Style Rumali Rolls and Naan Rolls",
+  "Name": "Soya Chaap Wrap",
+  "Price": "$10.99",
+  "Description": "Savoury soya chaap wrapped in a soft roll."
+ },
+ {
+  "Category": "BREAKFAST BITES",
+  "Name": "WEEKEND PAANI PURI",
+  "Price": "$16.99",
+  "Description": "Crunchy puris filled with flavorful water and spices."
+ },
+ {
+  "Category": "BREAKFAST BITES",
+  "Name": "WEEKEND CHAAT PAPDI",
+  "Price": "$16.99",
+  "Description": "Crispy papdi served with a tangy and spicy chaat flavour."
+ },
+ {
+  "Category": "BREAKFAST BITES",
+  "Name": "WEEKEND TIKKI CHAAT",
+  "Price": "$16.99",
+  "Description": "Savoury street food snack with a blend of spices and tangy flavours."
+ },
+ {
+  "Category": "BREAKFAST BITES",
+  "Name": "MIX PRANTHA",
+  "Price": "$11.99",
+  "Description": "Flaky, crispy flatbread served with a variety of accompaniments."
+ },
+ {
+  "Category": "BREAKFAST BITES",
+  "Name": "TIKKI CHAT",
+  "Price": "$11.99",
+  "Description": "Crunchy potato and pea fritters, pan-seared to a golden brown and served with tangy raita."
+ },
+ {
+  "Category": "Appetizers-Veg (Indian)",
+  "Name": "Paneer 3 Way",
+  "Price": "$19.99",
+  "Description": "3 different flavored paneer cooked in clay oven."
+ },
+ {
+  "Category": "Appetizers-Veg (Indian)",
+  "Name": "Bhatti Paneer Tikka",
+  "Price": "$19.99",
+  "Description": "Marinated paneer cooked in clay oven with TJ'secret herbs in yogurt"
+ },
+ {
+  "Category": "Appetizers-Veg (Indian)",
+  "Name": "Paneer Malai Tikka",
+  "Price": "$19.99",
+  "Description": "Marinated paneer in creamy yogurt with light spices, cooked in clay oven."
+ },
+ {
+  "Category": "Appetizers-Veg (Indian)",
+  "Name": "Paneer Tikka Peri Peri",
+  "Price": "$19.99",
+  "Description": "Paneer cooked in clay oven with peri peri sauce & secret spices."
+ },
+ {
+  "Category": "Appetizers-Veg (Indian)",
+  "Name": "Paneer Achaari Tikka",
+  "Price": "$19.99",
+  "Description": "Authentic India pickle spicy marinated paneer, cooked in clay oven."
+ },
+ {
+  "Category": "Appetizers-Veg (Indian)",
+  "Name": "Paneer Tikka Chipotle",
+  "Price": "$19.99",
+  "Description": "Paneer marinated in chipotle sauce & cooked in clay oven."
+ },
+ {
+  "Category": "Appetizers-Veg (Indian)",
+  "Name": "Bhatti Soya Chaap",
+  "Price": "$18.99",
+  "Description": "Soya chaap marinated in a robust blend of spices, slow cooked on a traditional bhatti for a smoky, char grilled flavor."
+ },
+ {
+  "Category": "Appetizers-Veg (Indian)",
+  "Name": "Soya Malai Chaap",
+  "Price": "$18.99",
+  "Description": "Tender soya chaap in a creamy, rich blend of malai & aromatic spices, then grilled to perfection for a luscious, melt in the mouth experience."
+ },
+ {
+  "Category": "Appetizers-Veg (Indian)",
+  "Name": "Soya Chaap Peri Peri",
+  "Price": "$18.99",
+  "Description": "Soya chaap marinated in a zesty, spicy peri peri sauce"
+ },
+ {
+  "Category": "Appetizers-Veg (Indian)",
+  "Name": "Soya Chaap Chipotle Tikka",
+  "Price": "$18.99",
+  "Description": "Soya Chaap marinated in a smoky, spicy chipotle sdauce, then grilled to perfection.....a flavorful fusion of Indian & Mexican tastes."
+ },
+ {
+  "Category": "Appetizers-Veg (Indian)",
+  "Name": "Veg Kebab Platter",
+  "Price": "$33.99",
+  "Description": "The ultimate sampler - varietes of paneer tikkas - Bhatti, Malai, Chipotle, Soya Chaaps, Dahi Kebabs"
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Bhatti Murg Full",
+  "Price": "$27.99",
+  "Description": "Whole Chicken cooked in clay oven with TJ's secret herbs & spices in yogurt."
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Bhatti Murg Half",
+  "Price": "$15.99",
+  "Description": "Chicken cooked in clay oven with TJ's secret herbs & spices in yogurt."
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Bhatti Murg Tikka",
+  "Price": "$19.99",
+  "Description": "Boneless chicken cooked in clay oven with TJ's secret herbs & spices in yogurt."
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Chicken Peri Peri Tikka",
+  "Price": "$19.99",
+  "Description": "Boneless juicy chicken marinated in a spicy peri peri"
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Chicken Chipotle Tikka",
+  "Price": "$19.99",
+  "Description": "Tandoor cooked boneless chicken with in house made chipotle sauce, a bold & delightful culinary experience."
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Chicken Achaari Tikka",
+  "Price": "$19.99",
+  "Description": "Authentic Indian spicy pickle marinated boneless chicken cooked in clay oven."
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Chicken Malai Tikka",
+  "Price": "$19.99",
+  "Description": "Marinated boneless chicken in creamy cheese & nuts with light spices, cooked in clay oven."
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Chicken Seekh Kebab",
+  "Price": "$19.99",
+  "Description": "Minced chicken cooked on skewers with chillies, ginger, garlic & Indian spices."
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Chicken Tangri Kebab",
+  "Price": "$19.99",
+  "Description": "Marinated Chicken drum sticks cooked in clay oven"
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Tandoori Rainbow Trout",
+  "Price": "$29.99",
+  "Description": "Whole rainbow trout fish marinated in a blend of aromatic spices & grilled in a tandoor for a smoky flavorful delight. A must try........"
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Reshmi Fish Tikka",
+  "Price": "$19.99",
+  "Description": "Fish tikka marinated with yogurt, gram flour & chef's secret masalas, cooked in clay oven."
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Amritsari Fried Fish",
+  "Price": "$16.99",
+  "Description": "Authentic punjabi style deep fried fish with chef's secret family owed recipe."
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Mutton Seekh Kebab",
+  "Price": "$19.99",
+  "Description": "Minced goat meat infused with exotic Indian spices & herbs."
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Lamb Chops",
+  "Price": "$27.99",
+  "Description": "Tender juicy lamb chops seasoned with a blend of exotic Indian spices & grilled to perfection."
+ },
+ {
+  "Category": "Appetizers Non Veg (Indian)",
+  "Name": "Non Veg Kebab Platter",
+  "Price": "$37.99",
+  "Description": "A platter of different tikkas, kebabs of Fish, chicken & goat.....a journey to heaven"
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Chilli Potatoes",
+  "Price": "$12.99",
+  "Description": "Crispy potatoes tossed in spicy, tangy sauce with bell peppers & onions, offering a bold & flavorful snack."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Honey Chilli Potatoes",
+  "Price": "$14.99",
+  "Description": "Crispy potatoes coated in a sweet & spicy sauce with a hint of honey, garnished with scallions for a perfect balace of flavors."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Veg Spring Roll",
+  "Price": "$11.99",
+  "Description": "Spring roll wrapped with noodles & vegetables..... Delhi cart style."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Chilli Paneer Dry",
+  "Price": "$17.99",
+  "Description": "Crispy paneer cubes stir fried with peppers, onions, ginger, garlic & spicy tangy sauce for a crisp & flavorful bite."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Veg Mancuhrian Dry",
+  "Price": "$17.99",
+  "Description": "Crispy vegetables balls simmered in tangy, savory sauce with a blend of spices & a touch of sweetness."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Gobhi Manchrian Dry",
+  "Price": "$17.99",
+  "Description": "Crispy cauliflower florets tossed in a spicy, sourish sauce served without gravy for a bold & crunchy treat."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Gobhi 65",
+  "Price": "$19.99",
+  "Description": "Spicy deep fried cauliflower florets coated in tangy blend of Indian spices & herbs, giving a flavorful snack with a fiery kick."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Mushroom Chilli Dry",
+  "Price": "$18.99",
+  "Description": "Crispy stir fried mushrooms tossed with capsicums, onions & chilly sauce, creating a punchy snack."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Shaadi waale Noodles",
+  "Price": "$15.99",
+  "Description": "Veg noodles make with authentic Indian catering style, reminiscent of the festive, rich flavors of a wedding feast."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Veg Hakka Noodles",
+  "Price": "$15.99",
+  "Description": "Sauteed veggies & chowmein blended in home made sauce, offering a satisfying Asian inspired dish."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Manchurian Noodles",
+  "Price": "$15.99",
+  "Description": "Sauteed veggie balls & chowmein blended together."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Chicken Lollipop",
+  "Price": "$17.99",
+  "Description": "Crispy deep fried chicken wings with the meat pulled back to resemble a lollipop, coated in a tangy sauce for a delicious fun appetizer."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Chicken Spring Roll",
+  "Price": "$13.99",
+  "Description": "Spring roll filled with noodles, chicken & vegetables."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Honey Garlic Chicken Dry",
+  "Price": "$19.99",
+  "Description": "Boneless chicken cooked in sauce make with honey, garlic & chillies."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Chilli Chicken Dry",
+  "Price": "$18.99",
+  "Description": "Crispy chicken pieces stir fried with peppers, onions, ginger, garlic & spicy, tangy sauce for a crisp & flavorful bite."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Chicken 65",
+  "Price": "$19.99",
+  "Description": "Tender chicken pieces marinated in a tantalizing blend of Indian spices & herbs then deep fried to golden perfection."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Chilli Fish Dry",
+  "Price": "$18.99",
+  "Description": "Crispy fish tossed with peppers, onions, ginger, garlic & in house sauces, making it a mouth watering dish."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Honey Garlic Fish Dry",
+  "Price": "$18.99",
+  "Description": "Fish cooked in sauce make with honey, garlic & chillies."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Chicken Hakka Noodles",
+  "Price": "$16.99",
+  "Description": "Sauteed chicken, veggies & chowmein blended in home made sauce......its a hearty meal."
+ },
+ {
+  "Category": "Appetizers Hakka Chinese",
+  "Name": "Schezwan Noodles",
+  "Price": "$15.99",
+  "Description": "Sauteed veggies & chowmein blended together with schezwan sauce."
+ },
+ {
+  "Category": "Starter Non-Veg Indian",
+  "Name": "Bhatti Murgh Full",
+  "Price": "$27.99",
+  "Description": "Whole Chicken cooked in clay oven with TJ's secret herbs & spices in yogurt."
+ },
+ {
+  "Category": "Starter Non-Veg Indian",
+  "Name": "Bhatti Murgh Half",
+  "Price": "$15.99",
+  "Description": "Chicken cooked in clay oven with TJ's secret herbs & spices in yogurt."
+ },
+ {
+  "Category": "Starter Non-Veg Indian",
+  "Name": "Bhatti Murgh Tikka",
+  "Price": "$19.99",
+  "Description": "Boneless chicken reserved overnight in a yogurt marinade first cooked in the tandoor and then finished on the Bhatti or open-fire."
+ },
+ {
+  "Category": "Starter Non-Veg Indian",
+  "Name": "Chicken Seekh Kebab Classic",
+  "Price": "$19.99",
+  "Description": "Traditional seekh of chicken mince with the singing flavours of house spice blend, coriander, mint and spring onions."
+ },
+ {
+  "Category": "Starter Non-Veg Indian",
+  "Name": "Chipotle Fish Tikka",
+  "Price": "$19.99",
+  "Description": "Tandoori fish in chipotle sauce."
+ },
+ {
+  "Category": "Starter Non-Veg Indian",
+  "Name": "Mutton Kebab Tikka Junction",
+  "Price": "$16.99",
+  "Description": "Chipotle Seekh / Peri Peri Seekh."
+ },
+ {
+  "Category": "Starter Non-Veg Indian",
+  "Name": "Tangdi Kebab",
+  "Price": "$19.99",
+  "Description": "Legs of chicken, reserved overnight in a yoghurt marinade and finished in Tandoor."
+ },
+ {
+  "Category": "Starter Non-Veg Indian",
+  "Name": "Chicken Achari Tikka",
+  "Price": "$19.99",
+  "Description": "Soft tender pieces of chicken bathed in pickling spices (Achari masala) & yogurt marinade."
+ },
+ {
+  "Category": "Starter Non-Veg Indian",
+  "Name": "Chipotle Chicken Tikka",
+  "Price": "$19.99",
+  "Description": "Boneless chicken cooked in clay oven with home made chipotle sauce & secret spices"
+ },
+ {
+  "Category": "Starter Non-Veg Indian",
+  "Name": "Achari Fish Tikka",
+  "Price": "$19.99",
+  "Description": "Authentic Indian spicy pickle marinated fish cooked in clay oven"
+ },
+ {
+  "Category": "Starter Non-Veg Indian",
+  "Name": "Chicken Kebab Tikka Junction",
+  "Price": "$15.99",
+  "Description": "Chipotle Seekh / Peri Peri Seekh."
+ },
+ {
+  "Category": "Tikka Bites",
+  "Name": "Paani Puri",
+  "Price": "$10.99",
+  "Description": "Classic Mumbai style gol gappas. Love at first bite."
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Chicken Tikka Sharabian Da",
+  "Price": "$19.99",
+  "Description": "Tandoori Chicken tikka with special tawa gravy"
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Chicken Seekh Sharabian Da",
+  "Price": "$19.99",
+  "Description": "Seekh kabab with special tawa gravy"
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Mutton Seekh Sharabian Da",
+  "Price": "$20.99",
+  "Description": "Mutton Seekh Kabab in Tj's special tawa gravy"
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Paneer Tikka Sharabian Da",
+  "Price": "$19.99",
+  "Description": "Tandoor cooked, paneer tikka tossed in tawa gravy"
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Soya Chaap Sharabian Da",
+  "Price": "$19.99",
+  "Description": "Tandoori soya chaap tossed at tawa with tomatoes & creamy gravy"
+ },
+ {
+  "Category": "Chef's Special",
+  "Name": "Soya Chaap Sharabian Di",
+  "Price": "$20.99",
+  "Description": "Tandoori soya chaap tossed in house blend special tawa gravy finished with dust of spiced masala mix."
+ },
+ {
+  "Category": "Chef's Special",
+  "Name": "Chicken Seekh Sharabian Di",
+  "Price": "$20.99",
+  "Description": "Seekh kebab in house blend special tawa gravy finished with dust of spiced masala mix."
+ },
+ {
+  "Category": "Chef's Special",
+  "Name": "Mutton Seekh Sharabian Di",
+  "Price": "$21.99",
+  "Description": "Mutton seekh kebab in house blend special tawa gravy finished with dust of spiced masala mix."
+ },
+ {
+  "Category": "Veg Indo-Chinese",
+  "Name": "Veg Chilly Momos",
+  "Price": "$17.99",
+  "Description": "Pan-fried Veg Dumplings tossed in savoury sauce with coloured peppers, onions, and Chilly."
+ },
+ {
+  "Category": "Veg Indo-Chinese",
+  "Name": "Chilly Paneer Dry",
+  "Price": "$17.99",
+  "Description": "Cubes of pan-fried cottage cheese are coated in a savory sauce and then tossed with coloured peppers and onions."
+ },
+ {
+  "Category": "Veg Indo-Chinese",
+  "Name": "Chilly Paneer Gravy",
+  "Price": "$17.99",
+  "Description": "Cubes of pan-fried cottage cheese are coated in a semi-dry savory sauce and then tossed with colored peppers and onions."
+ },
+ {
+  "Category": "Veg Indo-Chinese",
+  "Name": "Veg Manchurian Dry",
+  "Price": "$17.99",
+  "Description": "Fried veg balls tossed in the spicy, sweet & tangy Manchurian sauce."
+ },
+ {
+  "Category": "Veg Indo-Chinese",
+  "Name": "Manchurian 65",
+  "Price": "$17.99",
+  "Description": "Deep fried veg balls & tossed in in-house indian spices and sauces."
+ },
+ {
+  "Category": "Veg Indo-Chinese",
+  "Name": "Fries",
+  "Price": "$9.99",
+  "Description": "Just salted tastes well!!!!"
+ },
+ {
+  "Category": "Veg Indo-Chinese",
+  "Name": "Honey Chilli Paneer",
+  "Price": "$15.99",
+  "Description": "Lightly battered crispy Potatoes coated with tomato chilli sauce, honey and a mixture of garlic, vinegar, and salt."
+ },
+ {
+  "Category": "Veg Indo-Chinese",
+  "Name": "Honey Chilli Mushrooms",
+  "Price": "$15.99",
+  "Description": "Lightly battered crispy mushrooms coated with tomato chilli sauce, honey and a mixture of garlic, vinegar, and salt."
+ },
+ {
+  "Category": "Veg Indo-Chinese",
+  "Name": "Gobhi Manchurian Dry",
+  "Price": "$14.99",
+  "Description": "Deep Fried Cauliflower tossed in home made Manchurian sauce."
+ },
+ {
+  "Category": "Veg Indo-Chinese",
+  "Name": "Chilly Mushrooms",
+  "Price": "$14.99",
+  "Description": "Pan fried Mushrooms coated in savoury sauce and tossed with bell pepper & onion."
+ },
+ {
+  "Category": "Veg Indo-Chinese",
+  "Name": "Hot Garlic Mushrooms",
+  "Price": "$14.99",
+  "Description": "Coated Mushrooms tossed with capsicum, onions in hot garlic sauce"
+ },
+ {
+  "Category": "Veg Indo Chinese",
+  "Name": "Veg Manchurian",
+  "Price": "$15.99",
+  "Description": "Fried veg balls tossed in the spicy, sweet, tangy in - house manchurian sauce."
+ },
+ {
+  "Category": "Veg Indo Chinese",
+  "Name": "Honey Chilli Station",
+  "Price": "$16.99",
+  "Description": "Lightly battered crispy protein coated with tomato chilli sauce, honey and a mixture of garlic, vinegar, and salt."
+ },
+ {
+  "Category": "Veg Indo Chinese",
+  "Name": "Veg Manchurian - 65",
+  "Price": "$16.99",
+  "Description": "Deep fried veg balls wok - tossed in in - house indian spices and sauces."
+ },
+ {
+  "Category": "Veg Indo Chinese",
+  "Name": "Gobhi - 65",
+  "Price": "$16.99",
+  "Description": "Fried cauliflower tossed in indian spices and sauces."
+ },
+ {
+  "Category": "Veg Indo Chinese",
+  "Name": "Chilli Mushrooms",
+  "Price": "$15.99",
+  "Description": "Pan fried mushrooms coated in savory sauce and tossed with bell pepper and onion."
+ },
+ {
+  "Category": "Non-Veg Indo Chinese",
+  "Name": "Chilly Chicken Dry",
+  "Price": "$18.99",
+  "Description": "Cubes of pan-fried boneless chicken are coated in a semi dry savoury sauce and then tossed with coloured peppers and onions."
+ },
+ {
+  "Category": "Non-Veg Indo Chinese",
+  "Name": "Chilly Chicken Gravy",
+  "Price": "$19.99",
+  "Description": "Cubes of pan-fried boneless chicken are coated in a semi dry savoury sauce and then tossed with coloured peppers and onions served with gravy."
+ },
+ {
+  "Category": "Non-Veg Indo Chinese",
+  "Name": "Chilly Fish Dry",
+  "Price": "$19.99",
+  "Description": "Crispy fish fillet lightly tossed in a spicy chilli sauce with coloured peppers, and onions."
+ },
+ {
+  "Category": "Non-Veg Indo Chinese",
+  "Name": "Chicken Manchurian dry",
+  "Price": "$19.99",
+  "Description": "Fried chicken balls tossed in manchurian sauces"
+ },
+ {
+  "Category": "Non-Veg Indo Chinese",
+  "Name": "Chicken Manchurian gravy",
+  "Price": "$19.99",
+  "Description": "Fried chicken balls tossed in sauces and served with manchurian"
+ },
+ {
+  "Category": "Non-Veg Indo Chinese",
+  "Name": "Chicken Chilly Momos",
+  "Price": "$17.99",
+  "Description": "Pan fried Chicken Dumplings tossed in savoury sauce with coloured peppers, onions, and chillies."
+ },
+ {
+  "Category": "Non-Veg Indo Chinese",
+  "Name": "Chicken Drums of Heaven",
+  "Price": "$19.99",
+  "Description": "Chicken lollipop deep fried wok-tossed with chop veggies & Chinese in house sauces."
+ },
+ {
+  "Category": "Non-Veg Indo Chinese",
+  "Name": "Mutton Chilli Kebab Dry",
+  "Price": "$20.99",
+  "Description": "Tandoori Cooked Kebabs tossed in Chilli Sauce."
+ },
+ {
+  "Category": "Non Veg Indo Chinese",
+  "Name": "Chilli Chicken",
+  "Price": "$16.99",
+  "Description": "Cubes of pan - fried boneless chicken are coated in a semi dry savoury sauce and then tossed with coloured peppers and onions."
+ },
+ {
+  "Category": "Non Veg Indo Chinese",
+  "Name": "Fried Chicken Lolipops",
+  "Price": "$16.99",
+  "Description": "Frenched chicken drumsticks marinated in spicy house blend and then batter fried and finished with Indo Chinese spice mix."
+ },
+ {
+  "Category": "Non Veg Indo Chinese",
+  "Name": "Chicken Manchurian",
+  "Price": "$16.99",
+  "Description": "Fried chicken tossed in homemade manchurian sauce."
+ },
+ {
+  "Category": "Non Veg Indo Chinese",
+  "Name": "Chicken - 65",
+  "Price": "$17.99",
+  "Description": "Chicken balls deep fried wok - tossed with chop veggies and Chinese in house sauce."
+ },
+ {
+  "Category": "Non Veg Indo Chinese",
+  "Name": "Chicken Spring Rolls",
+  "Price": "$15.99",
+  "Description": "Deep - fried to crispy rolls filled with chicken and stir - fried spiced noodles served with dipping sauce."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Dal Makhani",
+  "Price": "$19.99",
+  "Description": "Slow cooked black lentils in a creamy, buttery tomato sauce, enriched with aromatic spices."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Dal Tadka",
+  "Price": "$17.99",
+  "Description": "Yellow split lentil cooked & tempered with tomatoes, onions, ginger, garlic & green chillies"
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Haandi Dal",
+  "Price": "$17.99",
+  "Description": "Handi Daal is a flavorful lentil dish simmered with onions, tomatoes, ginger, and garlic, offering a rich and hearty taste without the addition of cream."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Paneer Butter Masala",
+  "Price": "$19.99",
+  "Description": "Cottage cheese cooked with tomatoes, onions & capsicum in chef's secret flavorful gravy"
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Paneer Methi Malai",
+  "Price": "$19.99",
+  "Description": "Paneer & fenugreek cooked in mild flavorful gravy."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Paneer Lababdar",
+  "Price": "$19.99",
+  "Description": "Paneer dipped in sauce make with onions, tomatoes & aromatic spices."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Mix Veg",
+  "Price": "$19.99",
+  "Description": "Seasonal veggies cooked with oions, tomatoes & spices."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Tawa Paneer",
+  "Price": "$19.99",
+  "Description": "Paneer cooked with tawa gravy made with onions, tomatoes, ginger, garlic & bell peppers, and fresh coriander."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Malai Kofta",
+  "Price": "$19.99",
+  "Description": "Soft cheese & veggie balls cooked in mild creamy cashew curry."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Shahi Paneer",
+  "Price": "$19.99",
+  "Description": "Cottage cheese cooked in white mild gravy, nuts, & cream."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Kadhai Paneer",
+  "Price": "$19.99",
+  "Description": "Soft cheese cubes cooked with onions, tomatoes, bell peppers in flavorful gravy with freshly roasted & ground kadhai masala."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Mushroom Do Pyaza",
+  "Price": "$18.99",
+  "Description": "Mushrooms cooked with diced onions in rich, medium spiced curry."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Veg Kofta Curry",
+  "Price": "$19.99",
+  "Description": "Veggie balls cooked in tomato & onion based tangy curry."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Bhindhi Masala",
+  "Price": "$18.99",
+  "Description": "Okra cooked in flavorful onion tomato gravy with spices."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Rajma Masala",
+  "Price": "$17.99",
+  "Description": "Kidney beans cooked in a rich, flavorful tomato-based gravy, spiced with aromatic Indian spices."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Amritsari Chhole",
+  "Price": "$17.99",
+  "Description": "Chickpeas cooked in a robust blend of spices, tangy tomato base with a hint of smoky flavor"
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Palak Paneer",
+  "Price": "$19.99",
+  "Description": "Soft paneer cubes cooked in a creamy spinach puree, seasoned with garlic, ginger & mild spices."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Aloo Gobhi",
+  "Price": "$17.99",
+  "Description": "Potatoes & cauliflower florets cooked with onions, tomatoes, and aromatic spices."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Aloo Matar",
+  "Price": "$17.99",
+  "Description": "Diced potatoes & green peas cooked in a rich tomato based curry, flavored with aromatic spices."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Baingan Bharta",
+  "Price": "$17.99",
+  "Description": "Roasted eggplant mashed and cooked with tomatoes, onions, and spices for a smoky, flavorful dish."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Paneer Makhani",
+  "Price": "$19.99",
+  "Description": "Tender paneer cubes simmered in a rich, creamy tomato gravy, with butter & fenugreek leaves."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Paneer Tikka Masala",
+  "Price": "$19.99",
+  "Description": "Grilled paneer tikka pieces cooked in a spiced tomato & onion based creamy curry."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Soya Chaap Masala",
+  "Price": "$19.99",
+  "Description": "Soft soya chaap simmered in a rich tomato & onion based curry with aromatic spices."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Soya Chaap Curry",
+  "Price": "$19.99",
+  "Description": "Tender soya chaap cooked in a light, flavorful onion & tomato based curry."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Matar Paneer",
+  "Price": "$19.99",
+  "Description": "Green peas & paneer cooked in a rich, creamy tomato-based curry, flavored with aromatic spices."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Aloo Jeera",
+  "Price": "$16.99",
+  "Description": "Potatoes tempered with cumin seeds, green chillies & cilantro."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Dal Makhani with Cream",
+  "Price": "$17.99",
+  "Description": "Black lentil slowly cooked and finished with butter, fresh cream, and fenugreek."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Butter Paneer Masala",
+  "Price": "$19.99",
+  "Description": "Soft cottage cheese simmered in a rich, creamy tomato gravy with butter & fenugreek leaves."
+ },
+ {
+  "Category": "Veg Main Indian",
+  "Name": "Kadhai Soya Chaap",
+  "Price": "$18.99",
+  "Description": "Soya chaap chunks cooked with capsicum, onion, and tomatoes, seasoned with freshly ground Kadhai Spices."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Butter Chicken",
+  "Price": "$21.99",
+  "Description": "Tandoori cooked boneless chicken in mild tomato creamy gravy."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Chicken Curry",
+  "Price": "$21.99",
+  "Description": "Homestyle chicken cooked in onion & tomato based flavorful curry."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Chicken Tikka Masala",
+  "Price": "$21.99",
+  "Description": "Tandoori cooked boneless chicken tikka tossed in onion tomato creamy gravy."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Chicken Kadhai",
+  "Price": "$21.99",
+  "Description": "Chicken cooked with onions, tomatoes, bell peppers in flavorful gravy with freshly roasted & ground kadhai masala."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Chicken Tawa",
+  "Price": "$21.99",
+  "Description": "Boneless chicken cooked in tawa gravy made with onions, tomatoes, ginger, garlic & bell peppers."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Chicken Methi Malai",
+  "Price": "$21.99",
+  "Description": "Boneless chicken & fenugreek cooked in mild flavorful gravy."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Mutton Rogan Josh",
+  "Price": "$23.99",
+  "Description": "Tender pieces of mutton cooked in a rich, aromatic gravy with traditional Kashmiri spices."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Goat Curry",
+  "Price": "$23.99",
+  "Description": "Bone in goat pieces cooked in home style gravy with authentic Indian spices."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Keema Matar",
+  "Price": "$23.99",
+  "Description": "Minced mutton cooked with green peas in a spicy, flavorful curry."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Chicken Seekh Masala",
+  "Price": "$21.99",
+  "Description": "Chicken seekh kebab pieces cooked in a creamy tomato & onion based curry."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Fish Curry",
+  "Price": "$21.99",
+  "Description": "Fish cooked in traditional home style gravy."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Shrimp Curry",
+  "Price": "$23.99",
+  "Description": "Shrimp cooked in traditional home style gravy."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Goat Kadhai",
+  "Price": "$23.99",
+  "Description": "Goat cooked with onions, tomatoes, bell peppers in flavorful gravy with freshly roasted & ground kadhai masala."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Butter Chicken with Cream",
+  "Price": "$18.99",
+  "Description": "Tandoori chicken cooked in mild tomato creamy gravy."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Tawa Chicken",
+  "Price": "$17.99",
+  "Description": "Boneless chicken tossed in house blend special tawa gravy finished with dust of spiced masala mix."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Chicken Tikka Masala",
+  "Price": "$18.99",
+  "Description": "Grilled chicken cubes tossed in onion tomato creamy gravy."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Kadhai Chicken",
+  "Price": "$18.99",
+  "Description": "Chicken cooked with onion, capsicum, and tomatoes, seasoned with freshly ground Kadhai Spices."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Fish Tikka Masala",
+  "Price": "$19.99",
+  "Description": "Fish fillet chunks tossed in onion tomato creamy gravy."
+ },
+ {
+  "Category": "Non Veg Main Indian",
+  "Name": "Keema Samosa (2 pcs)",
+  "Price": "$9.99",
+  "Description": "Samosa stuffed with minced goat meat and authentic Indian spices."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Jeera Rice",
+  "Price": "$7.99",
+  "Description": "Basmati rice cooked & tempered with cumin seeds."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Veg Pulao",
+  "Price": "$17.99",
+  "Description": "Basmati rice cooked with seasonal veggies & aromatic spices."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Mushroom Pulao",
+  "Price": "$17.99",
+  "Description": "Basmati rice cooked with sliced mushroom & spices."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Matar Pulao",
+  "Price": "$16.99",
+  "Description": "Basmati rice cooked with green peas & spices."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Veg Biryani",
+  "Price": "$18.99",
+  "Description": "Basmati rice cooked with seasonal veggies, and spices on dum (slow cooked with sealed lid)."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Paneer Biryani",
+  "Price": "$19.99",
+  "Description": "Basmati rice cooked with paneer, and spices on dum (slow cooked with sealed lid)."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Chicken Biryani",
+  "Price": "$20.99",
+  "Description": "Basmati rice cooked with tender chicken, and spices on dum (slow cooked with sealed lid)."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Goat Biryani",
+  "Price": "$23.99",
+  "Description": "Basmati rice cooked with bone in goat, and spices on dum (slow cooked with sealed lid)."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Shrimp Biryani",
+  "Price": "$23.99",
+  "Description": "Basmati rice cooked with shrimp, and spices on dum (slow cooked with sealed lid)."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Steamed Rice",
+  "Price": "$5.99",
+  "Description": "Plain steamed basmati rice."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Egg Fried Rice",
+  "Price": "$15.99",
+  "Description": "Basmati rice tossed with eggs, and fresh veggies."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Veg Fried Rice",
+  "Price": "$15.99",
+  "Description": "Basmati rice tossed with fresh veggies & sauces."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Chicken Fried Rice",
+  "Price": "$16.99",
+  "Description": "Basmati rice tossed with chicken, eggs, and fresh veggies."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Chilli Garlic Fried Rice",
+  "Price": "$15.99",
+  "Description": "Basmati rice tossed with chillies, garlic, and fresh veggies."
+ },
+ {
+  "Category": "Rice",
+  "Name": "Fried Rice",
+  "Price": "$15.99",
+  "Description": "Rice tossed with green onion, carrot, cabbage and Chinese sauces."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Plain Naan",
+  "Price": "$3.50",
+  "Description": "Plain naan cooked in clay oven."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Butter Naan",
+  "Price": "$3.99",
+  "Description": "Naan coated with butter cooked in clay oven."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Garlic Naan",
+  "Price": "$4.50",
+  "Description": "Naan topped with garlic & fresh cilantro, cooked in clay oven."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Tandoori Roti",
+  "Price": "$3.00",
+  "Description": "Wheat flour bread cooked in clay oven."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Tawa Roti",
+  "Price": "$3.00",
+  "Description": "Wheat flour bread cooked on a hot tawa (griddle)."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Laccha Parantha",
+  "Price": "$4.50",
+  "Description": "Layered wheat flour bread cooked in clay oven."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Onion Kulcha",
+  "Price": "$5.50",
+  "Description": "Naan stuffed with finely chopped onions & spices, cooked in clay oven."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Aloo Kulcha",
+  "Price": "$5.50",
+  "Description": "Naan stuffed with mashed potatoes & spices, cooked in clay oven."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Paneer Kulcha",
+  "Price": "$5.99",
+  "Description": "Naan stuffed with finely grated paneer & spices, cooked in clay oven."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Keema Naan",
+  "Price": "$6.99",
+  "Description": "Naan stuffed with minced chicken or mutton & spices, cooked in clay oven."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Pudina Parantha",
+  "Price": "$4.50",
+  "Description": "Layered parantha flavored with dried mint leaves."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Chilli Garlic Naan",
+  "Price": "$5.50",
+  "Description": "Naan topped with chillies & garlic, cooked in clay oven."
+ },
+ {
+  "Category": "Tandoor Breads",
+  "Name": "Bread Basket",
+  "Price": "$12.99",
+  "Description": "Assortment of naan, roti, garlic naan."
+ },
+ {
+  "Category": "Accompaniments",
+  "Name": "Raita",
+  "Price": "$5.50",
+  "Description": "Homemade yogurt mixed with cucumber, onions, tomatoes & spices."
+ },
+ {
+  "Category": "Accompaniments",
+  "Name": "Boondi Raita",
+  "Price": "$5.99",
+  "Description": "Homemade yogurt mixed with crispy gram flour fritters (boondi) & spices."
+ },
+ {
+  "Category": "Accompaniments",
+  "Name": "Green Salad",
+  "Price": "$5.99",
+  "Description": "Fresh sliced cucumbers, onions, tomatoes & lettuce."
+ },
+ {
+  "Category": "Accompaniments",
+  "Name": "Onion Salad",
+  "Price": "$4.99",
+  "Description": "Thinly sliced onions tossed with lemon juice, salt & black pepper."
+ },
+ {
+  "Category": "Accompaniments",
+  "Name": "Papadum (2 pcs)",
+  "Price": "$2.50",
+  "Description": "Crispy fried lentil crackers."
+ },
+ {
+  "Category": "Accompaniments",
+  "Name": "Pickle (Achar)",
+  "Price": "$2.50",
+  "Description": "Indian mixed pickle."
+ },
+ {
+  "Category": "Accompaniments",
+  "Name": "Plain Yogurt",
+  "Price": "$4.50",
+  "Description": "Homemade plain yogurt."
+ },
+ {
+  "Category": "Tikka Junction Kids Meal",
+  "Name": "Butter Chicken with Fries",
+  "Price": "$14.99",
+  "Description": "Butter chicken with French fries, a perfect meal for kids."
+ },
+ {
+  "Category": "Tikka Junction Kids Meal",
+  "Name": "Fries",
+  "Price": "$5.99",
+  "Description": "Crispy French fries, perfect as a side or a snack."
+ },
+ {
+  "Category": "Desserts",
+  "Name": "Gulab Jamun (2 Pcs)",
+  "Price": "$6.50",
+  "Description": "Deep fried milk solids balls soaked in sugar syrup, served warm."
+ },
+ {
+  "Category": "Desserts",
+  "Name": "Gajar Ka Halwa",
+  "Price": "$7.99",
+  "Description": "Grated carrots cooked with milk, sugar, ghee & nuts, served warm."
+ },
+ {
+  "Category": "Desserts",
+  "Name": "Ras Malai (2 Pcs)",
+  "Price": "$6.99",
+  "Description": "Cheese dumplings soaked in saffron flavored sweet milk, served chilled."
+ },
+ {
+  "Category": "Desserts",
+  "Name": "Ice Cream",
+  "Price": "$6.50",
+  "Description": "Vanilla / Strawberry / Chocolate"
+ },
+ {
+  "Category": "Desserts",
+  "Name": "Moong Dal Halwa",
+  "Price": "$7.99",
+  "Description": "Roasted lentil cooked in ghee, sugar, & milk, served warm."
+ },
+ {
+  "Category": "Desserts",
+  "Name": "Kulfi",
+  "Price": "$6.99",
+  "Description": "Traditional Indian ice cream flavored with nuts & cardamom."
+ },
+ {
+  "Category": "Desserts",
+  "Name": "Brownie with Ice Cream",
+  "Price": "$9.99",
+  "Description": "Warm chocolate brownie served with a scoop of vanilla ice cream."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Mango Lassi",
+  "Price": "$6.99",
+  "Description": "Homemade yogurt blended with mango puree & sugar."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Sweet Lassi",
+  "Price": "$5.99",
+  "Description": "Homemade yogurt blended with sugar."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Salted Lassi",
+  "Price": "$5.99",
+  "Description": "Homemade yogurt blended with salt & spices."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Strawberry Lassi",
+  "Price": "$6.99",
+  "Description": "Homemade yogurt blended with strawberry puree & sugar."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Jal Jeera",
+  "Price": "$5.99",
+  "Description": "A refreshing Indian drink made with water, cumin, ginger, lemon & mint."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Oreo Shake",
+  "Price": "$8.99",
+  "Description": "Milkshake blended with Oreo cookies & ice cream."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Chocolate Shake",
+  "Price": "$8.99",
+  "Description": "Milkshake blended with chocolate syrup & ice cream."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Kesar Badam Shake",
+  "Price": "$8.99",
+  "Description": "Milkshake flavored with saffron, almonds & cardamom."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Sweet Pan Shake",
+  "Price": "$9.99",
+  "Description": "Milkshake flavored with sweet betel leaf & gulkand."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Virgin Mojito",
+  "Price": "$6.99",
+  "Description": "A refreshing mix of mint, lime juice, sugar & soda."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Masala Soda",
+  "Price": "$5.99",
+  "Description": "Soda mixed with spices, lemon juice & mint."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Hot Tea",
+  "Price": "$3.50",
+  "Description": "Indian masala chai."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Hot Coffee",
+  "Price": "$3.50",
+  "Description": "Regular hot coffee."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Fountain Soda",
+  "Price": "$2.99",
+  "Description": "Coke, Diet Coke, Sprite, Fanta."
+ },
+ {
+  "Category": "Drinks-Shakes & Lassi",
+  "Name": "Bottled Water",
+  "Price": "$2.50",
+  "Description": "Bottled mineral water."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Mango Lassi",
+  "Price": "$6.99",
+  "Description": "Yogurt blend with mango puree, sugar."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Sweet Lassi",
+  "Price": "$5.99",
+  "Description": "Yogurt blended with sugar."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Salty Lassi",
+  "Price": "$5.99",
+  "Description": "Yogurt blended with salt and spices."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Oreo Shake",
+  "Price": "$8.99",
+  "Description": "Milkshake blended with Oreo cookies, ice cream, and chocolate syrup."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Chocolate Shake",
+  "Price": "$8.99",
+  "Description": "Milkshake blended with chocolate syrup and ice cream."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Kesar Badam Shake",
+  "Price": "$8.99",
+  "Description": "Milkshake flavored with saffron, almonds, and cardamom."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Sweet Pan Shake",
+  "Price": "$9.99",
+  "Description": "Milkshake flavored with sweet betel leaf and gulkand."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Virgin Mojito",
+  "Price": "$6.99",
+  "Description": "A refreshing mix of mint, lime juice, sugar, and soda."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Masala Soda",
+  "Price": "$5.99",
+  "Description": "Soda mixed with spices, lemon juice, and mint."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Hot Tea",
+  "Price": "$3.50",
+  "Description": "Indian masala chai."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Hot Coffee",
+  "Price": "$3.50",
+  "Description": "Regular hot coffee."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Fountain Soda",
+  "Price": "$2.99",
+  "Description": "Coke, Diet Coke, Sprite, Fanta."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Bottled Water",
+  "Price": "$2.50",
+  "Description": "Bottled mineral water."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Perrier",
+  "Price": "$3.99",
+  "Description": "Sparkling water."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Juice",
+  "Price": "$4.50",
+  "Description": "Apple, Orange, Cranberry."
+ },
+ {
+  "Category": "Beverages",
+  "Name": "Milk",
+  "Price": "$3.50",
+  "Description": "Whole milk."
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Chicken Tikka Sharabian Da",
+  "Price": "$19.99",
+  "Description": "Tandoori chicken tikka with special tawa gravy."
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Chicken Seekh Sharabian Da",
+  "Price": "$19.99",
+  "Description": "Seekh kabab with special tawa gravy."
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Mutton Seekh Sharabian Da",
+  "Price": "$20.99",
+  "Description": "Mutton Seekh Kabab in Tj's special tawa gravy."
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Paneer Tikka Sharabian Da",
+  "Price": "$19.99",
+  "Description": "Tandoor cooked, paneer tikka tossed in tawa gravy."
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Soya Chaap Sharabian Da",
+  "Price": "$19.99",
+  "Description": "Tandoori soya chaap tossed at tawa with tomatoes & creamy gravy."
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Soya Chaap Sharabian Di",
+  "Price": "$20.99",
+  "Description": "Tandoori soya chaap tossed in house blend special tawa gravy finished with dust of spiced masala mix."
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Chicken Seekh Sharabian Di",
+  "Price": "$20.99",
+  "Description": "Seekh kebab in house blend special tawa gravy finished with dust of spiced masala mix."
+ },
+ {
+  "Category": "Tikka Junction Special",
+  "Name": "Mutton Seekh Sharabian Di",
+  "Price": "$21.99",
+  "Description": "Mutton seekh kebab in house blend special tawa gravy finished with dust of spiced masala mix."
+ },
+ {
+  "Category": "Tikka Bites",
+  "Name": "Paani Puri",
+  "Price": "$10.99",
+  "Description": "Classic Mumbai style gol gappas. Love at first bite."
+ },
+ {
+  "Category": "Tikka Bites",
+  "Name": "Chaat Papdi",
+  "Price": "$10.99",
+  "Description": "Crispy fried flour bread crisps served with a zesty yogurt-based sauce, fresh cilantro, and a hint of cumin."
+ },
+ {
+  "Category": "Tikka Bites",
+  "Name": "Dahi Bhalla",
+  "Price": "$10.99",
+  "Description": "Crisp fried lentil dough balls served in a tangy yogurt sauce with a hint of cumin and coriander."
+ },
+ {
+  "Category": "Tikka Bites",
+  "Name": "Tikki Chaat",
+  "Price": "$11.99",
+  "Description": "Crispy fried potato and pea patty served in a tangy tamarind broth with crunchy onions and cilantro."
+ },
+ {
+  "Category": "Tikka Bites",
+  "Name": "Aloo Chaat",
+  "Price": "$10.99",
+  "Description": "Crisp fried potatoes, tangy yogurt, and zesty tamarind come together in a harmonious balance of flavors and textures."
+ },
+ {
+  "Category": "Tikka Bites",
+  "Name": "Dahi Puri",
+  "Price": "$11.99",
+  "Description": "Crunchy puri shells filled with yogurt, tamarind chutney, and crispy potatoes, served chilled."
+ },
+ {
+  "Category": "Tikka Bites",
+  "Name": "Chicken Chatkara Golgappe",
+  "Price": "$12.99",
+  "Description": "Tender chicken cooked in a rich tomato-based curry, served in crispy gol gappe shells with a hint of cumin and coriander."
+ },
+ {
+  "Category": "Tikka Bites",
+  "Name": "Chicken Tikka Wrap",
+  "Price": "$11.99",
+  "Description": "Tender chicken in a flavorful wrap."
+ },
+ {
+  "Category": "Tikka Bites",
+  "Name": "Paneer Tikka Wrap",
+  "Price": "$10.99",
+  "Description": "Soft and creamy paneer wrapped in a delicate roll."
+ },
+ {
+  "Category": "Tikka Bites",
+  "Name": "Mutton Seekh Kabab Roll (2 pcs)",
+  "Price": "$12.99",
+  "Description": "Tender mutton seekh kabab wrapped in a soft roll."
+ },
+ {
+  "Category": "Tikka Bites",
+  "Name": "Soya Chaap Wrap",
+  "Price": "$10.99",
+  "Description": "Savoury soya chaap wrapped in a soft roll."
+ },
+ {
+  "Category": "Angaron Se Veg",
+  "Name": "Bhatti Paneer Tikka",
+  "Price": "$19.99",
+  "Description": "Marinated paneer cooked in clay oven with TJ's secret herbs in yogurt."
+ },
+ {
+  "Category": "Angaron Se Veg",
+  "Name": "Paneer Malai Tikka",
+  "Price": "$19.99",
+  "Description": "Marinated paneer in creamy yogurt with light spices, cooked in clay oven."
+ },
+ {
+  "Category": "Angaron Se Veg",
+  "Name": "Paneer Tikka Peri Peri",
+  "Price": "$19.99",
+  "Description": "Paneer cooked in clay oven with peri peri sauce & secret spices."
+ },
+ {
+  "Category": "Angaron Se Veg",
+  "Name": "Paneer Achari Tikka",
+  "Price": "$19.99",
+  "Description": "Authentic India pickle spicy marinated paneer, cooked in clay oven."
+ },
+ {
+  "Category": "Angaron Se Veg",
+  "Name": "Paneer Tikka Chipotle",
+  "Price": "$19.99",
+  "Description": "Paneer marinated in chipotle sauce & cooked in clay oven."
+ },
+ {
+  "Category": "Angaron Se Veg",
+  "Name": "Paneer 3 Way",
+  "Price": "$19.99",
+  "Description": "3 different flavored paneer cooked in clay oven."
+ },
+ {
+  "Category": "Angaron Se Veg",
+  "Name": "Bhatti Soya Chaap",
+  "Price": "$18.99",
+  "Description": "Soya chaap marinated in a robust blend of spices, slow cooked on a traditional bhatti for a smoky, char grilled flavor."
+ },
+ {
+  "Category": "Angaron Se Veg",
+  "Name": "Soya Malai Chaap",
+  "Price": "$18.99",
+  "Description": "Tender soya chaap in a creamy, rich blend of malai & aromatic spices, then grilled to perfection for a luscious, melt in the mouth experience."
+ },
+ {
+  "Category": "Angaron Se Veg",
+  "Name": "Soya Chaap Peri Peri",
+  "Price": "$18.99",
+  "Description": "Soya chaap marinated in a zesty, spicy peri peri sauce."
+ },
+ {
+  "Category": "Angaron Se Veg",
+  "Name": "Soya Chaap Chipotle Tikka",
+  "Price": "$18.99",
+  "Description": "Soya Chaap marinated in a smoky, spicy chipotle sdauce, then grilled to perfection.....a flavorful fusion of Indian & Mexican tastes."
+ },
+ {
+  "Category": "Angaron Se Veg",
+  "Name": "Veg Kabab Platter",
+  "Price": "$34.99",
+  "Description": "The ultimate sampler - varieties of paneer tikka bhathi, paneer tikka malai, soya chaap malai, soya chaap bhathi, and veg kababs."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Bhatti Murgh Full",
+  "Price": "$27.99",
+  "Description": "Whole Chicken cooked in clay oven with TJ's secret herbs & spices in yogurt."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Bhatti Murgh Half",
+  "Price": "$15.99",
+  "Description": "Chicken cooked in clay oven with TJ's secret herbs & spices in yogurt."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Bhatti Murgh Tikka",
+  "Price": "$19.99",
+  "Description": "Boneless chicken reserved overnight in a yogurt marinade first cooked in the tandoor and then finished on the Bhatti or open-fire."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Chicken Peri Peri Tikka",
+  "Price": "$19.99",
+  "Description": "Boneless juicy chicken marinated in a spicy peri peri."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Chicken Chipotle Tikka",
+  "Price": "$19.99",
+  "Description": "Tandoor cooked boneless chicken with in house made chipotle sauce, a bold & delightful culinary experience."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Chicken Achari Tikka",
+  "Price": "$19.99",
+  "Description": "Authentic Indian spicy pickle marinated boneless chicken cooked in clay oven."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Chicken Malai Tikka",
+  "Price": "$19.99",
+  "Description": "Marinated boneless chicken in creamy cheese & nuts with light spices, cooked in clay oven."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Chicken Seekh Kebab",
+  "Price": "$19.99",
+  "Description": "Minced chicken cooked on skewers with chillies, ginger, garlic & Indian spices."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Chicken Tangri Kebab",
+  "Price": "$19.99",
+  "Description": "Marinated Chicken drum sticks cooked in clay oven."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Tandoori Rainbow Trout",
+  "Price": "$29.99",
+  "Description": "Whole rainbow trout fish marinated in a blend of aromatic spices & grilled in a tandoor for a smoky flavorful delight. A must try........"
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Reshmi Fish Tikka",
+  "Price": "$19.99",
+  "Description": "Fish tikka marinated with yogurt, gram flour & chef's secret masalas, cooked in clay oven."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Amritsari Fried Fish",
+  "Price": "$16.99",
+  "Description": "Authentic punjabi style deep fried fish with chef's secret family owed recipe."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Mutton Seekh Kebab",
+  "Price": "$19.99",
+  "Description": "Minced goat meat infused with exotic Indian spices & herbs."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Lamb Chops",
+  "Price": "$27.99",
+  "Description": "Tender juicy lamb chops seasoned with a blend of exotic Indian spices & grilled to perfection."
+ },
+ {
+  "Category": "Angaron Se Non - Veg",
+  "Name": "Non Veg Kebab Platter",
+  "Price": "$38.99",
+  "Description": "The ultimate sampler - a combination of the kebabs on offer, chicken tikka, lamb chop, Amritsari fried fish, chicken seekh kebabs and tangdi kebab."
+ },
+ {
+  "Category": "Veg Indo - Chinese",
+  "Name": "Chilli Potatoes",
+  "Price": "$12.99",
+  "Description": "Crispy potatoes tossed in spicy, tangy sauce with bell peppers & onions, offering a bold & flavorful snack."
+ },
+ {
+  "Category": "Veg Indo - Chinese",
+  "Name": "Honey Chilli Potatoes",
+  "Price": "$14.99",
+  "Description": "Crispy potatoes coated in a sweet & spicy sauce with a hint of honey, garnished with scallions for a perfect balace of flavors."
+ },
+ {
+  "Category": "Veg Indo - Chinese",
+  "Name": "Veg Spring Roll",
+  "Price": "$11.99",
+  "Description": "Spring roll wrapped with noodles & vegetables..... Delhi cart style."
+ },
+ {
+  "Category": "Veg Indo - Chinese",
+  "Name": "Chilli Paneer Dry",
+  "Price": "$17.99",
+  "Description": "Crispy paneer cubes stir fried with peppers, onions, ginger, garlic & spicy tangy sauce for a crisp & flavorful bite."
+ },
+ {
+  "Category": "Veg Indo - Chinese",
+  "Name": "Veg Manchurian Dry",
+  "Price": "$17.99",
+  "Description": "Crispy vegetables balls simmered in tangy, savory sauce with a blend of spices & a touch of sweetness."
+ },
+ {
+  "Category": "Veg Indo - Chinese",
+  "Name": "Gobhi Manchurian Dry",
+  "Price": "$17.99",
+  "Description": "Crispy cauliflower florets tossed in a spicy, sourish sauce served without gravy for a bold & crunchy treat."
+ },
+ {
+  "Category": "Veg Indo - Chinese",
+  "Name": "Gobhi 65",
+  "Price": "$19.99",
+  "Description": "Spicy deep fried cauliflower florets coated in tangy blend of Indian spices & herbs, giving a flavorful snack with a fiery kick."
+ },
+ {
+  "Category": "Veg Indo - Chinese",
+  "Name": "Mushroom Chilli Dry",
+  "Price": "$18.99",
+  "Description": "Crispy stir fried mushrooms tossed with capsicums, onions & chilly sauce, creating a punchy snack."
+ },
+ {
+  "Category": "Veg Indo - Chinese",
+  "Name": "Shaadi waale Noodles",
+  "Price": "$15.99",
+  "Description": "Veg noodles make with authentic Indian catering style, reminiscent of the festive, rich flavors of a wedding feast."
+ },
+ {
+  "Category": "Veg Indo - Chinese",
+  "Name": "Veg Hakka Noodles",
+  "Price": "$15.99",
+  "Description": "Sauteed veggies & chowmein blended in home made sauce, offering a satisfying Asian inspired dish."
+ },
+ {
+  "Category": "Veg Indo - Chinese",
+  "Name": "Manchurian Noodles",
+  "Price": "$15.99",
+  "Description": "Sauteed veggie balls & chowmein blended together."
+ },
+ {
+  "Category": "Non-Veg Indo - Chinese",
+  "Name": "Chicken Lollipop",
+  "Price": "$17.99",
+  "Description": "Crispy deep fried chicken wings with the meat pulled back to resemble a lollipop, coated in a tangy sauce for a delicious fun appetizer."
+ },
+ {
+  "Category": "Non-Veg Indo - Chinese",
+  "Name": "Chicken Spring Roll",
+  "Price": "$13.99",
+  "Description": "Spring roll filled with noodles, chicken & vegetables."
+ },
+ {
+  "Category": "Non-Veg Indo - Chinese",
+  "Name": "Honey Garlic Chicken Dry",
+  "Price": "$19.99",
+  "Description": "Boneless chicken cooked in sauce make with honey, garlic & chillies."
+ },
+ {
+  "Category": "Non-Veg Indo - Chinese",
+  "Name": "Chilli Chicken Dry",
+  "Price": "$18.99",
+  "Description": "Crispy chicken pieces stir fried with peppers, onions, ginger, garlic & spicy, tangy sauce for a crisp & flavorful bite."
+ },
+ {
+  "Category": "Non-Veg Indo - Chinese",
+  "Name": "Chicken 65",
+  "Price": "$19.99",
+  "Description": "Tender chicken pieces marinated in a tantalizing blend of Indian spices & herbs then deep fried to golden perfection."
+ },
+ {
+  "Category": "Non-Veg Indo - Chinese",
+  "Name": "Chilli Fish Dry",
+  "Price": "$18.99",
+  "Description": "Crispy fish tossed with peppers, onions, ginger, garlic & in house sauces, making it a mouth watering dish."
+ },
+ {
+  "Category": "Non-Veg Indo - Chinese",
+  "Name": "Honey Garlic Fish Dry",
+  "Price": "$18.99",
+  "Description": "Fish cooked in sauce make with honey, garlic & chillies."
+ },
+ {
+  "Category": "Non-Veg Indo - Chinese",
+  "Name": "Chicken Hakka Noodles",
+  "Price": "$16.99",
+  "Description": "Sauteed chicken, veggies & chowmein blended in home made sauce......its a hearty meal."
+ },
+ {
+  "Category": "Non-Veg Indo - Chinese",
+  "Name": "Schezwan Noodles",
+  "Price": "$15.99",
+  "Description": "Sauteed veggies & chowmein blended together with schezwan sauce."
+ },
+ {
+  "Category": "Momos Corner",
+  "Name": "Steamed Veg Momos",
+  "Price": "$16.99",
+  "Description": "Steamed dumplings filled with minced vegetables and spices served with spicy sauce.."
+ },
+ {
+  "Category": "Momos Corner",
+  "Name": "Veg Chilli Momos",
+  "Price": "$16.99",
+  "Description": "Pan fried veg momos tossed in savoury sauce with coloured peppers, and onions and chilly."
+ },
+ {
+  "Category": "Momos Corner",
+  "Name": "Veg Kurkure Momos",
+  "Price": "$16.99",
+  "Description": "Crispy, deep fried veg dumplings, offering a crunchy texture, bold flavor & served with in house sauce."
+ },
+ {
+  "Category": "Momos Corner",
+  "Name": "Veg Tandoori Momos",
+  "Price": "$17.99",
+  "Description": "Marinated with tandoori spices, grilled to perfection for a smoky flavorful twist."
+ },
+ {
+  "Category": "Momos Corner",
+  "Name": "Veg Makhani Momos",
+  "Price": "$17.99",
+  "Description": "Delhi special momos in Shahi makhani gravy."
+ },
+ {
+  "Category": "Momos Corner",
+  "Name": "Steamed Chicken Momos",
+  "Price": "$16.99",
+  "Description": "Steamed dumplings filled with minced chicken and spices served with spicy sauce.."
+ },
+ {
+  "Category": "Momos Corner",
+  "Name": "Chicken Chilli Momos",
+  "Price": "$17.99",
+  "Description": "Steamed dumplings filled with minced chicken and spices tossed with peppers, onions, chilli sauce & served with spicy sauce."
+ },
+ {
+  "Category": "Momos Corner",
+  "Name": "Chicken Tandoori Momos",
+  "Price": "$17.99",
+  "Description": "Marinated with tandoori spices, & grilled to perfection for a smoky flavorful twist."
+ },
+ {
+  "Category": "Momos Corner",
+  "Name": "Chicken Kurkure Momos",
+  "Price": "$17.99",
+  "Description": "Cripy, deep fried chicken dumplings, offering a crunchy texture, bold flavor & served with in house sauce"
+ },
+ {
+  "Category": "Momos Corner",
+  "Name": "Butter Chicken Momos",
+  "Price": "$17.99",
+  "Description": "In house momos in chef's special butter chicken gravy."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Plain Naan",
+  "Price": "$3.50",
+  "Description": "Plain naan cooked in clay oven."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Butter Naan",
+  "Price": "$3.99",
+  "Description": "Naan coated with butter cooked in clay oven."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Garlic Naan",
+  "Price": "$4.50",
+  "Description": "Naan topped with garlic & fresh cilantro, cooked in clay oven."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Tandoori Roti",
+  "Price": "$3.00",
+  "Description": "Wheat flour bread cooked in clay oven."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Tawa Roti",
+  "Price": "$3.00",
+  "Description": "Wheat flour bread cooked on a hot tawa (griddle)."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Laccha Parantha",
+  "Price": "$4.50",
+  "Description": "Layered wheat flour bread cooked in clay oven."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Onion Kulcha",
+  "Price": "$5.50",
+  "Description": "Naan stuffed with finely chopped onions & spices, cooked in clay oven."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Aloo Kulcha",
+  "Price": "$5.50",
+  "Description": "Naan stuffed with mashed potatoes & spices, cooked in clay oven."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Paneer Kulcha",
+  "Price": "$5.99",
+  "Description": "Naan stuffed with finely grated paneer & spices, cooked in clay oven."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Keema Naan",
+  "Price": "$6.99",
+  "Description": "Naan stuffed with minced chicken or mutton & spices, cooked in clay oven."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Pudina Parantha",
+  "Price": "$4.50",
+  "Description": "Layered parantha flavored with dried mint leaves."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Chilli Garlic Naan",
+  "Price": "$5.50",
+  "Description": "Naan topped with chillies & garlic, cooked in clay oven."
+ },
+ {
+  "Category": "Bread Section",
+  "Name": "Bread Basket",
+  "Price": "$12.99",
+  "Description": "Assortment of naan, roti, garlic naan."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Jeera Rice",
+  "Price": "$7.99",
+  "Description": "Basmati rice cooked & tempered with cumin seeds."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Veg Pulao",
+  "Price": "$17.99",
+  "Description": "Basmati rice cooked with seasonal veggies & aromatic spices."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Mushroom Pulao",
+  "Price": "$17.99",
+  "Description": "Basmati rice cooked with sliced mushroom & spices."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Matar Pulao",
+  "Price": "$16.99",
+  "Description": "Basmati rice cooked with green peas & spices."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Veg Biryani",
+  "Price": "$18.99",
+  "Description": "Basmati rice cooked with seasonal veggies, and spices on dum (slow cooked with sealed lid)."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Paneer Biryani",
+  "Price": "$19.99",
+  "Description": "Basmati rice cooked with paneer, and spices on dum (slow cooked with sealed lid)."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Chicken Biryani",
+  "Price": "$20.99",
+  "Description": "Basmati rice cooked with tender chicken, and spices on dum (slow cooked with sealed lid)."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Goat Biryani",
+  "Price": "$23.99",
+  "Description": "Basmati rice cooked with bone in goat, and spices on dum (slow cooked with sealed lid)."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Shrimp Biryani",
+  "Price": "$23.99",
+  "Description": "Basmati rice cooked with shrimp, and spices on dum (slow cooked with sealed lid)."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Steamed Rice",
+  "Price": "$5.99",
+  "Description": "Plain steamed basmati rice."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Egg Fried Rice",
+  "Price": "$15.99",
+  "Description": "Basmati rice tossed with eggs, and fresh veggies."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Veg Fried Rice",
+  "Price": "$15.99",
+  "Description": "Basmati rice tossed with fresh veggies & sauces."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Chicken Fried Rice",
+  "Price": "$16.99",
+  "Description": "Basmati rice tossed with chicken, eggs, and fresh veggies."
+ },
+ {
+  "Category": "Rice Section",
+  "Name": "Chilli Garlic Fried Rice",
+  "Price": "$15.99",
+  "Description": "Basmati rice tossed with chillies, garlic, and fresh veggies."
+ },
+ {
+  "Category": "Side Orders",
+  "Name": "Raita",
+  "Price": "$5.50",
+  "Description": "Homemade yogurt mixed with cucumber, onions, tomatoes & spices."
+ },
+ {
+  "Category": "Side Orders",
+  "Name": "Boondi Raita",
+  "Price": "$5.99",
+  "Description": "Homemade yogurt mixed with crispy gram flour fritters (boondi) & spices."
+ },
+ {
+  "Category": "Side Orders",
+  "Name": "Green Salad",
+  "Price": "$5.99",
+  "Description": "Fresh sliced cucumbers, onions, tomatoes & lettuce."
+ },
+ {
+  "Category": "Side Orders",
+  "Name": "Onion Salad",
+  "Price": "$4.99",
+  "Description": "Thinly sliced onions tossed with lemon juice, salt & black pepper."
+ },
+ {
+  "Category": "Side Orders",
+  "Name": "Papadum (2 pcs)",
+  "Price": "$2.50",
+  "Description": "Crispy fried lentil crackers."
+ },
+ {
+  "Category": "Side Orders",
+  "Name": "Pickle (Achar)",
+  "Price": "$2.50",
+  "Description": "Indian mixed pickle."
+ },
+ {
+  "Category": "Side Orders",
+  "Name": "Plain Yogurt",
+  "Price": "$4.50",
+  "Description": "Homemade plain yogurt."
+ },
+ {
+  "Category": "Dessert Corner",
+  "Name": "Gulab Jamun (2 Pcs)",
+  "Price": "$6.50",
+  "Description": "Deep fried milk solids balls soaked in sugar syrup, served warm."
+ },
+ {
+  "Category": "Dessert Corner",
+  "Name": "Gajar Ka Halwa",
+  "Price": "$7.99",
+  "Description": "Grated carrots cooked with milk, sugar, ghee & nuts, served warm."
+ },
+ {
+  "Category": "Dessert Corner",
+  "Name": "Ras Malai (2 Pcs)",
+  "Price": "$6.99",
+  "Description": "Cheese dumplings soaked in saffron flavored sweet milk, served chilled."
+ },
+ {
+  "Category": "Dessert Corner",
+  "Name": "Ice Cream",
+  "Price": "$6.50",
+  "Description": "Vanilla / Strawberry / Chocolate"
+ },
+ {
+  "Category": "Dessert Corner",
+  "Name": "Moong Dal Halwa",
+  "Price": "$7.99",
+  "Description": "Roasted lentil cooked in ghee, sugar, & milk, served warm."
+ },
+ {
+  "Category": "Dessert Corner",
+  "Name": "Kulfi",
+  "Price": "$6.99",
+  "Description": "Traditional Indian ice cream flavored with nuts & cardamom."
+ },
+ {
+  "Category": "Dessert Corner",
+  "Name": "Brownie with Ice Cream",
+  "Price": "$9.99",
+  "Description": "Warm chocolate brownie served with a scoop of vanilla ice cream."
+ },
+ {
+  "Category": "Freaky Shakes",
+  "Name": "Butchew",
+  "Price": "$12.99",
+  "Description": "Vanilla, Almonds and Cashews"
+ },
+ {
+  "Category": "Freaky Shakes",
+  "Name": "Child Hood Story",
+  "Price": "$12.99",
+  "Description": "Rainbow Vanilla Shake"
+ },
+ {
+  "Category": "Freaky Shakes",
+  "Name": "Strawberry",
+  "Price": "$12.99",
+  "Description": "Classic Strawberry Shake"
+ },
+ {
+  "Category": "Freaky Shakes",
+  "Name": "Cacao-Nut",
+  "Price": "$13.99",
+  "Description": "Vanilla Ice Cream Shake with Chocolate Syrup, M&M"
+ },
+ {
+  "Category": "Freaky Shakes",
+  "Name": "Ape Fudge",
+  "Price": "$13.99",
+  "Description": "Classic Apple shake with vanilla, cardamom powder, cashew and almonds"
+ }
+]

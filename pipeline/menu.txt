@@ -1,0 +1,379 @@
+Hot & Sour Chicken- Category:Soups. Price:$8.99. Description A flavorful broth with tender chicken pieces, balanced with a blend of spicy & tangy notes, and loaded with soup fresh vegetables for a hearty and invigorating dish.
+Sweet Corn Soup- Category:Soups. Price:$7.99. Description A light & creamy soup made with tender sweet corn, flavored with mild spices & herbs, perfect as a warm starter or a comforting meal.
+Sweet Corn Chicken Soup- Category:Soups. Price:$8.99. Description A light & creamy soup made with tender sweet corn, juicy chicken & egg, flavored with mild spices & herbs, perfect as a warm starter or a comforting meal.
+Veg Manchow- Category:Soups / Shorba. Price:$7.99. Description Various veggies, Thickened with broth and served with fried noodles on side.
+Chicken Manchow- Category:Soups / Shorba. Price:$8.99. Description Veggies & Chicken, Thickened with Broth and Fried Noodles on side.
+Cream of Tomato Soup- Category:Soup and Shorba. Price:$7.99. Description Tomato soup floured with cream and tangy and rich in garlic and black pepper.
+veg Hot and Sour Soup- Category:Soup and Shorba. Price:$7.99. Description Spicy soup made with fresh vegetables, and medley of mushroom and soya sauce.
+Chicken Hot & Sour Soup- Category:Soup and Shorba. Price:$8.99. Description Savoury soup with a balance of spicy and tangy flavours.
+Pani Puri- Category:Chaats. Price:$9.99. Description Crisp, flavorful puri shells filled with spiced potatoes, chickpeas, and tangy tamarind water, served with a side of zesty chutney.
+Chicken Chatkara Gol gappe- Category:Chaats. Price:$12.99. Description Tender chicken cooked in a rich tomato-based curry, served in crispy gol gappe shells with a hint of cumin and coriander.
+Vodka Pani Puri Shots- Category:Chaats. Price:$15.99. Description Crunchy puri shells filled with spiced potatoes, onions, and tangy tamarind broth, served with a shot of chilled vodka.
+Chaat Papdi- Category:Chaats. Price:$9.99. Description Crunchy fried flour bread crisps served with a zesty yogurt-based sauce, fresh cilantro, and a hint of cumin.
+Dahi Puri- Category:Chaats. Price:$10.99. Description Crunchy puri shells filled with yogurt, tamarind chutney, and crispy potatoes, served chilled.
+Aloo Chaat- Category:Chaats. Price:$8.99. Description Crisp fried potatoes, tangy yogurt, and zesty tamarind come together in a harmonious balance of flavors and textures.
+Dahi Bhalla- Category:Chaats. Price:$9.99. Description Crisp fried lentil dough balls served in a tangy yogurt sauce with a hint of cumin and coriander.
+Tikki Chaat- Category:Chaats. Price:$10.99. Description Crispy fried potato and pea patty served in a tangy tamarind broth with crunchy onions and cilantro.
+Veg Kurkure Momos- Category:Momos Lovers. Price:$16.99. Description Crispy, deep fried veg dumplings, offering a crunchy texture, bold flavor & served with in house sauce.
+Veg Tandoori Momos- Category:Momos Lovers. Price:$17.99. Description Marinated with tandoori spices, grilled to perfection for a smoky flavorful twist.
+Veg Makhani Momos- Category:Momos Lovers. Price:$17.99. Description Delhi special momos in Shahi makhani gravy.
+Steamed Chicken Momos- Category:Momos Lovers. Price:$16.99. Description Steamed dumplings filled with minced chicken and spices served with spicy sauce..
+Chicken Chilli Momos- Category:Momos Lovers. Price:$17.99. Description Steamed dumplings filled with minced chicken and spices tossed with peppers, onions, chilli sauce & served with spicy sauce.
+Chicken Tandoori Momos- Category:Momos Lovers. Price:$17.99. Description Marinated with tandoori spices, & grilled to perfection for a smoky flavorful twist.
+Chicken Kurkure Momos- Category:Momos Lovers. Price:$17.99. Description Cripy, deep fried chicken dumplings, offering a crunchy texture, bold flavor & served with in house sauce
+Butter Chicken Momos- Category:Momos Lovers. Price:$17.99. Description In house momos in chef's special butter chicken gravy.
+Veg Chilli Momos- Category:Momos Lovers. Price:$16.99. Description Pan fried veg momos tossed in savoury sauce with coloured peppers, and onions and chilly.
+Chilli Chicken Momos- Category:Momos Lovers. Price:$17.99. Description Pan fried chicken momos tossed in savoury sauce with coloured peppers, and onions and chilly.
+Chicken Seekh Kabab Roll (2 pcs)- Category:Delhi Style Rumali Rolls and Naan Rolls. Price:$11.99. Description Tender chicken seekh kabab wrapped in a soft roll.
+Chicken Tikka Wrap- Category:Delhi Style Rumali Rolls and Naan Rolls. Price:$11.99. Description Tender chicken in a flavorful wrap.
+Paneer Tikka Wrap- Category:Delhi Style Rumali Rolls and Naan Rolls. Price:$10.99. Description Soft and creamy paneer wrapped in a delicate roll.
+Mutton Seekh Kabab Roll (2 pcs)- Category:Delhi Style Rumali Rolls and Naan Rolls. Price:$12.99. Description Tender mutton seekh kabab wrapped in a soft roll.
+Soya Chaap Wrap- Category:Delhi Style Rumali Rolls and Naan Rolls. Price:$10.99. Description Savoury soya chaap wrapped in a soft roll.
+WEEKEND PAANI PURI- Category:BREAKFAST BITES. Price:$16.99. Description Crunchy puris filled with flavorful water and spices.
+WEEKEND CHAAT PAPDI- Category:BREAKFAST BITES. Price:$16.99. Description Crispy papdi served with a tangy and spicy chaat flavour.
+WEEKEND TIKKI CHAAT- Category:BREAKFAST BITES. Price:$16.99. Description Savoury street food snack with a blend of spices and tangy flavours.
+MIX PRANTHA- Category:BREAKFAST BITES. Price:$11.99. Description Flaky, crispy flatbread served with a variety of accompaniments.
+TIKKI CHAT- Category:BREAKFAST BITES. Price:$11.99. Description Crunchy potato and pea fritters, pan-seared to a golden brown and served with tangy raita.
+Paneer 3 Way- Category:Appetizers-Veg (Indian). Price:$19.99. Description 3 different flavored paneer cooked in clay oven.
+Bhatti Paneer Tikka- Category:Appetizers-Veg (Indian). Price:$19.99. Description Marinated paneer cooked in clay oven with TJ'secret herbs in yogurt
+Paneer Malai Tikka- Category:Appetizers-Veg (Indian). Price:$19.99. Description Marinated paneer in creamy yogurt with light spices, cooked in clay oven.
+Paneer Tikka Peri Peri- Category:Appetizers-Veg (Indian). Price:$19.99. Description Paneer cooked in clay oven with peri peri sauce & secret spices.
+Paneer Achaari Tikka- Category:Appetizers-Veg (Indian). Price:$19.99. Description Authentic India pickle spicy marinated paneer, cooked in clay oven.
+Paneer Tikka Chipotle- Category:Appetizers-Veg (Indian). Price:$19.99. Description Paneer marinated in chipotle sauce & cooked in clay oven.
+Bhatti Soya Chaap- Category:Appetizers-Veg (Indian). Price:$18.99. Description Soya chaap marinated in a robust blend of spices, slow cooked on a traditional bhatti for a smoky, char grilled flavor.
+Soya Malai Chaap- Category:Appetizers-Veg (Indian). Price:$18.99. Description Tender soya chaap in a creamy, rich blend of malai & aromatic spices, then grilled to perfection for a luscious, melt in the mouth experience.
+Soya Chaap Peri Peri- Category:Appetizers-Veg (Indian). Price:$18.99. Description Soya chaap marinated in a zesty, spicy peri peri sauce
+Soya Chaap Chipotle Tikka- Category:Appetizers-Veg (Indian). Price:$18.99. Description Soya Chaap marinated in a smoky, spicy chipotle sdauce, then grilled to perfection.....a flavorful fusion of Indian & Mexican tastes.
+Veg Kebab Platter- Category:Appetizers-Veg (Indian). Price:$33.99. Description The ultimate sampler - varietes of paneer tikkas - Bhatti, Malai, Chipotle, Soya Chaaps, Dahi Kebabs
+Bhatti Murg Full- Category:Appetizers Non Veg (Indian). Price:$27.99. Description Whole Chicken cooked in clay oven with TJ's secret herbs & spices in yogurt.
+Bhatti Murg Half- Category:Appetizers Non Veg (Indian). Price:$15.99. Description Chicken cooked in clay oven with TJ's secret herbs & spices in yogurt.
+Bhatti Murg Tikka- Category:Appetizers Non Veg (Indian). Price:$19.99. Description Boneless chicken cooked in clay oven with TJ's secret herbs & spices in yogurt.
+Chicken Peri Peri Tikka- Category:Appetizers Non Veg (Indian). Price:$19.99. Description Boneless juicy chicken marinated in a spicy peri peri
+Chicken Chipotle Tikka- Category:Appetizers Non Veg (Indian). Price:$19.99. Description Tandoor cooked boneless chicken with in house made chipotle sauce, a bold & delightful culinary experience.
+Chicken Achaari Tikka- Category:Appetizers Non Veg (Indian). Price:$19.99. Description Authentic Indian spicy pickle marinated boneless chicken cooked in clay oven.
+Chicken Malai Tikka- Category:Appetizers Non Veg (Indian). Price:$19.99. Description Marinated boneless chicken in creamy cheese & nuts with light spices, cooked in clay oven.
+Chicken Seekh Kebab- Category:Appetizers Non Veg (Indian). Price:$19.99. Description Minced chicken cooked on skewers with chillies, ginger, garlic & Indian spices.
+Chicken Tangri Kebab- Category:Appetizers Non Veg (Indian). Price:$19.99. Description Marinated Chicken drum sticks cooked in clay oven
+Tandoori Rainbow Trout- Category:Appetizers Non Veg (Indian). Price:$29.99. Description Whole rainbow trout fish marinated in a blend of aromatic spices & grilled in a tandoor for a smoky flavorful delight. A must try........
+Reshmi Fish Tikka- Category:Appetizers Non Veg (Indian). Price:$19.99. Description Fish tikka marinated with yogurt, gram flour & chef's secret masalas, cooked in clay oven.
+Amritsari Fried Fish- Category:Appetizers Non Veg (Indian). Price:$16.99. Description Authentic punjabi style deep fried fish with chef's secret family owed recipe.
+Mutton Seekh Kebab- Category:Appetizers Non Veg (Indian). Price:$19.99. Description Minced goat meat infused with exotic Indian spices & herbs.
+Lamb Chops- Category:Appetizers Non Veg (Indian). Price:$27.99. Description Tender juicy lamb chops seasoned with a blend of exotic Indian spices & grilled to perfection.
+Non Veg Kebab Platter- Category:Appetizers Non Veg (Indian). Price:$37.99. Description A platter of different tikkas, kebabs of Fish, chicken & goat.....a journey to heaven
+Chilli Potatoes- Category:Appetizers Hakka Chinese. Price:$12.99. Description Crispy potatoes tossed in spicy, tangy sauce with bell peppers & onions, offering a bold & flavorful snack.
+Honey Chilli Potatoes- Category:Appetizers Hakka Chinese. Price:$14.99. Description Crispy potatoes coated in a sweet & spicy sauce with a hint of honey, garnished with scallions for a perfect balace of flavors.
+Veg Spring Roll- Category:Appetizers Hakka Chinese. Price:$11.99. Description Spring roll wrapped with noodles & vegetables..... Delhi cart style.
+Chilli Paneer Dry- Category:Appetizers Hakka Chinese. Price:$17.99. Description Crispy paneer cubes stir fried with peppers, onions, ginger, garlic & spicy tangy sauce for a crisp & flavorful bite.
+Veg Mancuhrian Dry- Category:Appetizers Hakka Chinese. Price:$17.99. Description Crispy vegetables balls simmered in tangy, savory sauce with a blend of spices & a touch of sweetness.
+Gobhi Manchrian Dry- Category:Appetizers Hakka Chinese. Price:$17.99. Description Crispy cauliflower florets tossed in a spicy, sourish sauce served without gravy for a bold & crunchy treat.
+Gobhi 65- Category:Appetizers Hakka Chinese. Price:$19.99. Description Spicy deep fried cauliflower florets coated in tangy blend of Indian spices & herbs, giving a flavorful snack with a fiery kick.
+Mushroom Chilli Dry- Category:Appetizers Hakka Chinese. Price:$18.99. Description Crispy stir fried mushrooms tossed with capsicums, onions & chilly sauce, creating a punchy snack.
+Shaadi waale Noodles- Category:Appetizers Hakka Chinese. Price:$15.99. Description Veg noodles make with authentic Indian catering style, reminiscent of the festive, rich flavors of a wedding feast.
+Veg Hakka Noodles- Category:Appetizers Hakka Chinese. Price:$15.99. Description Sauteed veggies & chowmein blended in home made sauce, offering a satisfying Asian inspired dish.
+Manchurian Noodles- Category:Appetizers Hakka Chinese. Price:$15.99. Description Sauteed veggie balls & chowmein blended together.
+Chicken Lollipop- Category:Appetizers Hakka Chinese. Price:$17.99. Description Crispy deep fried chicken wings with the meat pulled back to resemble a lollipop, coated in a tangy sauce for a delicious fun appetizer.
+Chicken Spring Roll- Category:Appetizers Hakka Chinese. Price:$13.99. Description Spring roll filled with noodles, chicken & vegetables.
+Honey Garlic Chicken Dry- Category:Appetizers Hakka Chinese. Price:$19.99. Description Boneless chicken cooked in sauce make with honey, garlic & chillies.
+Chilli Chicken Dry- Category:Appetizers Hakka Chinese. Price:$18.99. Description Crispy chicken pieces stir fried with peppers, onions, ginger, garlic & spicy, tangy sauce for a crisp & flavorful bite.
+Chicken 65- Category:Appetizers Hakka Chinese. Price:$19.99. Description Tender chicken pieces marinated in a tantalizing blend of Indian spices & herbs then deep fried to golden perfection.
+Chilli Fish Dry- Category:Appetizers Hakka Chinese. Price:$18.99. Description Crispy fish tossed with peppers, onions, ginger, garlic & in house sauces, making it a mouth watering dish.
+Honey Garlic Fish Dry- Category:Appetizers Hakka Chinese. Price:$18.99. Description Fish cooked in sauce make with honey, garlic & chillies.
+Chicken Hakka Noodles- Category:Appetizers Hakka Chinese. Price:$16.99. Description Sauteed chicken, veggies & chowmein blended in home made sauce......its a hearty meal.
+Schezwan Noodles- Category:Appetizers Hakka Chinese. Price:$15.99. Description Sauteed veggies & chowmein blended together with schezwan sauce.
+Bhatti Murgh Full- Category:Starter Non-Veg Indian. Price:$27.99. Description Whole Chicken cooked in clay oven with TJ's secret herbs & spices in yogurt.
+Bhatti Murgh Half- Category:Starter Non-Veg Indian. Price:$15.99. Description Chicken cooked in clay oven with TJ's secret herbs & spices in yogurt.
+Bhatti Murgh Tikka- Category:Starter Non-Veg Indian. Price:$19.99. Description Boneless chicken reserved overnight in a yogurt marinade first cooked in the tandoor and then finished on the Bhatti or open-fire.
+Chicken Seekh Kebab Classic- Category:Starter Non-Veg Indian. Price:$19.99. Description Traditional seekh of chicken mince with the singing flavours of house spice blend, coriander, mint and spring onions.
+Chipotle Fish Tikka- Category:Starter Non-Veg Indian. Price:$19.99. Description Tandoori fish in chipotle sauce.
+Mutton Kebab Tikka Junction- Category:Starter Non-Veg Indian. Price:$16.99. Description Chipotle Seekh / Peri Peri Seekh.
+Tangdi Kebab- Category:Starter Non-Veg Indian. Price:$19.99. Description Legs of chicken, reserved overnight in a yoghurt marinade and finished in Tandoor.
+Chicken Achari Tikka- Category:Starter Non-Veg Indian. Price:$19.99. Description Soft tender pieces of chicken bathed in pickling spices (Achari masala) & yogurt marinade.
+Chipotle Chicken Tikka- Category:Starter Non-Veg Indian. Price:$19.99. Description Boneless chicken cooked in clay oven with home made chipotle sauce & secret spices
+Achari Fish Tikka- Category:Starter Non-Veg Indian. Price:$19.99. Description Authentic Indian spicy pickle marinated fish cooked in clay oven
+Chicken Kebab Tikka Junction- Category:Starter Non-Veg Indian. Price:$15.99. Description Chipotle Seekh / Peri Peri Seekh.
+Paani Puri- Category:Tikka Bites. Price:$10.99. Description Classic Mumbai style gol gappas. Love at first bite.
+Chicken Tikka Sharabian Da- Category:Tikka Junction Special. Price:$19.99. Description Tandoori Chicken tikka with special tawa gravy
+Chicken Seekh Sharabian Da- Category:Tikka Junction Special. Price:$19.99. Description Seekh kabab with special tawa gravy
+Mutton Seekh Sharabian Da- Category:Tikka Junction Special. Price:$20.99. Description Mutton Seekh Kabab in Tj's special tawa gravy
+Paneer Tikka Sharabian Da- Category:Tikka Junction Special. Price:$19.99. Description Tandoor cooked, paneer tikka tossed in tawa gravy
+Soya Chaap Sharabian Da- Category:Tikka Junction Special. Price:$19.99. Description Tandoori soya chaap tossed at tawa with tomatoes & creamy gravy
+Soya Chaap Sharabian Di- Category:Chef's Special. Price:$20.99. Description Tandoori soya chaap tossed in house blend special tawa gravy finished with dust of spiced masala mix.
+Chicken Seekh Sharabian Di- Category:Chef's Special. Price:$20.99. Description Seekh kebab in house blend special tawa gravy finished with dust of spiced masala mix.
+Mutton Seekh Sharabian Di- Category:Chef's Special. Price:$21.99. Description Mutton seekh kebab in house blend special tawa gravy finished with dust of spiced masala mix.
+Veg Chilly Momos- Category:Veg Indo-Chinese. Price:$17.99. Description Pan-fried Veg Dumplings tossed in savoury sauce with coloured peppers, onions, and Chilly.
+Chilly Paneer Dry- Category:Veg Indo-Chinese. Price:$17.99. Description Cubes of pan-fried cottage cheese are coated in a savory sauce and then tossed with coloured peppers and onions.
+Chilly Paneer Gravy- Category:Veg Indo-Chinese. Price:$17.99. Description Cubes of pan-fried cottage cheese are coated in a semi-dry savory sauce and then tossed with colored peppers and onions.
+Veg Manchurian Dry- Category:Veg Indo-Chinese. Price:$17.99. Description Fried veg balls tossed in the spicy, sweet & tangy Manchurian sauce.
+Manchurian 65- Category:Veg Indo-Chinese. Price:$17.99. Description Deep fried veg balls & tossed in in-house indian spices and sauces.
+Fries- Category:Veg Indo-Chinese. Price:$9.99. Description Just salted tastes well!!!!
+Honey Chilli Paneer- Category:Veg Indo-Chinese. Price:$15.99. Description Lightly battered crispy Potatoes coated with tomato chilli sauce, honey and a mixture of garlic, vinegar, and salt.
+Honey Chilli Mushrooms- Category:Veg Indo-Chinese. Price:$15.99. Description Lightly battered crispy mushrooms coated with tomato chilli sauce, honey and a mixture of garlic, vinegar, and salt.
+Gobhi Manchurian Dry- Category:Veg Indo-Chinese. Price:$14.99. Description Deep Fried Cauliflower tossed in home made Manchurian sauce.
+Chilly Mushrooms- Category:Veg Indo-Chinese. Price:$14.99. Description Pan fried Mushrooms coated in savoury sauce and tossed with bell pepper & onion.
+Hot Garlic Mushrooms- Category:Veg Indo-Chinese. Price:$14.99. Description Coated Mushrooms tossed with capsicum, onions in hot garlic sauce
+Veg Manchurian- Category:Veg Indo Chinese. Price:$15.99. Description Fried veg balls tossed in the spicy, sweet, tangy in - house manchurian sauce.
+Honey Chilli Station- Category:Veg Indo Chinese. Price:$16.99. Description Lightly battered crispy protein coated with tomato chilli sauce, honey and a mixture of garlic, vinegar, and salt.
+Veg Manchurian - 65- Category:Veg Indo Chinese. Price:$16.99. Description Deep fried veg balls wok - tossed in in - house indian spices and sauces.
+Gobhi - 65- Category:Veg Indo Chinese. Price:$16.99. Description Fried cauliflower tossed in indian spices and sauces.
+Chilli Mushrooms- Category:Veg Indo Chinese. Price:$15.99. Description Pan fried mushrooms coated in savory sauce and tossed with bell pepper and onion.
+Chilly Chicken Dry- Category:Non-Veg Indo Chinese. Price:$18.99. Description Cubes of pan-fried boneless chicken are coated in a semi dry savoury sauce and then tossed with coloured peppers and onions.
+Chilly Chicken Gravy- Category:Non-Veg Indo Chinese. Price:$19.99. Description Cubes of pan-fried boneless chicken are coated in a semi dry savoury sauce and then tossed with coloured peppers and onions served with gravy.
+Chilly Fish Dry- Category:Non-Veg Indo Chinese. Price:$19.99. Description Crispy fish fillet lightly tossed in a spicy chilli sauce with coloured peppers, and onions.
+Chicken Manchurian dry- Category:Non-Veg Indo Chinese. Price:$19.99. Description Fried chicken balls tossed in manchurian sauces
+Chicken Manchurian gravy- Category:Non-Veg Indo Chinese. Price:$19.99. Description Fried chicken balls tossed in sauces and served with manchurian
+Chicken Chilly Momos- Category:Non-Veg Indo Chinese. Price:$17.99. Description Pan fried Chicken Dumplings tossed in savoury sauce with coloured peppers, onions, and chillies.
+Chicken Drums of Heaven- Category:Non-Veg Indo Chinese. Price:$19.99. Description Chicken lollipop deep fried wok-tossed with chop veggies & Chinese in house sauces.
+Mutton Chilli Kebab Dry- Category:Non-Veg Indo Chinese. Price:$20.99. Description Tandoori Cooked Kebabs tossed in Chilli Sauce.
+Chilli Chicken- Category:Non Veg Indo Chinese. Price:$16.99. Description Cubes of pan - fried boneless chicken are coated in a semi dry savoury sauce and then tossed with coloured peppers and onions.
+Fried Chicken Lolipops- Category:Non Veg Indo Chinese. Price:$16.99. Description Frenched chicken drumsticks marinated in spicy house blend and then batter fried and finished with Indo Chinese spice mix.
+Chicken Manchurian- Category:Non Veg Indo Chinese. Price:$16.99. Description Fried chicken tossed in homemade manchurian sauce.
+Chicken - 65- Category:Non Veg Indo Chinese. Price:$17.99. Description Chicken balls deep fried wok - tossed with chop veggies and Chinese in house sauce.
+Chicken Spring Rolls- Category:Non Veg Indo Chinese. Price:$15.99. Description Deep - fried to crispy rolls filled with chicken and stir - fried spiced noodles served with dipping sauce.
+Dal Makhani- Category:Veg Main Indian. Price:$19.99. Description Slow cooked black lentils in a creamy, buttery tomato sauce, enriched with aromatic spices.
+Dal Tadka- Category:Veg Main Indian. Price:$17.99. Description Yellow split lentil cooked & tempered with tomatoes, onions, ginger, garlic & green chillies
+Haandi Dal- Category:Veg Main Indian. Price:$17.99. Description Handi Daal is a flavorful lentil dish simmered with onions, tomatoes, ginger, and garlic, offering a rich and hearty taste without the addition of cream.
+Paneer Butter Masala- Category:Veg Main Indian. Price:$19.99. Description Cottage cheese cooked with tomatoes, onions & capsicum in chef's secret flavorful gravy
+Paneer Methi Malai- Category:Veg Main Indian. Price:$19.99. Description Paneer & fenugreek cooked in mild flavorful gravy.
+Paneer Lababdar- Category:Veg Main Indian. Price:$19.99. Description Paneer dipped in sauce make with onions, tomatoes & aromatic spices.
+Mix Veg- Category:Veg Main Indian. Price:$19.99. Description Seasonal veggies cooked with oions, tomatoes & spices.
+Tawa Paneer- Category:Veg Main Indian. Price:$19.99. Description Paneer cooked with tawa gravy made with onions, tomatoes, ginger, garlic & bell peppers, and fresh coriander.
+Malai Kofta- Category:Veg Main Indian. Price:$19.99. Description Soft cheese & veggie balls cooked in mild creamy cashew curry.
+Shahi Paneer- Category:Veg Main Indian. Price:$19.99. Description Cottage cheese cooked in white mild gravy, nuts, & cream.
+Kadhai Paneer- Category:Veg Main Indian. Price:$19.99. Description Soft cheese cubes cooked with onions, tomatoes, bell peppers in flavorful gravy with freshly roasted & ground kadhai masala.
+Mushroom Do Pyaza- Category:Veg Main Indian. Price:$18.99. Description Mushrooms cooked with diced onions in rich, medium spiced curry.
+Veg Kofta Curry- Category:Veg Main Indian. Price:$19.99. Description Veggie balls cooked in tomato & onion based tangy curry.
+Bhindhi Masala- Category:Veg Main Indian. Price:$18.99. Description Okra cooked in flavorful onion tomato gravy with spices.
+Rajma Masala- Category:Veg Main Indian. Price:$17.99. Description Kidney beans cooked in a rich, flavorful tomato-based gravy, spiced with aromatic Indian spices.
+Amritsari Chhole- Category:Veg Main Indian. Price:$17.99. Description Chickpeas cooked in a robust blend of spices, tangy tomato base with a hint of smoky flavor
+Palak Paneer- Category:Veg Main Indian. Price:$19.99. Description Soft paneer cubes cooked in a creamy spinach puree, seasoned with garlic, ginger & mild spices.
+Aloo Gobhi- Category:Veg Main Indian. Price:$17.99. Description Potatoes & cauliflower florets cooked with onions, tomatoes, and aromatic spices.
+Aloo Matar- Category:Veg Main Indian. Price:$17.99. Description Diced potatoes & green peas cooked in a rich tomato based curry, flavored with aromatic spices.
+Baingan Bharta- Category:Veg Main Indian. Price:$17.99. Description Roasted eggplant mashed and cooked with tomatoes, onions, and spices for a smoky, flavorful dish.
+Paneer Makhani- Category:Veg Main Indian. Price:$19.99. Description Tender paneer cubes simmered in a rich, creamy tomato gravy, with butter & fenugreek leaves.
+Paneer Tikka Masala- Category:Veg Main Indian. Price:$19.99. Description Grilled paneer tikka pieces cooked in a spiced tomato & onion based creamy curry.
+Soya Chaap Masala- Category:Veg Main Indian. Price:$19.99. Description Soft soya chaap simmered in a rich tomato & onion based curry with aromatic spices.
+Soya Chaap Curry- Category:Veg Main Indian. Price:$19.99. Description Tender soya chaap cooked in a light, flavorful onion & tomato based curry.
+Matar Paneer- Category:Veg Main Indian. Price:$19.99. Description Green peas & paneer cooked in a rich, creamy tomato-based curry, flavored with aromatic spices.
+Aloo Jeera- Category:Veg Main Indian. Price:$16.99. Description Potatoes tempered with cumin seeds, green chillies & cilantro.
+Dal Makhani with Cream- Category:Veg Main Indian. Price:$17.99. Description Black lentil slowly cooked and finished with butter, fresh cream, and fenugreek.
+Butter Paneer Masala- Category:Veg Main Indian. Price:$19.99. Description Soft cottage cheese simmered in a rich, creamy tomato gravy with butter & fenugreek leaves.
+Kadhai Soya Chaap- Category:Veg Main Indian. Price:$18.99. Description Soya chaap chunks cooked with capsicum, onion, and tomatoes, seasoned with freshly ground Kadhai Spices.
+Butter Chicken- Category:Non Veg Main Indian. Price:$21.99. Description Tandoori cooked boneless chicken in mild tomato creamy gravy.
+Chicken Curry- Category:Non Veg Main Indian. Price:$21.99. Description Homestyle chicken cooked in onion & tomato based flavorful curry.
+Chicken Tikka Masala- Category:Non Veg Main Indian. Price:$21.99. Description Tandoori cooked boneless chicken tikka tossed in onion tomato creamy gravy.
+Chicken Kadhai- Category:Non Veg Main Indian. Price:$21.99. Description Chicken cooked with onions, tomatoes, bell peppers in flavorful gravy with freshly roasted & ground kadhai masala.
+Chicken Tawa- Category:Non Veg Main Indian. Price:$21.99. Description Boneless chicken cooked in tawa gravy made with onions, tomatoes, ginger, garlic & bell peppers.
+Chicken Methi Malai- Category:Non Veg Main Indian. Price:$21.99. Description Boneless chicken & fenugreek cooked in mild flavorful gravy.
+Mutton Rogan Josh- Category:Non Veg Main Indian. Price:$23.99. Description Tender pieces of mutton cooked in a rich, aromatic gravy with traditional Kashmiri spices.
+Goat Curry- Category:Non Veg Main Indian. Price:$23.99. Description Bone in goat pieces cooked in home style gravy with authentic Indian spices.
+Keema Matar- Category:Non Veg Main Indian. Price:$23.99. Description Minced mutton cooked with green peas in a spicy, flavorful curry.
+Chicken Seekh Masala- Category:Non Veg Main Indian. Price:$21.99. Description Chicken seekh kebab pieces cooked in a creamy tomato & onion based curry.
+Fish Curry- Category:Non Veg Main Indian. Price:$21.99. Description Fish cooked in traditional home style gravy.
+Shrimp Curry- Category:Non Veg Main Indian. Price:$23.99. Description Shrimp cooked in traditional home style gravy.
+Goat Kadhai- Category:Non Veg Main Indian. Price:$23.99. Description Goat cooked with onions, tomatoes, bell peppers in flavorful gravy with freshly roasted & ground kadhai masala.
+Butter Chicken with Cream- Category:Non Veg Main Indian. Price:$18.99. Description Tandoori chicken cooked in mild tomato creamy gravy.
+Tawa Chicken- Category:Non Veg Main Indian. Price:$17.99. Description Boneless chicken tossed in house blend special tawa gravy finished with dust of spiced masala mix.
+Chicken Tikka Masala- Category:Non Veg Main Indian. Price:$18.99. Description Grilled chicken cubes tossed in onion tomato creamy gravy.
+Kadhai Chicken- Category:Non Veg Main Indian. Price:$18.99. Description Chicken cooked with onion, capsicum, and tomatoes, seasoned with freshly ground Kadhai Spices.
+Fish Tikka Masala- Category:Non Veg Main Indian. Price:$19.99. Description Fish fillet chunks tossed in onion tomato creamy gravy.
+Keema Samosa (2 pcs)- Category:Non Veg Main Indian. Price:$9.99. Description Samosa stuffed with minced goat meat and authentic Indian spices.
+Jeera Rice- Category:Rice. Price:$7.99. Description Basmati rice cooked & tempered with cumin seeds.
+Veg Pulao- Category:Rice. Price:$17.99. Description Basmati rice cooked with seasonal veggies & aromatic spices.
+Mushroom Pulao- Category:Rice. Price:$17.99. Description Basmati rice cooked with sliced mushroom & spices.
+Matar Pulao- Category:Rice. Price:$16.99. Description Basmati rice cooked with green peas & spices.
+Veg Biryani- Category:Rice. Price:$18.99. Description Basmati rice cooked with seasonal veggies, and spices on dum (slow cooked with sealed lid).
+Paneer Biryani- Category:Rice. Price:$19.99. Description Basmati rice cooked with paneer, and spices on dum (slow cooked with sealed lid).
+Chicken Biryani- Category:Rice. Price:$20.99. Description Basmati rice cooked with tender chicken, and spices on dum (slow cooked with sealed lid).
+Goat Biryani- Category:Rice. Price:$23.99. Description Basmati rice cooked with bone in goat, and spices on dum (slow cooked with sealed lid).
+Shrimp Biryani- Category:Rice. Price:$23.99. Description Basmati rice cooked with shrimp, and spices on dum (slow cooked with sealed lid).
+Steamed Rice- Category:Rice. Price:$5.99. Description Plain steamed basmati rice.
+Egg Fried Rice- Category:Rice. Price:$15.99. Description Basmati rice tossed with eggs, and fresh veggies.
+Veg Fried Rice- Category:Rice. Price:$15.99. Description Basmati rice tossed with fresh veggies & sauces.
+Chicken Fried Rice- Category:Rice. Price:$16.99. Description Basmati rice tossed with chicken, eggs, and fresh veggies.
+Chilli Garlic Fried Rice- Category:Rice. Price:$15.99. Description Basmati rice tossed with chillies, garlic, and fresh veggies.
+Fried Rice- Category:Rice. Price:$15.99. Description Rice tossed with green onion, carrot, cabbage and Chinese sauces.
+Plain Naan- Category:Tandoor Breads. Price:$3.50. Description Plain naan cooked in clay oven.
+Butter Naan- Category:Tandoor Breads. Price:$3.99. Description Naan coated with butter cooked in clay oven.
+Garlic Naan- Category:Tandoor Breads. Price:$4.50. Description Naan topped with garlic & fresh cilantro, cooked in clay oven.
+Tandoori Roti- Category:Tandoor Breads. Price:$3.00. Description Wheat flour bread cooked in clay oven.
+Tawa Roti- Category:Tandoor Breads. Price:$3.00. Description Wheat flour bread cooked on a hot tawa (griddle).
+Laccha Parantha- Category:Tandoor Breads. Price:$4.50. Description Layered wheat flour bread cooked in clay oven.
+Onion Kulcha- Category:Tandoor Breads. Price:$5.50. Description Naan stuffed with finely chopped onions & spices, cooked in clay oven.
+Aloo Kulcha- Category:Tandoor Breads. Price:$5.50. Description Naan stuffed with mashed potatoes & spices, cooked in clay oven.
+Paneer Kulcha- Category:Tandoor Breads. Price:$5.99. Description Naan stuffed with finely grated paneer & spices, cooked in clay oven.
+Keema Naan- Category:Tandoor Breads. Price:$6.99. Description Naan stuffed with minced chicken or mutton & spices, cooked in clay oven.
+Pudina Parantha- Category:Tandoor Breads. Price:$4.50. Description Layered parantha flavored with dried mint leaves.
+Chilli Garlic Naan- Category:Tandoor Breads. Price:$5.50. Description Naan topped with chillies & garlic, cooked in clay oven.
+Bread Basket- Category:Tandoor Breads. Price:$12.99. Description Assortment of naan, roti, garlic naan.
+Raita- Category:Accompaniments. Price:$5.50. Description Homemade yogurt mixed with cucumber, onions, tomatoes & spices.
+Boondi Raita- Category:Accompaniments. Price:$5.99. Description Homemade yogurt mixed with crispy gram flour fritters (boondi) & spices.
+Green Salad- Category:Accompaniments. Price:$5.99. Description Fresh sliced cucumbers, onions, tomatoes & lettuce.
+Onion Salad- Category:Accompaniments. Price:$4.99. Description Thinly sliced onions tossed with lemon juice, salt & black pepper.
+Papadum (2 pcs)- Category:Accompaniments. Price:$2.50. Description Crispy fried lentil crackers.
+Pickle (Achar)- Category:Accompaniments. Price:$2.50. Description Indian mixed pickle.
+Plain Yogurt- Category:Accompaniments. Price:$4.50. Description Homemade plain yogurt.
+Butter Chicken with Fries- Category:Tikka Junction Kids Meal. Price:$14.99. Description Butter chicken with French fries, a perfect meal for kids.
+Fries- Category:Tikka Junction Kids Meal. Price:$5.99. Description Crispy French fries, perfect as a side or a snack.
+Gulab Jamun (2 Pcs)- Category:Desserts. Price:$6.50. Description Deep fried milk solids balls soaked in sugar syrup, served warm.
+Gajar Ka Halwa- Category:Desserts. Price:$7.99. Description Grated carrots cooked with milk, sugar, ghee & nuts, served warm.
+Ras Malai (2 Pcs)- Category:Desserts. Price:$6.99. Description Cheese dumplings soaked in saffron flavored sweet milk, served chilled.
+Ice Cream- Category:Desserts. Price:$6.50. Description Vanilla / Strawberry / Chocolate
+Moong Dal Halwa- Category:Desserts. Price:$7.99. Description Roasted lentil cooked in ghee, sugar, & milk, served warm.
+Kulfi- Category:Desserts. Price:$6.99. Description Traditional Indian ice cream flavored with nuts & cardamom.
+Brownie with Ice Cream- Category:Desserts. Price:$9.99. Description Warm chocolate brownie served with a scoop of vanilla ice cream.
+Mango Lassi- Category:Drinks-Shakes & Lassi. Price:$6.99. Description Homemade yogurt blended with mango puree & sugar.
+Sweet Lassi- Category:Drinks-Shakes & Lassi. Price:$5.99. Description Homemade yogurt blended with sugar.
+Salted Lassi- Category:Drinks-Shakes & Lassi. Price:$5.99. Description Homemade yogurt blended with salt & spices.
+Strawberry Lassi- Category:Drinks-Shakes & Lassi. Price:$6.99. Description Homemade yogurt blended with strawberry puree & sugar.
+Jal Jeera- Category:Drinks-Shakes & Lassi. Price:$5.99. Description A refreshing Indian drink made with water, cumin, ginger, lemon & mint.
+Oreo Shake- Category:Drinks-Shakes & Lassi. Price:$8.99. Description Milkshake blended with Oreo cookies & ice cream.
+Chocolate Shake- Category:Drinks-Shakes & Lassi. Price:$8.99. Description Milkshake blended with chocolate syrup & ice cream.
+Kesar Badam Shake- Category:Drinks-Shakes & Lassi. Price:$8.99. Description Milkshake flavored with saffron, almonds & cardamom.
+Sweet Pan Shake- Category:Drinks-Shakes & Lassi. Price:$9.99. Description Milkshake flavored with sweet betel leaf & gulkand.
+Virgin Mojito- Category:Drinks-Shakes & Lassi. Price:$6.99. Description A refreshing mix of mint, lime juice, sugar & soda.
+Masala Soda- Category:Drinks-Shakes & Lassi. Price:$5.99. Description Soda mixed with spices, lemon juice & mint.
+Hot Tea- Category:Drinks-Shakes & Lassi. Price:$3.50. Description Indian masala chai.
+Hot Coffee- Category:Drinks-Shakes & Lassi. Price:$3.50. Description Regular hot coffee.
+Fountain Soda- Category:Drinks-Shakes & Lassi. Price:$2.99. Description Coke, Diet Coke, Sprite, Fanta.
+Bottled Water- Category:Drinks-Shakes & Lassi. Price:$2.50. Description Bottled mineral water.
+Mango Lassi- Category:Beverages. Price:$6.99. Description Yogurt blend with mango puree, sugar.
+Sweet Lassi- Category:Beverages. Price:$5.99. Description Yogurt blended with sugar.
+Salty Lassi- Category:Beverages. Price:$5.99. Description Yogurt blended with salt and spices.
+Oreo Shake- Category:Beverages. Price:$8.99. Description Milkshake blended with Oreo cookies, ice cream, and chocolate syrup.
+Chocolate Shake- Category:Beverages. Price:$8.99. Description Milkshake blended with chocolate syrup and ice cream.
+Kesar Badam Shake- Category:Beverages. Price:$8.99. Description Milkshake flavored with saffron, almonds, and cardamom.
+Sweet Pan Shake- Category:Beverages. Price:$9.99. Description Milkshake flavored with sweet betel leaf and gulkand.
+Virgin Mojito- Category:Beverages. Price:$6.99. Description A refreshing mix of mint, lime juice, sugar, and soda.
+Masala Soda- Category:Beverages. Price:$5.99. Description Soda mixed with spices, lemon juice, and mint.
+Hot Tea- Category:Beverages. Price:$3.50. Description Indian masala chai.
+Hot Coffee- Category:Beverages. Price:$3.50. Description Regular hot coffee.
+Fountain Soda- Category:Beverages. Price:$2.99. Description Coke, Diet Coke, Sprite, Fanta.
+Bottled Water- Category:Beverages. Price:$2.50. Description Bottled mineral water.
+Perrier- Category:Beverages. Price:$3.99. Description Sparkling water.
+Juice- Category:Beverages. Price:$4.50. Description Apple, Orange, Cranberry.
+Milk- Category:Beverages. Price:$3.50. Description Whole milk.
+Chicken Tikka Sharabian Da- Category:Tikka Junction Special. Price:$19.99. Description Tandoori chicken tikka with special tawa gravy.
+Chicken Seekh Sharabian Da- Category:Tikka Junction Special. Price:$19.99. Description Seekh kabab with special tawa gravy.
+Mutton Seekh Sharabian Da- Category:Tikka Junction Special. Price:$20.99. Description Mutton Seekh Kabab in Tj's special tawa gravy.
+Paneer Tikka Sharabian Da- Category:Tikka Junction Special. Price:$19.99. Description Tandoor cooked, paneer tikka tossed in tawa gravy.
+Soya Chaap Sharabian Da- Category:Tikka Junction Special. Price:$19.99. Description Tandoori soya chaap tossed at tawa with tomatoes & creamy gravy.
+Soya Chaap Sharabian Di- Category:Tikka Junction Special. Price:$20.99. Description Tandoori soya chaap tossed in house blend special tawa gravy finished with dust of spiced masala mix.
+Chicken Seekh Sharabian Di- Category:Tikka Junction Special. Price:$20.99. Description Seekh kebab in house blend special tawa gravy finished with dust of spiced masala mix.
+Mutton Seekh Sharabian Di- Category:Tikka Junction Special. Price:$21.99. Description Mutton seekh kebab in house blend special tawa gravy finished with dust of spiced masala mix.
+Paani Puri- Category:Tikka Bites. Price:$10.99. Description Classic Mumbai style gol gappas. Love at first bite.
+Chaat Papdi- Category:Tikka Bites. Price:$10.99. Description Crispy fried flour bread crisps served with a zesty yogurt-based sauce, fresh cilantro, and a hint of cumin.
+Dahi Bhalla- Category:Tikka Bites. Price:$10.99. Description Crisp fried lentil dough balls served in a tangy yogurt sauce with a hint of cumin and coriander.
+Tikki Chaat- Category:Tikka Bites. Price:$11.99. Description Crispy fried potato and pea patty served in a tangy tamarind broth with crunchy onions and cilantro.
+Aloo Chaat- Category:Tikka Bites. Price:$10.99. Description Crisp fried potatoes, tangy yogurt, and zesty tamarind come together in a harmonious balance of flavors and textures.
+Dahi Puri- Category:Tikka Bites. Price:$11.99. Description Crunchy puri shells filled with yogurt, tamarind chutney, and crispy potatoes, served chilled.
+Chicken Chatkara Golgappe- Category:Tikka Bites. Price:$12.99. Description Tender chicken cooked in a rich tomato-based curry, served in crispy gol gappe shells with a hint of cumin and coriander.
+Chicken Tikka Wrap- Category:Tikka Bites. Price:$11.99. Description Tender chicken in a flavorful wrap.
+Paneer Tikka Wrap- Category:Tikka Bites. Price:$10.99. Description Soft and creamy paneer wrapped in a delicate roll.
+Mutton Seekh Kabab Roll (2 pcs)- Category:Tikka Bites. Price:$12.99. Description Tender mutton seekh kabab wrapped in a soft roll.
+Soya Chaap Wrap- Category:Tikka Bites. Price:$10.99. Description Savoury soya chaap wrapped in a soft roll.
+Bhatti Paneer Tikka- Category:Angaron Se Veg. Price:$19.99. Description Marinated paneer cooked in clay oven with TJ's secret herbs in yogurt.
+Paneer Malai Tikka- Category:Angaron Se Veg. Price:$19.99. Description Marinated paneer in creamy yogurt with light spices, cooked in clay oven.
+Paneer Tikka Peri Peri- Category:Angaron Se Veg. Price:$19.99. Description Paneer cooked in clay oven with peri peri sauce & secret spices.
+Paneer Achari Tikka- Category:Angaron Se Veg. Price:$19.99. Description Authentic India pickle spicy marinated paneer, cooked in clay oven.
+Paneer Tikka Chipotle- Category:Angaron Se Veg. Price:$19.99. Description Paneer marinated in chipotle sauce & cooked in clay oven.
+Paneer 3 Way- Category:Angaron Se Veg. Price:$19.99. Description 3 different flavored paneer cooked in clay oven.
+Bhatti Soya Chaap- Category:Angaron Se Veg. Price:$18.99. Description Soya chaap marinated in a robust blend of spices, slow cooked on a traditional bhatti for a smoky, char grilled flavor.
+Soya Malai Chaap- Category:Angaron Se Veg. Price:$18.99. Description Tender soya chaap in a creamy, rich blend of malai & aromatic spices, then grilled to perfection for a luscious, melt in the mouth experience.
+Soya Chaap Peri Peri- Category:Angaron Se Veg. Price:$18.99. Description Soya chaap marinated in a zesty, spicy peri peri sauce.
+Soya Chaap Chipotle Tikka- Category:Angaron Se Veg. Price:$18.99. Description Soya Chaap marinated in a smoky, spicy chipotle sdauce, then grilled to perfection.....a flavorful fusion of Indian & Mexican tastes.
+Veg Kabab Platter- Category:Angaron Se Veg. Price:$34.99. Description The ultimate sampler - varieties of paneer tikka bhathi, paneer tikka malai, soya chaap malai, soya chaap bhathi, and veg kababs.
+Bhatti Murgh Full- Category:Angaron Se Non - Veg. Price:$27.99. Description Whole Chicken cooked in clay oven with TJ's secret herbs & spices in yogurt.
+Bhatti Murgh Half- Category:Angaron Se Non - Veg. Price:$15.99. Description Chicken cooked in clay oven with TJ's secret herbs & spices in yogurt.
+Bhatti Murgh Tikka- Category:Angaron Se Non - Veg. Price:$19.99. Description Boneless chicken reserved overnight in a yogurt marinade first cooked in the tandoor and then finished on the Bhatti or open-fire.
+Chicken Peri Peri Tikka- Category:Angaron Se Non - Veg. Price:$19.99. Description Boneless juicy chicken marinated in a spicy peri peri.
+Chicken Chipotle Tikka- Category:Angaron Se Non - Veg. Price:$19.99. Description Tandoor cooked boneless chicken with in house made chipotle sauce, a bold & delightful culinary experience.
+Chicken Achari Tikka- Category:Angaron Se Non - Veg. Price:$19.99. Description Authentic Indian spicy pickle marinated boneless chicken cooked in clay oven.
+Chicken Malai Tikka- Category:Angaron Se Non - Veg. Price:$19.99. Description Marinated boneless chicken in creamy cheese & nuts with light spices, cooked in clay oven.
+Chicken Seekh Kebab- Category:Angaron Se Non - Veg. Price:$19.99. Description Minced chicken cooked on skewers with chillies, ginger, garlic & Indian spices.
+Chicken Tangri Kebab- Category:Angaron Se Non - Veg. Price:$19.99. Description Marinated Chicken drum sticks cooked in clay oven.
+Tandoori Rainbow Trout- Category:Angaron Se Non - Veg. Price:$29.99. Description Whole rainbow trout fish marinated in a blend of aromatic spices & grilled in a tandoor for a smoky flavorful delight. A must try........
+Reshmi Fish Tikka- Category:Angaron Se Non - Veg. Price:$19.99. Description Fish tikka marinated with yogurt, gram flour & chef's secret masalas, cooked in clay oven.
+Amritsari Fried Fish- Category:Angaron Se Non - Veg. Price:$16.99. Description Authentic punjabi style deep fried fish with chef's secret family owed recipe.
+Mutton Seekh Kebab- Category:Angaron Se Non - Veg. Price:$19.99. Description Minced goat meat infused with exotic Indian spices & herbs.
+Lamb Chops- Category:Angaron Se Non - Veg. Price:$27.99. Description Tender juicy lamb chops seasoned with a blend of exotic Indian spices & grilled to perfection.
+Non Veg Kebab Platter- Category:Angaron Se Non - Veg. Price:$38.99. Description The ultimate sampler - a combination of the kebabs on offer, chicken tikka, lamb chop, Amritsari fried fish, chicken seekh kebabs and tangdi kebab.
+Chilli Potatoes- Category:Veg Indo - Chinese. Price:$12.99. Description Crispy potatoes tossed in spicy, tangy sauce with bell peppers & onions, offering a bold & flavorful snack.
+Honey Chilli Potatoes- Category:Veg Indo - Chinese. Price:$14.99. Description Crispy potatoes coated in a sweet & spicy sauce with a hint of honey, garnished with scallions for a perfect balace of flavors.
+Veg Spring Roll- Category:Veg Indo - Chinese. Price:$11.99. Description Spring roll wrapped with noodles & vegetables..... Delhi cart style.
+Chilli Paneer Dry- Category:Veg Indo - Chinese. Price:$17.99. Description Crispy paneer cubes stir fried with peppers, onions, ginger, garlic & spicy tangy sauce for a crisp & flavorful bite.
+Veg Manchurian Dry- Category:Veg Indo - Chinese. Price:$17.99. Description Crispy vegetables balls simmered in tangy, savory sauce with a blend of spices & a touch of sweetness.
+Gobhi Manchurian Dry- Category:Veg Indo - Chinese. Price:$17.99. Description Crispy cauliflower florets tossed in a spicy, sourish sauce served without gravy for a bold & crunchy treat.
+Gobhi 65- Category:Veg Indo - Chinese. Price:$19.99. Description Spicy deep fried cauliflower florets coated in tangy blend of Indian spices & herbs, giving a flavorful snack with a fiery kick.
+Mushroom Chilli Dry- Category:Veg Indo - Chinese. Price:$18.99. Description Crispy stir fried mushrooms tossed with capsicums, onions & chilly sauce, creating a punchy snack.
+Shaadi waale Noodles- Category:Veg Indo - Chinese. Price:$15.99. Description Veg noodles make with authentic Indian catering style, reminiscent of the festive, rich flavors of a wedding feast.
+Veg Hakka Noodles- Category:Veg Indo - Chinese. Price:$15.99. Description Sauteed veggies & chowmein blended in home made sauce, offering a satisfying Asian inspired dish.
+Manchurian Noodles- Category:Veg Indo - Chinese. Price:$15.99. Description Sauteed veggie balls & chowmein blended together.
+Chicken Lollipop- Category:Non-Veg Indo - Chinese. Price:$17.99. Description Crispy deep fried chicken wings with the meat pulled back to resemble a lollipop, coated in a tangy sauce for a delicious fun appetizer.
+Chicken Spring Roll- Category:Non-Veg Indo - Chinese. Price:$13.99. Description Spring roll filled with noodles, chicken & vegetables.
+Honey Garlic Chicken Dry- Category:Non-Veg Indo - Chinese. Price:$19.99. Description Boneless chicken cooked in sauce make with honey, garlic & chillies.
+Chilli Chicken Dry- Category:Non-Veg Indo - Chinese. Price:$18.99. Description Crispy chicken pieces stir fried with peppers, onions, ginger, garlic & spicy, tangy sauce for a crisp & flavorful bite.
+Chicken 65- Category:Non-Veg Indo - Chinese. Price:$19.99. Description Tender chicken pieces marinated in a tantalizing blend of Indian spices & herbs then deep fried to golden perfection.
+Chilli Fish Dry- Category:Non-Veg Indo - Chinese. Price:$18.99. Description Crispy fish tossed with peppers, onions, ginger, garlic & in house sauces, making it a mouth watering dish.
+Honey Garlic Fish Dry- Category:Non-Veg Indo - Chinese. Price:$18.99. Description Fish cooked in sauce make with honey, garlic & chillies.
+Chicken Hakka Noodles- Category:Non-Veg Indo - Chinese. Price:$16.99. Description Sauteed chicken, veggies & chowmein blended in home made sauce......its a hearty meal.
+Schezwan Noodles- Category:Non-Veg Indo - Chinese. Price:$15.99. Description Sauteed veggies & chowmein blended together with schezwan sauce.
+Steamed Veg Momos- Category:Momos Corner. Price:$16.99. Description Steamed dumplings filled with minced vegetables and spices served with spicy sauce..
+Veg Chilli Momos- Category:Momos Corner. Price:$16.99. Description Pan fried veg momos tossed in savoury sauce with coloured peppers, and onions and chilly.
+Veg Kurkure Momos- Category:Momos Corner. Price:$16.99. Description Crispy, deep fried veg dumplings, offering a crunchy texture, bold flavor & served with in house sauce.
+Veg Tandoori Momos- Category:Momos Corner. Price:$17.99. Description Marinated with tandoori spices, grilled to perfection for a smoky flavorful twist.
+Veg Makhani Momos- Category:Momos Corner. Price:$17.99. Description Delhi special momos in Shahi makhani gravy.
+Steamed Chicken Momos- Category:Momos Corner. Price:$16.99. Description Steamed dumplings filled with minced chicken and spices served with spicy sauce..
+Chicken Chilli Momos- Category:Momos Corner. Price:$17.99. Description Steamed dumplings filled with minced chicken and spices tossed with peppers, onions, chilli sauce & served with spicy sauce.
+Chicken Tandoori Momos- Category:Momos Corner. Price:$17.99. Description Marinated with tandoori spices, & grilled to perfection for a smoky flavorful twist.
+Chicken Kurkure Momos- Category:Momos Corner. Price:$17.99. Description Cripy, deep fried chicken dumplings, offering a crunchy texture, bold flavor & served with in house sauce
+Butter Chicken Momos- Category:Momos Corner. Price:$17.99. Description In house momos in chef's special butter chicken gravy.
+Plain Naan- Category:Bread Section. Price:$3.50. Description Plain naan cooked in clay oven.
+Butter Naan- Category:Bread Section. Price:$3.99. Description Naan coated with butter cooked in clay oven.
+Garlic Naan- Category:Bread Section. Price:$4.50. Description Naan topped with garlic & fresh cilantro, cooked in clay oven.
+Tandoori Roti- Category:Bread Section. Price:$3.00. Description Wheat flour bread cooked in clay oven.
+Tawa Roti- Category:Bread Section. Price:$3.00. Description Wheat flour bread cooked on a hot tawa (griddle).
+Laccha Parantha- Category:Bread Section. Price:$4.50. Description Layered wheat flour bread cooked in clay oven.
+Onion Kulcha- Category:Bread Section. Price:$5.50. Description Naan stuffed with finely chopped onions & spices, cooked in clay oven.
+Aloo Kulcha- Category:Bread Section. Price:$5.50. Description Naan stuffed with mashed potatoes & spices, cooked in clay oven.
+Paneer Kulcha- Category:Bread Section. Price:$5.99. Description Naan stuffed with finely grated paneer & spices, cooked in clay oven.
+Keema Naan- Category:Bread Section. Price:$6.99. Description Naan stuffed with minced chicken or mutton & spices, cooked in clay oven.
+Pudina Parantha- Category:Bread Section. Price:$4.50. Description Layered parantha flavored with dried mint leaves.
+Chilli Garlic Naan- Category:Bread Section. Price:$5.50. Description Naan topped with chillies & garlic, cooked in clay oven.
+Bread Basket- Category:Bread Section. Price:$12.99. Description Assortment of naan, roti, garlic naan.
+Jeera Rice- Category:Rice Section. Price:$7.99. Description Basmati rice cooked & tempered with cumin seeds.
+Veg Pulao- Category:Rice Section. Price:$17.99. Description Basmati rice cooked with seasonal veggies & aromatic spices.
+Mushroom Pulao- Category:Rice Section. Price:$17.99. Description Basmati rice cooked with sliced mushroom & spices.
+Matar Pulao- Category:Rice Section. Price:$16.99. Description Basmati rice cooked with green peas & spices.
+Veg Biryani- Category:Rice Section. Price:$18.99. Description Basmati rice cooked with seasonal veggies, and spices on dum (slow cooked with sealed lid).
+Paneer Biryani- Category:Rice Section. Price:$19.99. Description Basmati rice cooked with paneer, and spices on dum (slow cooked with sealed lid).
+Chicken Biryani- Category:Rice Section. Price:$20.99. Description Basmati rice cooked with tender chicken, and spices on dum (slow cooked with sealed lid).
+Goat Biryani- Category:Rice Section. Price:$23.99. Description Basmati rice cooked with bone in goat, and spices on dum (slow cooked with sealed lid).
+Shrimp Biryani- Category:Rice Section. Price:$23.99. Description Basmati rice cooked with shrimp, and spices on dum (slow cooked with sealed lid).
+Steamed Rice- Category:Rice Section. Price:$5.99. Description Plain steamed basmati rice.
+Egg Fried Rice- Category:Rice Section. Price:$15.99. Description Basmati rice tossed with eggs, and fresh veggies.
+Veg Fried Rice- Category:Rice Section. Price:$15.99. Description Basmati rice tossed with fresh veggies & sauces.
+Chicken Fried Rice- Category:Rice Section. Price:$16.99. Description Basmati rice tossed with chicken, eggs, and fresh veggies.
+Chilli Garlic Fried Rice- Category:Rice Section. Price:$15.99. Description Basmati rice tossed with chillies, garlic, and fresh veggies.
+Raita- Category:Side Orders. Price:$5.50. Description Homemade yogurt mixed with cucumber, onions, tomatoes & spices.
+Boondi Raita- Category:Side Orders. Price:$5.99. Description Homemade yogurt mixed with crispy gram flour fritters (boondi) & spices.
+Green Salad- Category:Side Orders. Price:$5.99. Description Fresh sliced cucumbers, onions, tomatoes & lettuce.
+Onion Salad- Category:Side Orders. Price:$4.99. Description Thinly sliced onions tossed with lemon juice, salt & black pepper.
+Papadum (2 pcs)- Category:Side Orders. Price:$2.50. Description Crispy fried lentil crackers.
+Pickle (Achar)- Category:Side Orders. Price:$2.50. Description Indian mixed pickle.
+Plain Yogurt- Category:Side Orders. Price:$4.50. Description Homemade plain yogurt.
+Gulab Jamun (2 Pcs)- Category:Dessert Corner. Price:$6.50. Description Deep fried milk solids balls soaked in sugar syrup, served warm.
+Gajar Ka Halwa- Category:Dessert Corner. Price:$7.99. Description Grated carrots cooked with milk, sugar, ghee & nuts, served warm.
+Ras Malai (2 Pcs)- Category:Dessert Corner. Price:$6.99. Description Cheese dumplings soaked in saffron flavored sweet milk, served chilled.
+Ice Cream- Category:Dessert Corner. Price:$6.50. Description Vanilla / Strawberry / Chocolate
+Moong Dal Halwa- Category:Dessert Corner. Price:$7.99. Description Roasted lentil cooked in ghee, sugar, & milk, served warm.
+Kulfi- Category:Dessert Corner. Price:$6.99. Description Traditional Indian ice cream flavored with nuts & cardamom.
+Brownie with Ice Cream- Category:Dessert Corner. Price:$9.99. Description Warm chocolate brownie served with a scoop of vanilla ice cream.
+Butchew- Category:Freaky Shakes. Price:$12.99. Description Vanilla, Almonds and Cashews
+Child Hood Story- Category:Freaky Shakes. Price:$12.99. Description Rainbow Vanilla Shake
+Strawberry- Category:Freaky Shakes. Price:$12.99. Description Classic Strawberry Shake
+Cacao-Nut- Category:Freaky Shakes. Price:$13.99. Description Vanilla Ice Cream Shake with Chocolate Syrup, M&M
+<<<<<<< HEAD
+Ape Fudge- Category:Freaky Shakes. Price:$13.99. Description Classic Apple shake with vanilla, cardamom powder, cashew and almonds
+=======
+Ape Fudge- Category:Freaky Shakes. Price:$13.99. Description Classic Apple shake with vanilla, cardamom powder, cashew and almonds
+>>>>>>> origin/production

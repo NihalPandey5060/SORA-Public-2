@@ -1,0 +1,1 @@
+sudo nohup /workspace/newServer/audio_encoder/.venv/bin/gunicorn   -k uvicorn.workers.UvicornWorker   -w 4   -b 127.0.0.1:8086   --access-logfile /var/log/fastapi/access.log   --error-logfile /var/log/fastapi/error.log   main:app &

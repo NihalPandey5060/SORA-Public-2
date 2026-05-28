@@ -1,0 +1,33 @@
+# Clean backend install file for this app.
+# Use this on a fresh machine instead of the older exported requirements.txt.
+
+fastapi==0.120.0
+uvicorn==0.38.0
+sqlalchemy==2.0.44
+python-dotenv==1.2.1
+redis==7.0.1
+python-jose[cryptography]==3.5.0
+bcrypt==5.0.0
+python-multipart==0.0.21
+requests
+websockets==15.0.1
+
+numpy
+scipy
+scikit-learn
+opencv-python
+mtcnn
+keras-facenet
+tensorflow
+
+groq
+sentence-transformers
+faiss-cpu
+
+openai-whisper
+webrtcvad==2.0.10
+librosa
+
+pydub
+audioop-lts
+elevenlabs
