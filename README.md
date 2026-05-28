@@ -1,4 +1,4 @@
-# yardhouse_backend (FastAPI + Vite React)
+# Service_App_Bbackend (FastAPI + Vite React)
 
 Short README documenting the integration between a FastAPI backend and a Vite/React frontend, plus Docker setup.
 
@@ -6,7 +6,7 @@ Short README documenting the integration between a FastAPI backend and a Vite/Re
 
 ### Multimodal AI Avatar System
 
-This repository contains the complete implementation of a **multimodal AI interaction system** consisting of a **FastAPI backend** and a **React (Vite) frontend**. The system processes **image, audio, and text inputs** from users and generates responses using an **LLM**, which are then converted into **speech and avatar visemes** for interactive responses.
+This repository contains the complete implementation of a **AI companion system** consisting of a **FastAPI backend** and a **React (Vite) frontend**. The system processes **image, audio, and text inputs** from users and generates responses using an **LLM**, which are then converted into **speech and avatar visemes** for interactive responses.
 
 
 ## #System Overview
