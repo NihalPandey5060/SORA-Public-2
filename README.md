@@ -1,250 +1,498 @@
-# Service_App_Backend (FastAPI + Vite React)
+# Yardhouse AI Avatar Backend Pipeline
 
-Short README documenting the integration between a FastAPI backend and a Vite/React frontend, plus Docker setup.
+This project is a multimodal AI avatar system for a Yardhouse-style restaurant assistant. It combines a FastAPI backend, a Vite React frontend, WebSocket media streaming, face registration, speech transcription, menu-aware LLM responses, text-to-speech generation, and viseme output for avatar mouth animation.
 
-## Project overview
+The system accepts text, microphone audio, and camera frames from the frontend. The backend maintains a session for each user, recognizes or registers faces, detects emotion from video frames, retrieves relevant menu context, generates a response with an LLM, and optionally produces audio plus `output.vsim.json` for lip-sync playback.
 
-### Multimodal AI Avatar System
+## Current Project Structure
 
-This repository contains the complete implementation of a **AI companion system** consisting of a **FastAPI backend** and a **React (Vite) frontend**. The system processes **image, audio, and text inputs** from users and generates responses using an **LLM**, which are then converted into **speech and avatar visemes** for interactive responses.
+```text
+.
+├── main.py                         # FastAPI app, WebSockets, startup model loading, media serving
+├── app_config.py                   # Central app configuration loader
+├── app_config.example.json          # Safe sample config committed to repo
+├── app_config.json                  # Local runtime config, ignored by git
+├── db.py                            # SQLite session setup
+├── model.py                         # SQLAlchemy User and MenuItem models
+├── errorHandler.py                  # WebSocket error helper
+├── Caddyfile                        # Reverse proxy/static file config
+├── docker-compose.yml               # Dev services: Redis, backend, frontend
+├── docker-compose.prod.yml          # Production-style services
+├── pipeline/
+│   ├── session_manger.py            # Session manager and fallback session
+│   ├── Client_services.py           # Main AI pipeline/session logic
+│   ├── menu.txt                     # Knowledge base used for menu retrieval
+│   └── scripts/
+│       ├── audio_generation.py      # ElevenLabs TTS and WAV generation
+│       ├── text_to_phoneme.py       # Text to phoneme conversion
+│       ├── text_alingment.py        # Audio/text alignment
+│       ├── map_phonemes_to_visemes.py
+│       ├── phoneme_to_viseme.py
+│       └── build_vism_file.py       # Final output.vsim.json generation
+├── client/
+│   ├── src/App.jsx                  # React UI, WebSocket client, chat, media capture, viseme consumer
+│   └── src/index.css                # UI styling, including avatar mouth indicator
+├── routes/                          # REST routers for auth/menu/plugins; available but not mounted in main.py
+├── libs/                            # Auth, JWT, validation, config helpers
+├── models/                          # Pydantic models
+└── media/                           # Runtime-generated audio, video, registration, and output files
+```
 
+## Main Features
 
-## #System Overview
+- Text chat over WebSocket.
+- Microphone streaming as PCM audio chunks.
+- Camera frame streaming for face recognition and emotion detection.
+- Face registration using five captured photos.
+- Whisper speech-to-text support.
+- Groq LLM response generation.
+- Semantic menu lookup using SentenceTransformers and FAISS.
+- Response caching through `media/output/question_result_path.json`.
+- ElevenLabs text-to-speech generation.
+- Phoneme, alignment, viseme timeline, and final `output.vsim.json` generation.
+- Frontend polling for generated visemes and simple mouth-state playback.
+- Static media serving through `/media`.
+- Optional Redis support.
 
-The application allows users to interact through **multiple modalities**:
+## Active Runtime Endpoints
 
-- **Image Input** – Used to detect the user's emotion using **Facial Emotion Recognition (FER)**.
-- **Audio Input** – Users can ask questions using voice.
-- **Text Input** – Users can directly type their queries.
+The active backend behavior is mainly WebSocket based.
 
-Both **audio and text queries** are processed by the backend and sent to a **Large Language Model (LLM)** for response generation.
+```text
+GET /media/*
+WS  /ws/media
+WS  /ws/connect
+```
 
-To improve efficiency, the system stores **previous chat responses**. If multiple users ask the same question, the system can retrieve the response from the stored history instead of recomputing it.
+The route files in `routes/` define REST APIs for auth, menu, and weather plugins, but they are not currently attached in `main.py` with `app.include_router(...)`. The WebSocket/avatar pipeline is the main working path.
 
-After the LLM generates a response:
+## Configuration
 
-1. The response is converted to **audio using Text-to-Speech (TTS)**.
-2. **Visemes** are generated from the speech output.
-3. The visemes are used to animate a **digital avatar** that delivers the response.
+The system now uses a central config file.
 
+```text
+app_config.example.json  # committed sample
+app_config.json          # local runtime config, ignored by git
+```
 
-## Project Structure
-├── main.py  # FastAPI application and API endpoints
-├── db.py  # SQLite models and database session management
-├── yardhouse.db # SQLite database file
-|── pipeline
-|   |──session_manger.py  # creates unique session id for each user 
-|   |──client_services.py # contains the class that has all the processing (text,image and voice)
-|   └──scripts
-|       |──audio_generation.py 
-|       |──build_vism_file.py
-|       |──map_phonemes_to_visemes.py
-|       |──phoneme_to_viseme.py
-|       |──text_alignment.py
-|       └──text_to_phoneme.py
-├── client/ # Frontend application (Vite + React)
-│ ├── src/
-│ └── dist/ # Production build output
-├── Dockerfile # Multi-stage build for frontend and backend
-├── docker-compose.yml # Container orchestration with Redis
-└── README.md
+Important config fields:
 
-## Remaining
+```json
+{
+  "persona_name": "Yardhouse",
+  "system_prompt_base": "You are a waiter at Yardhouse...",
+  "knowledge_base_path": "pipeline/menu.txt",
+  "greeting_response": "Hi{name}! Welcome to Yardhouse. How can I help you today?",
+  "llm_model": "llama-3.1-8b-instant",
+  "tts_voice_id": "21m00Tcm4TlvDq8ikWAM",
+  "tts_model": "eleven_flash_v2_5",
+  "stt_language": "en",
+  "face_match_threshold": 0.4
+}
+```
 
-The generated outputs, such as **viseme files** and **audio responses**, are stored in the `media/output/` directory. For each chat interaction, a **unique UUID** is created, and a corresponding folder is generated:
-media/output/<uuid>/
+Environment variables are still required for external APIs:
 
-This directory contains all the generated artifacts for that specific query, including the **audio file**, **viseme data**, and other related outputs.
+```env
+GROQ_API_KEY=your_groq_key
+Elevens_lab_key=your_elevenlabs_key
+ENABLE_AVATAR_PIPELINE=1
+```
 
-Additionally, the `media/output/` directory contains a file named: `question_result_path.json`
+## Priority Fixes Completed
 
+### P0.1 Enable Avatar Pipeline
 
-This file maintains a mapping between each **user question** and the **path to the directory** where its generated outputs (audio, visemes, etc.) are stored.  
+Problem:
+The avatar pipeline could remain disabled because `ENABLE_AVATAR_PIPELINE` defaulted to false-like behavior.
 
-By maintaining this mapping, the system can **reuse previously generated outputs** if the same question is asked again, avoiding redundant computation and improving response time.
+Fix:
+`docker-compose.yml` now sets:
 
-## Quick contract (inputs/outputs)
+```yaml
+ENABLE_AVATAR_PIPELINE=1
+```
 
-- GET /menu
-  - Returns: JSON array of menu items
-  - Item shape: { id, category, name, price, description }
-  - Source: SQLite `menu_items` table (ORM model `MenuItem` in `db.py`).
+Result:
+When a message is sent, the backend can start the audio/viseme generation path. The logs now include:
 
-- WebSocket `/ws/media`
-  - Purpose: Receive audio chunks and save them to disk.
-  - Protocol: JSON text messages.
-  - Message Format:
-    ```json
-    {
-      "type": "audio_chunk",
-      "payload": {
-        "audio": {
-          "data": "<base64_encoded_bytes>",
-          "format": "opus",
-          "sample_rate": 48000
-        }scipy
-      }
-    }
-    ```
-  - Behavior: Decodes Base64 audio data and appends it to `media/audio/audio.pcm`.
-  - Note: The current frontend implementation sends **WebM (Opus)** audio data. The saved file `audio.pcm` contains WebM binary data.
+```text
+Starting viseme pipeline for media/output/<id>
+```
 
-- WebSocket `/ws/connect`
-  - Purpose: Handle client connection and session management.
-  - Protocol: JSON text messages.
-  - Message Format:
-    ```json
-    {
-      "type": "connect",
-      "token": "<optional_token>"
-    }
-    ```
+### P0.2 Fix Hardcoded Cache Path
 
-**NOTE** 
- Ensure that the required **environment variables** are configured before running the project.
+Problem:
+The phoneme cache path previously depended on a machine-specific absolute path. That made the pipeline fail on other systems.
 
-- The **`client/.env`** file should contain the environment variables required by **Vite**.
-- The **`pipeline/.env`** file should include the necessary API keys, such as:
-  - **ElevenLabs API Key**
-  - **Groq API Key**
+Fix:
+`pipeline/scripts/text_to_phoneme.py` now builds the cache path from the project location:
 
-Make sure these `.env` files are properly set up so that the frontend and backend services can access the required configurations and external APIs. 
+```python
+BASE_DIR = Path(__file__).resolve().parents[2]
+CACHE_PATH = BASE_DIR / "media" / "output" / "phoneme_cache.json"
+```
 
-## Run (recommended: Docker Compose)
+Result:
+The file is created under the project runtime folder:
 
-1. Ensure the ffmpeg is installed  
-2. Ensure Docker and Docker Compose (or `docker compose`) are installed.
-3. From the repository root run (Windows `cmd.exe`):
+```text
+media/output/phoneme_cache.json
+```
 
-```cmd
+### P0.3 Fix Duplicate JSON Key
+
+Problem:
+The WebSocket response had duplicate `"text"` keys in the payload. Python silently kept only the last one, which made the response shape unreliable.
+
+Fix:
+`main.py` now sends only one `text` field and includes `output_id`:
+
+```json
+{
+  "payload": {
+    "text": "response text",
+    "output_id": "generated-folder-id",
+    "visemes": []
+  }
+}
+```
+
+Result:
+The frontend receives a stable response and can use `output_id` to find generated visemes.
+
+### P1.1 Move Inference Off the Event Loop
+
+Problem:
+Face detection, face embeddings, FER emotion detection, Whisper transcription, menu search, and LLM calls can block for hundreds of milliseconds or more. Running them directly inside async WebSocket handlers risks freezing the server.
+
+Fix:
+Blocking inference calls now use `asyncio.to_thread(...)` or executor calls.
+
+Examples:
+
+```python
+faces = await asyncio.to_thread(self.mtcnn.detect_faces, detection_frame)
+embedding = await asyncio.to_thread(lambda: self.facenet.embeddings(image)[0])
+result = await asyncio.to_thread(detector.detect_emotions, frame)
+```
+
+Result:
+WebSocket handling stays responsive while expensive model work runs outside the event loop.
+
+### P1.2 Add Static File Serving
+
+Problem:
+The frontend needed access to generated files such as:
+
+```text
+media/output/<id>/output.vsim.json
+```
+
+Fix:
+FastAPI now mounts the media directory:
+
+```python
+app.mount("/media", StaticFiles(directory="media"), name="media")
+```
+
+The `Caddyfile` was also cleaned up to remove hardcoded absolute paths:
+
+```caddy
+handle_path /media/* {
+    root * ./media
+    file_server
+}
+```
+
+Result:
+Generated media can be served through:
+
+```text
+http://localhost:8000/media/output/<id>/output.vsim.json
+```
+
+### P1.3 Frontend Viseme Consumer
+
+Problem:
+The frontend included `visemes: []` in payloads, but it did not actually fetch or play generated viseme files.
+
+Fix:
+`client/src/App.jsx` now:
+
+- reads `output_id` from backend messages,
+- polls `/media/output/<output_id>/output.vsim.json`,
+- plays the viseme timeline with `setTimeout`,
+- updates a small avatar mouth indicator and viseme status.
+
+Result:
+When `output.vsim.json` is generated, the frontend consumes it and visually reflects mouth movement.
+
+### P2.1 Model Singletons
+
+Problem:
+Loading Whisper, FaceNet, MTCNN, and FER per session wastes memory and limits concurrent users.
+
+Fix:
+Models are loaded once during FastAPI startup in `main.py`:
+
+```python
+app.state.whisper = await asyncio.to_thread(whisper.load_model, "base")
+app.state.facenet = await asyncio.to_thread(FaceNet)
+app.state.mtcnn = await asyncio.to_thread(MTCNN)
+app.state.fer = FER()
+```
+
+They are passed into `Session_Manger`, then into each `CLientLLMSession`.
+
+Result:
+Multiple sessions share the same model instances instead of loading separate copies.
+
+### P2.2 Lightweight Embedding Model
+
+Problem:
+`all-mpnet-base-v2` is large for a small menu knowledge base.
+
+Fix:
+Menu retrieval now uses:
+
+```python
+SentenceTransformer("all-MiniLM-L6-v2")
+faiss.IndexFlatL2(384)
+```
+
+Result:
+The menu embedding model is smaller and faster to load while still being suitable for the current knowledge base size.
+
+### P3.1 Domain Configuration File
+
+Problem:
+Persona text, menu path, LLM model, TTS settings, language, and face threshold were hardcoded across multiple files.
+
+Fix:
+Added:
+
+```text
+app_config.py
+app_config.example.json
+app_config.json
+```
+
+`main.py` loads the config at startup and passes it into the session manager. `Client_services.py` reads prompt, model, menu path, STT language, greeting, and face threshold from the config. `audio_generation.py` reads TTS voice and model from the config.
+
+Result:
+The assistant identity and domain can be changed by editing `app_config.json` and restarting, without changing Python code.
+
+### P3.2 Pipeline Error Reporting
+
+Problem:
+The avatar generation pipeline previously caught all errors and only printed them. The frontend had no idea whether TTS, phoneme generation, alignment, or viseme generation failed.
+
+Fix:
+`text_voice_phoneme_generation()` now runs stage-by-stage:
+
+```python
+pipeline_steps = [
+    ("tts", audio_generation_main),
+    ("phoneme", text_to_phoneme_main),
+    ("alignment", text_alignment_main),
+    ("viseme_mapping", mappinf_phonems_to_vismes),
+    ("vsim", build_vism_file),
+]
+```
+
+On failure, the backend sends a WebSocket frame:
+
+```json
+{
+  "type": "error",
+  "payload": {
+    "stage": "tts",
+    "message": "..."
+  }
+}
+```
+
+Result:
+The frontend can show which stage failed instead of silently doing nothing.
+
+### P3.3 Adaptive TTS Chunk Count
+
+Problem:
+The old TTS path always used six chunks, even for very short replies. That wastes ElevenLabs API calls and increases latency.
+
+Fix:
+`audio_generation.py` now computes chunks from response length:
+
+```python
+def choose_tts_chunk_count(text: str) -> int:
+    text_length = len(text.strip())
+    if text_length == 0:
+        return 1
+    return max(1, min(MAX_TTS_CHUNKS, (text_length + 149) // 150))
+```
+
+Result:
+Short replies use one TTS request, while long replies can still split into multiple chunks.
+
+## Problems Encountered and How They Were Dealt With
+
+### Hardcoded Paths
+
+Several paths assumed a specific machine or deployment folder. This made the project fragile outside the original environment.
+
+Approach:
+Paths were changed to relative/project-based paths. The Caddyfile and phoneme cache path were cleaned first because they directly blocked media serving and phoneme generation.
+
+### Async Server Blocking
+
+The backend uses WebSockets, so blocking model inference inside the event loop could freeze all clients.
+
+Approach:
+Blocking inference was moved into worker threads. This kept the WebSocket loop free to keep receiving audio, text, and video messages.
+
+### Missing Frontend Viseme Playback
+
+The backend generated an `output_id`, but the frontend did not use it.
+
+Approach:
+The frontend now polls the generated `output.vsim.json` file and uses the offsets to update a mouth state. This gives a visible confirmation that the viseme pipeline is connected end-to-end.
+
+### Heavy Per-Session Model Loading
+
+Loading AI models per user would create major memory pressure.
+
+Approach:
+Models were moved to FastAPI startup and shared through the session manager.
+
+### Silent Avatar Pipeline Failures
+
+The previous pipeline swallowed errors with `print()`, so failures were hard to debug.
+
+Approach:
+The pipeline was split into named stages. Each stage reports its own failure over WebSocket.
+
+### TTS API Waste
+
+Using six TTS chunks for every response caused unnecessary API calls.
+
+Approach:
+The chunk count now scales with response length.
+
+### Docker Runtime Issue
+
+Docker commands may fail if Docker Desktop is installed but the engine is not running.
+
+Symptom:
+
+```text
+failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine
+```
+
+Fix:
+Start Docker Desktop, wait for the engine to run, and verify with:
+
+```powershell
+docker info
+```
+
+## One-Week Implementation Approach
+
+The work was handled in priority order so that critical runtime blockers were fixed before performance and production-readiness improvements.
+
+### Day 1: Project Audit and Runtime Mapping
+
+The first step was to understand the full codebase: backend entry points, frontend WebSocket flow, pipeline scripts, Docker files, media folders, and config/dependency layout. The main finding was that the project was WebSocket-first, with several REST route modules present but not mounted.
+
+### Day 2: P0 Stability Fixes
+
+The next focus was on blockers that could prevent the pipeline from running at all:
+
+- enabled the avatar pipeline in Docker,
+- removed the hardcoded phoneme cache path,
+- fixed the duplicate JSON response key.
+
+This made the basic text-to-output pipeline structurally reliable.
+
+### Day 3: Media Serving and WebSocket Responsiveness
+
+The next priority was user experience. Static media serving was verified through FastAPI and cleaned in Caddy. Blocking model calls were moved off the event loop so audio/video streaming would not freeze while face detection or LLM calls were running.
+
+### Day 4: Frontend Viseme Consumption
+
+The frontend was updated to use the backend `output_id`. It now polls for `output.vsim.json` and drives a simple avatar mouth display. This closed the gap between generating visemes and actually using them in the UI.
+
+### Day 5: Scaling and Memory Improvements
+
+The model-sharing path was reviewed and kept as the standard approach: load Whisper, FaceNet, MTCNN, and FER once at startup and pass references into sessions. The menu embedding model was replaced with the lighter MiniLM model to reduce memory and startup cost.
+
+### Day 6: Configuration and Maintainability
+
+Hardcoded domain values were moved into `app_config.json`. This made it possible to change the restaurant identity, prompts, menu file, LLM model, TTS settings, language, and face threshold without editing source code.
+
+### Day 7: Debugging and Cost Control
+
+The final pass focused on production readiness:
+
+- pipeline failures now report stage-specific WebSocket errors,
+- TTS chunk count now adapts to response length,
+- backend syntax checks were run,
+- frontend build requirements were identified.
+
+## How to Run
+
+### Docker
+
+Make sure Docker Desktop is open and running:
+
+```powershell
+docker info
+```
+
+Then run:
+
+```powershell
+cd "C:\Users\Nihal31\OneDrive - Amrita Vishwa Vidyapeetham\Documents\Sora_mind\gpu-avatar-backend-pipeline-nihal"
 docker compose up --build
 ```
 
-This will:
-- start a Redis container,
-- build the frontend and Python image,
-- run the FastAPI app on port 8000 (container binds host `8000:8000`).
+### Local Backend
 
-Verify:
-- Open `http://localhost:8000/menu` in your browser or run:
-
-```cmd
-curl http://localhost:8000/menu
+```powershell
+cd "C:\Users\Nihal31\OneDrive - Amrita Vishwa Vidyapeetham\Documents\Sora_mind\gpu-avatar-backend-pipeline-nihal"
+python -m pip install -r requirements-app.txt
+python main.py
 ```
 
-- If static frontend served by container, visit `http://localhost:8000/` to see built frontend assets (depending on routing/setup).
+### Local Frontend
 
-## Run locally without Docker (development)
+Open a second terminal:
 
-Backend:
-
-```cmd
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-
-Frontend:
-
-```cmd
-cd client
-npm ci
-npm run dev
-```
-
-By default Vite dev server runs on port 5173. Configure the frontend to call the backend at `http://localhost:8000` (or use a proxy in `client/vite.config.js`).
-
-## Files of interest
-
-- `main.py` — FastAPI app, websocket `/ws/media`, `GET /menu`, Redis caching on startup.
-- `db.py` — SQLAlchemy models and `get_db()` dependency. Uses SQLite `yardhouse.db`.
-- `Dockerfile` — multi-stage: builds frontend, then sets up Python runtime and copies `client/dist` into `static`.
-- `docker-compose.yml` — defines `redis` and `app` services and mounts `yardhouse.db` + `media` into container.
-- `client/` — Vite + React frontend (`client/package.json`, `client/src/`).
-- `menu.json` — sample menu data (copied into container by Dockerfile).
-
-## Verification steps
-
-- GET /menu should return an array (possibly empty) consistent with the SQLite DB.
-- Start Docker Compose and check Redis logs to ensure Redis is healthy. The app will fallback to no-caching if Redis isn't available.
-- For WebSocket, use a client capable of sending JSON messages with Base64 encoded audio.
-- Saved files will appear in `media/audio/audio.webm`.
-
-
-## Screenshots
-
-### Backend Implementation
-![Backend Code](docs_imgs/backend_snapshot.png)
-*The `audio_stream` WebSocket endpoint in `main.py` handling incoming audio chunks.*
-
-### Frontend Demo
-![Frontend Demo](docs_imgs/client_snapshot.png)
-*The React frontend recording audio and sending Opus chunks via WebSockets, with the Network tab showing the JSON messages.*
-
-### Server Logs
-![Terminal Output](docs_imgs/apis_snapshot)
-*Server terminal showing successful receipt and saving of audio chunks.*
-
-## Final Commands 
-
-Ensure the Docker service is running and the packages are proprely installed, then run the following commands to start the application:
-
-### Installing dependencies for backend
-active the virtual environment before executing the following commands
-``` cmd
-pip install -r requirements.txt
-```
-### Installing dependencies for frontend
-
-``` cmd
-cd client
+```powershell
+cd "C:\Users\Nihal31\OneDrive - Amrita Vishwa Vidyapeetham\Documents\Sora_mind\gpu-avatar-backend-pipeline-nihal\client"
 npm install
-```
-
-
-### Start the docker container for redis and backend server
-
-
-``` cmd
-docker compose up -d
-```
-
-### Start the docker container for redis and backend server after changes in the backend
-
-
-``` cmd
-docker compose up -d --build
-```
-### Start the fastapi backend server
-
-``` cmd
-uvicorn main:app --reload 
-``` 
-### Start the frontend server
-
-``` cmd 
-cd client
 npm run dev
 ```
-## How to connect to the backend server from the frontend
 
+## Verification Checklist
 
-- Go the following client folder and a .env file with the following info
-  
-  ```bash
-	VITE_BACKEND_URL=https://18vz8r08zb3p4g-80.proxy.runpod.net/api
-	VITE_WEBSOCKET_URL=wss://18vz8r08zb3p4g-80.proxy.runpod.net/ws
-  ```
+Use this checklist after setup.
 
-- Go the following path
-	client > src > app.jsx
+| Test | Expected Result |
+| --- | --- |
+| Send a text message | Avatar responds in chat |
+| Check backend logs | `Starting viseme pipeline...` appears |
+| Check generated output folder | `llm_response.txt`, `final_audio.wav`, `alignment.json`, `viseme_timeline.json`, and `output.vsim.json` are created |
+| Open `/media/output/<id>/output.vsim.json` | Browser returns JSON |
+| Frontend receives `output_id` | Mouth indicator starts updating after viseme file is ready |
+| Short reply | TTS logs show fewer chunks, often `Chunk 1/1` |
+| Invalid TTS/API setup | Frontend receives a pipeline error frame with stage name |
+| Change `app_config.json` persona/prompt | Response behavior changes after restart |
 
-	#### Copy the important function are.
+## Known Notes
 
-	- handleAddMessageToChat - To add the text message in the container
-	- handleSendMessage -To send the message to the backend via web sockets
-	- First useEffect ( to setup the WebSocket connection )
-  - const WS_URL = import.meta.env.VITE_WEBSOCKET_URL + "/media"
-
-- Refer App.jsx if you encounter any error or ask me for help
+- `client/node_modules` is not committed. Run `npm install` before `npm run build`.
+- Docker commands require Docker Desktop's engine to be running.
+- `app_config.json` is ignored by git so local secrets or local domain changes are not accidentally committed.
+- REST routers under `routes/` are defined but not mounted in `main.py`; WebSocket media/chat is the active path.
+- The avatar pipeline depends on external tools and services such as Groq, ElevenLabs, Whisper, eSpeak, Aeneas, and ffmpeg-compatible audio handling.

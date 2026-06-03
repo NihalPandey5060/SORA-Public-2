@@ -11,14 +11,13 @@
 
 	# Frontend (React / static files)
 	handle {
-		root * /workspace/newServer/audio_encoder/client/dist
+		root * ./client/dist
 		file_server
 	}
 
-	# Testing media
+	# Generated media files
 	handle_path /media/* {
-		root * /workspace/newServer/audio_encoder/media
+		root * ./media
 		file_server
 	}
 }
-

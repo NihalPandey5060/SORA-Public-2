@@ -8,14 +8,23 @@ import tempfile
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from multiprocessing import cpu_count
-from elevenlabs import ElevenLabs  #
-from dotenv import load_dotenv 
-import requests  
+from elevenlabs import ElevenLabs
+from dotenv import load_dotenv
+import requests
 
-load_dotenv() 
+from app_config import load_app_config
+
+load_dotenv()
+
 ELEVENLABS_API_KEY = os.getenv("Elevens_lab_key")
 
-VOICE_NAME = "Rachel (American)"
+ELEVENLABS_CLIENT = None
+
+if ELEVENLABS_API_KEY:
+    try:
+        ELEVENLABS_CLIENT = ElevenLabs(api_key=ELEVENLABS_API_KEY)
+    except Exception as exc:
+        print(f"Failed to initialize ElevenLabs client: {exc}")
 
 ELEVENLABS_VOICE_OPTIONS = {
     "Rachel (American)": "21m00Tcm4TlvDq8ikWAM",
@@ -37,38 +46,48 @@ ELEVENLABS_VOICE_OPTIONS = {
 
 ELEVENLABS_TTS_URL_TEMPLATE = "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
 
-N_CHUNKS = 6
+MAX_TTS_CHUNKS = 6
 
 MAX_THREADS = min(8, max(2, cpu_count() * 2))
 
-DEFAULT_MODEL_ID = "eleven_flash_v2_5"  
+DEFAULT_MODEL_ID = "eleven_flash_v2_5"
 
 
-def chunk_text_equally(full_text: str, n_chunks: int = N_CHUNKS) -> list:
-    """Split full_text into n_chunks as equally as possible by character count.
-    Attempt to split at whitespace near boundaries."""
+def choose_tts_chunk_count(text: str) -> int:
+    text_length = len(text.strip())
+    if text_length == 0:
+        return 1
+    return max(1, min(MAX_TTS_CHUNKS, (text_length + 149) // 150))
+
+
+def chunk_text_equally(full_text: str, n_chunks: int = MAX_TTS_CHUNKS) -> list:
     if not full_text:
         return [""] * n_chunks
+
     L = len(full_text)
     chunks = []
     prev = 0
+
     for i in range(n_chunks):
         if i == n_chunks - 1:
             chunk = full_text[prev:]
             chunks.append(chunk)
             break
+
         target = round((i + 1) * L / n_chunks)
         back_limit = max(prev, target - 200)
         forward_limit = min(L, target + 200)
 
         split_pos = -1
         segment = full_text[prev:target + 1]
+
         r = segment.rfind(" ")
         if r != -1:
             split_pos = prev + r
         else:
             forward_segment = full_text[target:forward_limit]
             f = forward_segment.find(" ")
+
             if f != -1:
                 split_pos = target + f
             else:
@@ -81,62 +100,115 @@ def chunk_text_equally(full_text: str, n_chunks: int = N_CHUNKS) -> list:
         chunk = full_text[prev:split_pos].strip()
         chunks.append(chunk)
         prev = split_pos
+
     while len(chunks) < n_chunks:
         chunks.append("")
+
     return chunks
 
 
-def generate_audio_elevenlabs_using_sdk(text: str, voice_id: str, model_id: str = DEFAULT_MODEL_ID) -> bytes:
-    client = ElevenLabs(api_key=ELEVENLABS_API_KEY)
-    audio_iterable = client.text_to_speech.convert(
+def generate_audio_elevenlabs_using_sdk(
+    text: str,
+    voice_id: str,
+    model_id: str = DEFAULT_MODEL_ID
+) -> bytes:
+
+    if ELEVENLABS_CLIENT is None:
+        raise RuntimeError("ElevenLabs client not initialized")
+
+    audio_iterable = ELEVENLABS_CLIENT.text_to_speech.convert(
         voice_id=voice_id,
         output_format="mp3_44100_128",
         text=text,
         model_id=model_id
     )
+
     out = io.BytesIO()
+
     for chunk in audio_iterable:
         out.write(chunk)
+
     return out.getvalue()
 
 
-def generate_audio_elevenlabs_using_http(text: str, voice_id: str, model_id: str = DEFAULT_MODEL_ID) -> bytes:
+def generate_audio_elevenlabs_using_http(
+    text: str,
+    voice_id: str,
+    model_id: str = DEFAULT_MODEL_ID
+) -> bytes:
+
     url = ELEVENLABS_TTS_URL_TEMPLATE.format(voice_id=voice_id)
+
     headers = {
         "xi-api-key": ELEVENLABS_API_KEY,
         "Content-Type": "application/json",
         "Accept": "audio/mpeg, audio/wav, application/octet-stream"
     }
+
     payload = {
         "text": text,
         "model": model_id
     }
-    resp = requests.post(url, headers=headers, json=payload, timeout=180)
+
+    resp = requests.post(
+        url,
+        headers=headers,
+        json=payload,
+        timeout=180
+    )
+
     resp.raise_for_status()
+
     return resp.content
 
 
-def generate_chunk_wav(chunk_index: int, chunk_text: str, chunk_wav_path: Path, voice_id: str, model_id: str = DEFAULT_MODEL_ID) -> tuple[int, bool, str]:
+def generate_chunk_wav(
+    chunk_index: int,
+    chunk_text: str,
+    chunk_wav_path: Path,
+    voice_id: str,
+    model_id: str = DEFAULT_MODEL_ID
+) -> tuple[int, bool, str]:
+
     if not chunk_text.strip():
         return (chunk_index, False, "empty")
 
     try:
-        mp3_bytes = generate_audio_elevenlabs_using_sdk(chunk_text, voice_id, model_id=model_id)
+        mp3_bytes = generate_audio_elevenlabs_using_sdk(
+            chunk_text,
+            voice_id,
+            model_id=model_id
+        )
     except Exception as e:
         return (chunk_index, False, f"tts_request_failed: {e}")
 
     tmp_mp3_path = None
+
     try:
-        with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as tmp_mp3:
+        with tempfile.NamedTemporaryFile(
+            suffix=".mp3",
+            delete=False
+        ) as tmp_mp3:
             tmp_mp3.write(mp3_bytes)
             tmp_mp3_path = Path(tmp_mp3.name)
 
         audio_seg = AudioSegment.from_mp3(tmp_mp3_path.as_posix())
-        chunk_wav_path.parent.mkdir(parents=True, exist_ok=True)
-        audio_seg.export(chunk_wav_path.as_posix(), format="wav")
+
+        chunk_wav_path.parent.mkdir(
+            parents=True,
+            exist_ok=True
+        )
+
+        audio_seg.export(
+            chunk_wav_path.as_posix(),
+            format="wav"
+        )
+
         return (chunk_index, True, "")
+
     except Exception as e:
         return (chunk_index, False, f"mp3_to_wav_failed: {e}")
+
     finally:
         if tmp_mp3_path is not None:
             try:
@@ -145,51 +217,87 @@ def generate_chunk_wav(chunk_index: int, chunk_text: str, chunk_wav_path: Path, 
                 pass
 
 
-def merge_chunk_wavs(chunk_wav_paths: list[Path], out_path: Path) -> bool:
+def merge_chunk_wavs(
+    chunk_wav_paths: list[Path],
+    out_path: Path
+) -> bool:
+
     combined = None
+
     for p in chunk_wav_paths:
         if not p.exists() or p.stat().st_size == 0:
             continue
+
         seg = AudioSegment.from_file(p.as_posix())
+
         combined = seg if combined is None else (combined + seg)
 
     if combined is None:
         return False
 
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    combined.export(out_path.as_posix(), format="wav")
+    out_path.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    combined.export(
+        out_path.as_posix(),
+        format="wav"
+    )
+
     return True
 
 
 def audio_generation_main(folder_path):
-    start_time = time.time() 
-    folder_path = Path(folder_path)
-    file_path = folder_path / 'llm_response.txt'  
-    with open(file_path,'r') as f: 
-        AI_response = f.read() 
+    start_time = time.time()
+    config = load_app_config()
 
-    AI_response = AI_response.replace('\n',' ') 
+    folder_path = Path(folder_path)
+
+    file_path = folder_path / "llm_response.txt"
+
+    with open(file_path, "r") as f:
+        AI_response = f.read()
+
+    AI_response = AI_response.replace("\n", " ")
 
     if ELEVENLABS_API_KEY is None:
         print("[ERROR] set ELEVENLABS_API_KEY.", file=sys.stderr)
         return
-    
-    voice_id = ELEVENLABS_VOICE_OPTIONS.get(VOICE_NAME)
-    if voice_id is None:
-        print(f"[WARN] voice '{VOICE_NAME}' not found in options. Using first available voice.", file=sys.stderr)
-        voice_id = next(iter(ELEVENLABS_VOICE_OPTIONS.values())) 
 
-    chunks = chunk_text_equally(AI_response, n_chunks=N_CHUNKS)
+    voice_id = config.get("tts_voice_id") or ELEVENLABS_VOICE_OPTIONS["Rachel (American)"]
+    model_id = config.get("tts_model", DEFAULT_MODEL_ID)
+
+    if voice_id is None:
+        print(
+            "[WARN] TTS voice was not configured. Using first available voice.",
+            file=sys.stderr
+        )
+        voice_id = next(iter(ELEVENLABS_VOICE_OPTIONS.values()))
+
+    n_chunks = choose_tts_chunk_count(AI_response)
+    chunks = chunk_text_equally(
+        AI_response,
+        n_chunks=n_chunks
+    )
 
     for i, c in enumerate(chunks):
-        print(f"Chunk {i+1}/{N_CHUNKS}: {len(c)} chars")
+        print(f"Chunk {i+1}/{n_chunks}: {len(c)} chars")
 
-    CHUNK_DIRS = folder_path / 'chunks' 
-    CHUNK_DIRS.mkdir(parents=True, exist_ok=True) 
+    CHUNK_DIRS = folder_path / "chunks"
 
-    chunk_paths = [CHUNK_DIRS / f"chunk_{i:02d}.wav" for i in range(len(chunks))]
+    CHUNK_DIRS.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    chunk_paths = [
+        CHUNK_DIRS / f"chunk_{i:02d}.wav"
+        for i in range(len(chunks))
+    ]
 
     jobs = []
+
     for i, c in enumerate(chunks):
         if c.strip():
             jobs.append((i, c, chunk_paths[i]))
@@ -199,41 +307,92 @@ def audio_generation_main(folder_path):
         return
 
     max_workers = min(MAX_THREADS, len(jobs))
-    print(f"[INFO] Generating {len(jobs)} chunks in parallel using {max_workers} threads...")
+
+    print(
+        f"[INFO] Generating {len(jobs)} chunks in parallel using {max_workers} threads..."
+    )
 
     results = {}
+
     with ThreadPoolExecutor(max_workers=max_workers) as exe:
         future_to_idx = {
-            exe.submit(generate_chunk_wav, idx, text, path, voice_id, DEFAULT_MODEL_ID): idx
+            exe.submit(
+                generate_chunk_wav,
+                idx,
+                text,
+                path,
+                voice_id,
+                model_id
+            ): idx
             for idx, text, path in jobs
         }
+
         for fut in as_completed(future_to_idx):
             idx = future_to_idx[fut]
+
             try:
                 chunk_index, ok, err = fut.result()
+
                 results[chunk_index] = (ok, err)
+
                 if ok:
-                    print(f"[DONE] chunk {chunk_index+1} generated successfully.")
+                    print(
+                        f"[DONE] chunk {chunk_index+1} generated successfully."
+                    )
                 else:
-                    print(f"[FAIL] chunk {chunk_index+1} - {err}")
+                    print(
+                        f"[FAIL] chunk {chunk_index+1} - {err}"
+                    )
+
             except Exception as e:
-                results[idx] = (False, f"exception: {e}")
-                print(f"[EXC] chunk {idx+1} raised exception: {e}")
+                results[idx] = (
+                    False,
+                    f"exception: {e}"
+                )
 
-    ok_count = sum(1 for v in results.values() if v[0])
-    fail_count = sum(1 for v in results.values() if not v[0])
-    print(f"[SUMMARY] {ok_count} succeeded, {fail_count} failed.")
+                print(
+                    f"[EXC] chunk {idx+1} raised exception: {e}"
+                )
 
-    merge_paths = [p for i, p in enumerate(chunk_paths) if results.get(i, (False,))[0]]
+    ok_count = sum(
+        1 for v in results.values()
+        if v[0]
+    )
 
-    print("[MERGE] Combining chunk WAVs into final file...") 
+    fail_count = sum(
+        1 for v in results.values()
+        if not v[0]
+    )
 
-    FINAL_OUTPUT_WAV = folder_path / 'final_audio.wav'
-    merged_ok = merge_chunk_wavs(merge_paths, FINAL_OUTPUT_WAV)
+    print(
+        f"[SUMMARY] {ok_count} succeeded, {fail_count} failed."
+    )
+
+    merge_paths = [
+        p
+        for i, p in enumerate(chunk_paths)
+        if results.get(i, (False,))[0]
+    ]
+
+    print("[MERGE] Combining chunk WAVs into final file...")
+
+    FINAL_OUTPUT_WAV = folder_path / "final_audio.wav"
+
+    merged_ok = merge_chunk_wavs(
+        merge_paths,
+        FINAL_OUTPUT_WAV
+    )
+
     if merged_ok:
-        print(f"[DONE] Final merged WAV: {FINAL_OUTPUT_WAV}")
+        print(
+            f"[DONE] Final merged WAV: {FINAL_OUTPUT_WAV}"
+        )
     else:
-        print("[ERROR] No chunks produced or merge failed.", file=sys.stderr)
+        print(
+            "[ERROR] No chunks produced or merge failed.",
+            file=sys.stderr
+        )
 
     end_time = time.time()
+
     return end_time - start_time

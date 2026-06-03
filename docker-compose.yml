@@ -8,54 +8,57 @@ services:
       interval: 5s
       timeout: 3s
       retries: 5
-    restart: unless-stopped 
+    restart: unless-stopped
     networks:
       - yardhouse_network
-  client: 
+
+  client:
     container_name: yardhouse_client
-    build: 
+    build:
       context: ./client
       dockerfile: Dockerfile.dev
-    ports: 
+    ports:
       - "5173:5173"
     networks:
-      - yardhouse_network 
-    
+      - yardhouse_network
+
     volumes:
       - ./client:/app
       - /app/node_modules
 
-    restart: unless-stopped 
+    restart: unless-stopped
 
     depends_on:
-      - server 
+      - server
+
   server:
     container_name: yardhouse_server
-    build: 
+    build:
       context: ./
       dockerfile: Dockerfile.dev
-    ports: 
+    ports:
       - "8000:8000"
     networks:
-      - yardhouse_network 
-    
+      - yardhouse_network
+
     volumes:
       - ./:/app
 
-    restart: unless-stopped 
+    restart: unless-stopped
 
     depends_on:
       redis:
         condition: service_healthy
+
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_DB=0
+      - ENABLE_AVATAR_PIPELINE=1
 
 volumes:
-  redis_data: 
+  redis_data:
 
 networks:
   yardhouse_network:
     driver: bridge
-

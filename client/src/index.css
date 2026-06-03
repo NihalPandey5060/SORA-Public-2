@@ -53,3 +53,41 @@
     margin-top: 10px;
     gap: 10px;
 }
+
+.avatar_mouth_panel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.avatar_face {
+    width: 74px;
+    height: 74px;
+    border: 1px solid #222;
+    border-radius: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 28px 1fr;
+    place-items: center;
+    background: #f6f6f6;
+}
+
+.avatar_eye {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #222;
+    margin-top: 18px;
+}
+
+.avatar_mouth {
+    grid-column: 1 / 3;
+    width: 30px;
+    min-height: 4px;
+    max-height: 34px;
+    background: #222;
+    transition: height 70ms linear, border-radius 70ms linear;
+}

@@ -1,26 +1,21 @@
-import queue
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Depends # type: ignore
-from fastapi.middleware.cors import CORSMiddleware # type: ignore
-from sqlalchemy.orm import Session # type: ignore
-import json
-import time
-import os
-from pathlib import Path
-from datetime import datetime
-from db import get_db
-from model import MenuItem
-import redis # type: ignore
-from typing import Optional
-import base64
-from errorHandler import ErrorHandler
-from dotenv import load_dotenv # type: ignore
-from libs.encoder import webm_to_mp3
-#from pipeline.rag_llm import llm_response
 import asyncio
+import base64
+import json
+import os
+import time
+from datetime import datetime
+from pathlib import Path
+from typing import Optional
+
+import redis  # type: ignore
+from dotenv import load_dotenv  # type: ignore
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect  # type: ignore
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore
+from fastapi.staticfiles import StaticFiles  # type: ignore
+
+from app_config import load_app_config
+from errorHandler import ErrorHandler
 from pipeline.session_manger import Session_Manger
-# from mtcnn import MTCNN 
-# from sklearn.metrics.pairwise import cosine_similarity
-# from keras_facenet import FaceNet
 
 try:
     import numpy as np
@@ -36,20 +31,43 @@ except Exception as exc:
     FER = None  # type: ignore[assignment]
     FER_IMPORT_ERROR = f"{exc.__class__.__name__}: {exc}"
 
+try:
+    import whisper
+    WHISPER_IMPORT_ERROR = None
+except Exception as exc:
+    whisper = None  # type: ignore[assignment]
+    WHISPER_IMPORT_ERROR = f"{exc.__class__.__name__}: {exc}"
 
+try:
+    from keras_facenet import FaceNet
+    FACENET_IMPORT_ERROR = None
+except Exception as exc:
+    FaceNet = None  # type: ignore[assignment]
+    FACENET_IMPORT_ERROR = f"{exc.__class__.__name__}: {exc}"
 
-# load_and_index_menu()
-# start_workers()
+try:
+    from mtcnn import MTCNN
+    MTCNN_IMPORT_ERROR = None
+except Exception as exc:
+    MTCNN = None  # type: ignore[assignment]
+    MTCNN_IMPORT_ERROR = f"{exc.__class__.__name__}: {exc}"
+
 load_dotenv()
+
 ENV = os.getenv("ENV", "dev")
-app = FastAPI(docs_url='/api/docs' if ENV=='dev' else None, openapi_url="/api/openapi.json" if ENV == "dev" else None)
+app = FastAPI(
+    docs_url="/api/docs" if ENV == "dev" else None,
+    openapi_url="/api/openapi.json" if ENV == "dev" else None,
+)
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["*"],
+)
 
-from routes import authRoute, menuRoute, pluginRoute
-
-
-redis_client: Optional[redis.Redis] = None
-CACHE_TTL = 3600 
 MEDIA_DIR = Path("media")
 AUDIO_DIR = MEDIA_DIR / "audio"
 VIDEO_DIR = MEDIA_DIR / "video"
@@ -60,97 +78,151 @@ AUDIO_DIR.mkdir(parents=True, exist_ok=True)
 VIDEO_DIR.mkdir(parents=True, exist_ok=True)
 VERIFICATION_DIR.mkdir(parents=True, exist_ok=True)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"], 
-    allow_credentials=False,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
-    allow_headers=["*"],  
-)
+app.mount("/media", StaticFiles(directory="media"), name="media")
 
+redis_client: Optional[redis.Redis] = None
+session_manger: Optional[Session_Manger] = None
 active_clients = {}
 
-app.include_router(authRoute.auth_router)
-app.include_router(menuRoute.menu_router)
-app.include_router(pluginRoute.plug_router)
 
-session_manger = Session_Manger()
-# it stores the audio chunks in opus webm format and stores in webm files and it is acutally playable
+def append_binary_file(path: Path, data: bytes) -> None:
+    with open(path, "ab") as f:
+        f.write(data)
+
+
+def write_binary_file(path: Path, data: bytes) -> None:
+    with open(path, "wb") as f:
+        f.write(data)
+
+
 @app.websocket("/ws/media")
 async def streamer(ws: WebSocket):
     await ws.accept()
-    try: 
-        init_msg = await ws.receive_text()
-    except WebSocketDisconnect: 
-        print("client got disconnected")
-        return 
-    init_data = json.loads(init_msg)
 
-    if init_data["type"] != "init":
+    global session_manger
+    if session_manger is None:
+        await ErrorHandler.send_error(ws, "Session manager is not initialized", code=500)
         await ws.close()
-        return 
+        return
 
-    session_id = init_data["session_id"]
-    client_session = await session_manger.connect(session_id=session_id) 
-    Registration_process = "Not_Done"
-    timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
-    output_file = AUDIO_DIR / f"audio.pcm"
-    print(f"Streaming audio to: {output_file}")
+    try:
+        init_msg = await ws.receive_text()
+    except WebSocketDisconnect:
+        print("client got disconnected")
+        return
+
+    try:
+        init_data = json.loads(init_msg)
+    except json.JSONDecodeError:
+        await ErrorHandler.send_error(ws, "Invalid init message", code=400)
+        await ws.close()
+        return
+
+    if init_data.get("type") != "init":
+        await ws.close()
+        return
+
+    session_id = init_data.get("session_id")
+    if not session_id:
+        await ErrorHandler.send_error(ws, "Missing session_id", code=400)
+        await ws.close()
+        return
+
+    client_session = await session_manger.connect(session_id=session_id)
+
+    if hasattr(client_session, "set_pipeline_error_callback"):
+        async def pipeline_error_callback(stage: str, message: str):
+            await ws.send_json({
+                "type": "error",
+                "timestamp": int(time.time() * 1000),
+                "id": session_id,
+                "payload": {
+                    "stage": stage,
+                    "message": message,
+                },
+                "metadata": {
+                    "speaker": "avatar",
+                    "conversation_id": session_id,
+                },
+            })
+
+        client_session.set_pipeline_error_callback(pipeline_error_callback)
+
+    registration_process = "Not_Done"
+
+    audio_session_file = AUDIO_DIR / f"audio_{session_id}.pcm"
+    audio_session_file.parent.mkdir(parents=True, exist_ok=True)
+    print(f"Streaming audio to: {audio_session_file}")
 
     try:
         while True:
             message = await ws.receive_text()
-            data = json.loads(message)
+
+            try:
+                data = json.loads(message)
+            except json.JSONDecodeError:
+                await ErrorHandler.send_error(ws, "Invalid JSON message", code=400)
+                continue
+
             if not data or not data.get("type"):
                 await ErrorHandler.send_error(ws, "Invalid message format", code=400)
                 continue
+
             if data["type"] == "audio_chunk":
                 payload = data.get("payload", {})
                 if not payload:
                     await ErrorHandler.send_error(ws, "Invalid audio chunk payload", code=400)
                     continue
+
                 audio = payload.get("audio", {})
                 if not audio or "data" not in audio:
                     await ErrorHandler.send_error(ws, "Invalid audio data", code=400)
                     continue
-                # Convert Base64 → raw bytes
+
                 audio_bytes = base64.b64decode(audio["data"])
                 if not audio_bytes:
                     await ErrorHandler.send_error(ws, "Empty audio data", code=400)
                     continue
+
                 if np is None:
                     output = await client_session.handle_voice(audio_bytes)
                 else:
-                    pcm_audio = np.frombuffer(audio_bytes,dtype="<i2")  
+                    pcm_audio = np.frombuffer(audio_bytes, dtype="<i2")
                     output = await client_session.handle_voice(pcm_audio)
+
                 if output:
-                    user_query = output["User_query"]
-                    llm_response = output["llm_response"]
+                    user_query = output.get("User_query", "")
+                    llm_response = output.get("llm_response", "")
                     print(f"User Query : {user_query}")
                     print(f"llm response : {llm_response}")
-                # await process_audio_chunk(pcm_audio=pcm_audio) 
-                with open(output_file, "ab") as f:
-                    f.write(audio_bytes)
 
-                #print(f"Received and saved chunk of {len(audio_bytes)} bytes")
-            elif data["type"] == 'text_message':
+                await asyncio.to_thread(append_binary_file, audio_session_file, audio_bytes)
+
+            elif data["type"] == "text_message":
                 payload_text = data.get("payload", {}).get("text", "")
                 if not payload_text:
                     await ErrorHandler.send_error(ws, "Invalid text message payload", code=400)
                     continue
+
                 print("User Message: " + payload_text)
                 start_ms = int(time.time() * 1000)
-                # llm_output = await asyncio.to_thread(llm_response, payload_text)
+
                 result = await client_session.handle_text(payload_text)
+                if isinstance(result, tuple):
+                    text_result, output_id = result
+                else:
+                    text_result, output_id = result, None
+
                 end_ms = int(time.time() * 1000)
                 elapsed_ms = end_ms - start_ms
+
                 await ws.send_json({
                     "type": "text_message",
                     "timestamp": int(time.time() * 1000),
                     "id": data.get("id", ""),
                     "payload": {
-                        "text": "server response " + payload_text,
-                        "text": f"{result}\n\nTook: {elapsed_ms} ms",
+                        "text": f"{text_result}\n\nTook: {elapsed_ms} ms",
+                        "output_id": output_id,
                         "visemes": [],
                     },
                     "metadata": {
@@ -158,38 +230,46 @@ async def streamer(ws: WebSocket):
                         "conversation_id": data.get("metadata", {}).get("conversation_id", ""),
                     },
                 })
-            elif data['type'] == 'video_frame':
+
+            elif data["type"] == "video_frame":
                 payload = data.get("payload", {})
                 if not payload:
                     await ErrorHandler.send_error(ws, "Invalid video frame payload", code=400)
                     continue
+
                 video_img = payload.get("video", {})
                 if not video_img or "data" not in video_img:
                     await ErrorHandler.send_error(ws, "Invalid video image data", code=400)
                     continue
-                timestamp_str = data.get('timestamp', '')
+
+                timestamp_str = data.get("timestamp", "")
                 if not timestamp_str:
                     await ErrorHandler.send_error(ws, "Invalid timestamp", code=400)
                     continue
+
                 video_bytes = base64.b64decode(video_img.get("data", ""))
                 if not video_bytes:
                     await ErrorHandler.send_error(ws, "Invalid video frame data", code=400)
                     continue
-                video_file = VIDEO_DIR / f"video_{timestamp_str}.jpg"
-                with open(video_file, "wb") as vf:
-                    vf.write(video_bytes)
-                if Registration_process == "Not_Done":
-                    reg = await client_session.handle_registration(image_path=video_file)
-                    print(f"Registratoin : {reg}")
-                    if reg=="Not registered":
-                        # call the pop up 
+
+                video_session_dir = VIDEO_DIR / session_id
+                video_session_dir.mkdir(parents=True, exist_ok=True)
+                video_file = video_session_dir / f"video_{timestamp_str}.jpg"
+
+                await asyncio.to_thread(write_binary_file, video_file, video_bytes)
+
+                if registration_process == "Not_Done":
+                    reg = await client_session.handle_registration(image_path=str(video_file))
+                    print(f"Registration : {reg}")
+
+                    if reg == "Not registered":
                         await ws.send_json({
                             "type": "Pop_up",
                             "timestamp": int(time.time() * 1000),
                             "id": data.get("id", ""),
                             "payload": {
                                 "title": "User face is not found",
-                                "message":"Would like to register",
+                                "message": "Would like to register",
                                 "visemes": [],
                             },
                             "metadata": {
@@ -211,21 +291,19 @@ async def streamer(ws: WebSocket):
                                 "conversation_id": data.get("metadata", {}).get("conversation_id", ""),
                             },
                         })
-                    Registration_process = "Done"
-                    print(f"Registration process : {Registration_process}") 
+
+                    registration_process = "Done"
+                    print(f"Registration process : {registration_process}")
+
                 emotion_detector = getattr(app.state, "fer", None)
                 if emotion_detector is not None:
-                    await client_session.handle_video(emotion_detector, image_path=video_file)
-                
-                #print(f"Received and saved video frame of {len(video_bytes)} bytes")
+                    await client_session.handle_video(emotion_detector, image_path=str(video_file))
+
             elif data["type"] == "user_verification":
-                # ✅ Fix typo: "payload" not "paylaod"
                 payload = data.get("payload", {})
-
                 username = payload.get("username", "unknown").strip()
-                photos   = payload.get("photos", [])
+                photos = payload.get("photos", [])
 
-                # 1. Validate
                 if not username:
                     await ErrorHandler.send_error(ws, "Username is required", code=400)
                     continue
@@ -236,8 +314,6 @@ async def streamer(ws: WebSocket):
                     )
                     continue
 
-                # 2. Create a folder for this user's verification images
-                #    e.g. media/verification/John_<session_id>/
                 user_dir = VERIFICATION_DIR / f"{username}_{session_id}"
                 user_dir.mkdir(parents=True, exist_ok=True)
 
@@ -245,8 +321,7 @@ async def streamer(ws: WebSocket):
                 failed = False
 
                 for photo in photos:
-                    index    = photo.get("index")          # 1–5
-                    fmt      = photo.get("format", "webp")
+                    index = photo.get("index")
                     b64_data = photo.get("data", "")
 
                     if not b64_data:
@@ -266,32 +341,31 @@ async def streamer(ws: WebSocket):
                         break
 
                     file_path = user_dir / f"photo_{index}.jpg"
-
-                    # ✅ Non-blocking file write
-                    await asyncio.to_thread(file_path.write_bytes, image_bytes)
-                    saved_paths.append(file_path)
+                    await asyncio.to_thread(write_binary_file, file_path, image_bytes)
+                    saved_paths.append(str(file_path))
                     print(f"Saved: {file_path}  ({len(image_bytes)} bytes)")
 
                 if failed:
                     continue
 
-                # 3. Register the user using saved photos
                 try:
                     registered = await client_session.handle_new_user_registration(
                         username,
                         saved_paths,
                     )
                     if not registered:
-                        await ErrorHandler.send_error(ws, "No valid face found in registration photos", code=422)
+                        await ErrorHandler.send_error(
+                            ws, "No valid face found in registration photos", code=422
+                        )
                         continue
-                    Registration_process = "Done"  # ✅ Mark registration complete
+
+                    registration_process = "Done"
                     print(f"User '{username}' registered with {len(saved_paths)} photos")
                 except Exception as e:
                     print(f"Registration failed for '{username}': {e}")
                     await ErrorHandler.send_error(ws, "Registration failed", code=500)
                     continue
 
-                # 4. Confirm back to the frontend (shows in chat)
                 await ws.send_json({
                     "type": "text_message",
                     "timestamp": int(time.time() * 1000),
@@ -305,10 +379,11 @@ async def streamer(ws: WebSocket):
                         "conversation_id": data.get("metadata", {}).get("conversation_id", ""),
                     },
                 })
+
             elif data["type"] == "popup_response":
                 response = data.get("payload", {}).get("response", "")
                 if response == "no":
-                    Registration_process = "Done"  # ✅ Stop asking on every video frame
+                    registration_process = "Done"
                     print(f"User declined registration for session {session_id}")
                     await ws.send_json({
                         "type": "text_message",
@@ -323,6 +398,7 @@ async def streamer(ws: WebSocket):
                             "conversation_id": data.get("metadata", {}).get("conversation_id", ""),
                         },
                     })
+
             else:
                 print("Unknown message type:", data["type"])
                 await ErrorHandler.send_error(ws, "Unknown message type", code=400)
@@ -338,7 +414,6 @@ async def streamer(ws: WebSocket):
         await ErrorHandler.send_error(ws, "Internal server error", code=500)
         await ws.close()
         return
-        
 
 
 @app.websocket("/ws/connect")
@@ -353,16 +428,14 @@ async def connect(websocket: WebSocket):
         while True:
             data = await websocket.receive_text()
             print(f"Received message from {session_id}: {data}")
-            
+
             try:
                 message = json.loads(data)
                 if message.get("type") == "connect":
                     token = message.get("token")
-                    # Optionally authenticate with token here
-                    
                     response = {
                         "type": "connected",
-                        "message": "Connection established"
+                        "message": "Connection established",
                     }
                     await websocket.send_text(json.dumps(response))
                     continue
@@ -370,26 +443,36 @@ async def connect(websocket: WebSocket):
                 pass
 
             await websocket.send_text(f"Echo: {data}")
+
     except WebSocketDisconnect:
         print(f"CLIENT DISCONNECTED: {session_id}")
-        del active_clients[session_id]
+        active_clients.pop(session_id, None)
 
 
-@app.on_event('startup')
-def startup_event():
-    global redis_client
+@app.on_event("startup")
+async def startup_event():
+    global redis_client, session_manger
+
+    try:
+        app.state.config = load_app_config()
+        print(f"Loaded app config for {app.state.config.get('persona_name', 'avatar')}")
+    except Exception as e:
+        app.state.config = {}
+        print(f"Failed to load app config: {e}")
+
     try:
         redis_client = redis.Redis(
-            host=os.getenv('REDIS_HOST', 'localhost'),
-            port=int(os.getenv('REDIS_PORT', 6379)),
-            db=int(os.getenv('REDIS_DB', 0)),
-            decode_responses=False
+            host=os.getenv("REDIS_HOST", "localhost"),
+            port=int(os.getenv("REDIS_PORT", 6379)),
+            db=int(os.getenv("REDIS_DB", 0)),
+            decode_responses=False,
         )
-        redis_client.ping() # type: ignore
+        redis_client.ping()  # type: ignore
         print("Redis connection established successfully")
     except Exception as e:
         print(f"Failed to connect to Redis: {e}. Caching will be disabled.")
         redis_client = None
+
     if FER is None:
         app.state.fer = None
         print(f"FER unavailable: {FER_IMPORT_ERROR}")
@@ -401,8 +484,51 @@ def startup_event():
             app.state.fer = None
             print(f"FER unavailable: {e}")
 
-@app.on_event('shutdown')
-def shutdown_event():
+    app.state.whisper = None
+    app.state.facenet = None
+    app.state.mtcnn = None
+
+    if whisper is None:
+        print(f"Whisper unavailable: {WHISPER_IMPORT_ERROR}")
+    else:
+        try:
+            app.state.whisper = await asyncio.to_thread(whisper.load_model, "base")
+            print("Whisper model loaded")
+        except Exception as e:
+            print(f"Whisper unavailable: {e}")
+
+    if FaceNet is None:
+        print(f"FaceNet unavailable: {FACENET_IMPORT_ERROR}")
+    else:
+        try:
+            app.state.facenet = await asyncio.to_thread(FaceNet)
+            print("FaceNet model loaded")
+        except Exception as e:
+            print(f"FaceNet unavailable: {e}")
+
+    if MTCNN is None:
+        print(f"MTCNN unavailable: {MTCNN_IMPORT_ERROR}")
+    else:
+        try:
+            app.state.mtcnn = await asyncio.to_thread(MTCNN)
+            print("MTCNN model loaded")
+        except Exception as e:
+            print(f"MTCNN unavailable: {e}")
+
+    try:
+        session_manger = Session_Manger(
+            whisper_model=app.state.whisper,
+            facenet=app.state.facenet,
+            mtcnn=app.state.mtcnn,
+            fer=app.state.fer,
+            config=app.state.config,
+        )
+    except TypeError:
+        session_manger = Session_Manger()
+
+
+@app.on_event("shutdown")
+async def shutdown_event():
     global redis_client
     if redis_client:
         try:
@@ -414,5 +540,5 @@ def shutdown_event():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
 
+    uvicorn.run(app, host="0.0.0.0", port=8000)

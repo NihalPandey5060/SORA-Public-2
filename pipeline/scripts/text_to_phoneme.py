@@ -12,8 +12,10 @@ from tqdm import tqdm
 # OUTPUT_PATH = BASE / "output" / "text_phonemes.txt"
 # CACHE_PATH = BASE / "output" / "phoneme_cache.json"
 # LOG_PATH = BASE / "output" / "run_times.log"
-CACHE_PATH = Path("/home/selvan/soraminds/gpu-avatar-backend-pipeline-audio_encoder/vardhan/gpu-avatar-backend-pipeline/media/output") / "phoneme_cache.json"
-CACHE_PATH.parent.mkdir(parents=True, exist_ok=True) 
+BASE_DIR = Path(__file__).resolve().parents[2]
+
+CACHE_PATH = BASE_DIR / "media" / "output" / "phoneme_cache.json"
+CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 ESPEAK_BIN = "/usr/bin/espeak-ng"
 

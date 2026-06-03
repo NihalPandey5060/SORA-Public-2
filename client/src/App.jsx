@@ -2,6 +2,7 @@
 
   const defaultWsBase = `${window.location.protocol === "https:" ? "wss" : "ws"}://${window.location.hostname || "localhost"}:8000/ws`;
   const WS_URL = `${import.meta.env.VITE_WEBSOCKET_URL || defaultWsBase}/media`;
+  const MEDIA_BASE_URL = WS_URL.replace(/^ws/, "http").replace(/\/ws\/media$/, "/media");
 
 
   function RegistrationModal({ onClose, wsRef, clientIdRef, conversationIdRef }) {
@@ -125,6 +126,10 @@
     const canvasRef = useRef(null);
     const chatContainerRef = useRef(null);
     const [popup, setPopup] = useState(null);
+    const [mouthViseme, setMouthViseme] = useState(0);
+    const [visemeStatus, setVisemeStatus] = useState("Idle");
+    const visemePollRef = useRef(null);
+    const visemeTimersRef = useRef([]);
 
     const clientIdRef = useRef(
       window.crypto?.randomUUID?.() || `client_${Date.now()}` // we can generate this id from the backend after authentication, user will get unique id after connection
@@ -133,6 +138,7 @@
 
     const handleAddMessageToChat = (message, from = "user") => {
       const chatContainer = chatContainerRef.current;
+      if (!chatContainer) return;
       const chatMessageElem = document.createElement("div");
       chatMessageElem.className = `message_from_${from}`;
       const chatMessageSpan = document.createElement("span");
@@ -146,6 +152,74 @@
       chatMessageElem.appendChild(chatMessageSpan);
       chatContainer.appendChild(chatMessageElem);
       chatContainer.scrollTop = chatContainer.scrollHeight;
+    };
+
+    const clearVisemePlayback = () => {
+      if (visemePollRef.current) {
+        window.clearInterval(visemePollRef.current);
+        visemePollRef.current = null;
+      }
+
+      visemeTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
+      visemeTimersRef.current = [];
+      setMouthViseme(0);
+    };
+
+    const playVisemes = (visemes) => {
+      clearVisemePlayback();
+      setVisemeStatus("Playing visemes");
+
+      visemeTimersRef.current = visemes.map(({ offset_ms, viseme_id }) =>
+        window.setTimeout(() => {
+          setMouthViseme(viseme_id);
+        }, Math.max(0, Number(offset_ms) || 0))
+      );
+
+      const lastOffset = visemes.reduce(
+        (maxOffset, item) => Math.max(maxOffset, Number(item.offset_ms) || 0),
+        0
+      );
+
+      const resetTimer = window.setTimeout(() => {
+        setMouthViseme(0);
+        setVisemeStatus("Visemes ready");
+      }, lastOffset + 500);
+
+      visemeTimersRef.current.push(resetTimer);
+    };
+
+    const pollForVisemes = (outputId) => {
+      clearVisemePlayback();
+      setVisemeStatus("Waiting for visemes");
+
+      const visemeUrl = `${MEDIA_BASE_URL}/output/${outputId}/output.vsim.json`;
+      const startedAt = Date.now();
+
+      visemePollRef.current = window.setInterval(async () => {
+        try {
+          const response = await fetch(visemeUrl);
+          if (!response.ok) {
+            if (Date.now() - startedAt > 30000) {
+              clearVisemePlayback();
+              setVisemeStatus("Visemes unavailable");
+            }
+            return;
+          }
+
+          const visemes = await response.json();
+          if (Array.isArray(visemes) && visemes.length > 0) {
+            window.clearInterval(visemePollRef.current);
+            visemePollRef.current = null;
+            playVisemes(visemes);
+          }
+        } catch (error) {
+          console.error("Failed to fetch visemes:", error);
+          if (Date.now() - startedAt > 30000) {
+            clearVisemePlayback();
+            setVisemeStatus("Viseme fetch failed");
+          }
+        }
+      }, 1000);
     };
 
     // -----------------------------
@@ -209,6 +283,15 @@
           console.log("Received message:", jsonData);
           if (jsonData.type === "text_message" && jsonData.payload) {
             handleAddMessageToChat(jsonData.payload.text, "avatar");
+            if (jsonData.payload.output_id) {
+              pollForVisemes(jsonData.payload.output_id);
+            }
+          }
+          else if (jsonData.type === "error" && jsonData.payload) {
+            const stage = jsonData.payload.stage || "pipeline";
+            const message = jsonData.payload.message || "Unknown error";
+            setVisemeStatus(`${stage}: ${message}`);
+            handleAddMessageToChat(`Avatar pipeline error (${stage}): ${message}`, "avatar");
           }
           else if(jsonData.type=="Pop_up" && jsonData.payload){
             setPopup({
@@ -232,6 +315,7 @@
       return () => {
         closedByCleanup = true;
         if (reconnectTimer) window.clearTimeout(reconnectTimer);
+        clearVisemePlayback();
         wsRef.current?.close();
       };
     }, []);
@@ -418,6 +502,7 @@
       return () => {
         stopAudioRecording();
         stopVideoRecording();
+        clearVisemePlayback();
       };
     }, []);
 
@@ -518,6 +603,20 @@
 
         <div className="chat_section">
           <h2>Chat With Ai</h2>
+          <div className="avatar_mouth_panel">
+            <div className="avatar_face">
+              <div className="avatar_eye"></div>
+              <div className="avatar_eye"></div>
+              <div
+                className="avatar_mouth"
+                style={{
+                  height: `${8 + Math.min(Number(mouthViseme) || 0, 21) * 1.2}px`,
+                  borderRadius: mouthViseme > 0 ? "50%" : "999px",
+                }}
+              ></div>
+            </div>
+            <span>Viseme: {mouthViseme} | {visemeStatus}</span>
+          </div>
           <div className="chat_box">
             <div ref={chatContainerRef} className="chat_container">
             </div>

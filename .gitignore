@@ -32,6 +32,7 @@ copy_yardhouse.db
 cpu_id_ed25519
 *test*.*
 *.env
+app_config.json
 
 backend.err.log
 backend.log
