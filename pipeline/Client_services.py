@@ -7,19 +7,23 @@ from typing import Dict, List, Optional, Tuple
 from collections import deque
 
 import cv2
-import faiss
 import numpy as np
 import webrtcvad
-import whisper
 from dotenv import load_dotenv
 from groq import Groq
 from keras_facenet import FaceNet
 from scipy.signal import resample
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
 from mtcnn import MTCNN
 
 from app_config import DEFAULT_APP_CONFIG
+
+try:
+    import faiss
+    from sentence_transformers import SentenceTransformer
+except Exception as exc:
+    faiss = None
+    SentenceTransformer = None
+    print(f"Semantic menu search unavailable: {exc.__class__.__name__}: {exc}")
 
 try:
     from fer import FER
@@ -87,8 +91,12 @@ def load_and_index_menu(filepath="pipeline/menu.txt"):
     if MENU_EMBEDDER is not None and MENU_INDEX is not None and MENU_CHUNKS is not None:
         return MENU_EMBEDDER, MENU_INDEX, MENU_CHUNKS
 
-    index = faiss.IndexFlatL2(384)
-    embedder = SentenceTransformer("all-MiniLM-L6-v2")
+    index = None
+    embedder = None
+
+    if faiss is not None and SentenceTransformer is not None:
+        index = faiss.IndexFlatL2(384)
+        embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
     if not os.path.exists(filepath):
         print(f"Warning: Menu file {filepath} not found")
@@ -102,7 +110,7 @@ def load_and_index_menu(filepath="pipeline/menu.txt"):
 
     menu_chunks = [c.strip() for c in text.split("\n") if c.strip()]
 
-    if menu_chunks:
+    if menu_chunks and embedder is not None and index is not None:
         embeddings = embedder.encode(menu_chunks, convert_to_numpy=True).astype("float32")
         index.add(np.array(embeddings))
 
@@ -261,6 +269,24 @@ class CLientLLMSession:
         """Search menu using semantic similarity."""
         if not self.menu_chunks:
             return "Menu information not available."
+
+        if self.embedder is None or self.index is None:
+            query_terms = {
+                term.strip(".,!?;:()[]{}\"'").lower()
+                for term in user_query.split()
+                if len(term.strip(".,!?;:()[]{}\"'")) > 2
+            }
+            scored_chunks = []
+            for chunk in self.menu_chunks:
+                chunk_lower = chunk.lower()
+                score = sum(1 for term in query_terms if term in chunk_lower)
+                scored_chunks.append((score, chunk))
+
+            scored_chunks.sort(key=lambda item: item[0], reverse=True)
+            results = [chunk for score, chunk in scored_chunks[:k] if score > 0]
+            if not results:
+                results = self.menu_chunks[:k]
+            return "\n".join(results)
 
         query_embedding = self.embedder.encode([user_query], convert_to_numpy=True).astype("float32")
         k = min(k, len(self.menu_chunks))
@@ -492,7 +518,18 @@ Menu Information:
 
             best_match_idx = None
             if len(self.face_embedings) > 0:
-                similarities = cosine_similarity([embedding], self.face_embedings)[0]
+                known_embeddings = np.asarray(self.face_embedings, dtype=np.float32)
+                current_embedding = np.asarray(embedding, dtype=np.float32)
+                denominators = (
+                    np.linalg.norm(known_embeddings, axis=1)
+                    * np.linalg.norm(current_embedding)
+                )
+                similarities = np.divide(
+                    known_embeddings @ current_embedding,
+                    denominators,
+                    out=np.zeros(len(known_embeddings), dtype=np.float32),
+                    where=denominators != 0,
+                )
                 best_match_idx = np.argmax(similarities)
                 best_similarity = similarities[best_match_idx]
             else:
