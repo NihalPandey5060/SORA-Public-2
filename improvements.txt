@@ -1,0 +1,536 @@
+Engineering Improvements Explanation
+Project: gpu-avatar-backend-pipeline-nihal
+Reference document: Engineering Fixes - RivaX1 28MAY26
+
+Purpose
+-------
+This document explains the engineering fixes made in the project and how they relate
+to the priority items from the Engineering Fixes document. It is written as interview
+preparation notes, so each section explains the original problem, the implemented
+solution, the reason it works, and how it can be verified.
+
+
+High-Level Summary
+------------------
+The project was improved mainly in four areas:
+
+1. Avatar pipeline activation and output delivery
+   The backend now actually runs the avatar audio/phoneme/viseme pipeline, returns an
+   output identifier to the frontend, and exposes generated files through static file
+   serving.
+
+2. Runtime responsiveness
+   Heavy operations such as face detection, face embedding, emotion detection, speech
+   transcription, and LLM calls were moved away from the main async event loop. This
+   prevents the websocket server from freezing while expensive model inference is
+   running.
+
+3. Memory and dependency optimization
+   Large models are loaded once at application startup and reused by sessions instead
+   of being loaded per user. The semantic menu search model was changed to a much
+   smaller embedding model, and dependency handling was cleaned up.
+
+4. Production readiness
+   Configuration was moved into app_config files, errors in the avatar pipeline are
+   reported back to the frontend, and TTS chunking was made adaptive so short replies
+   do not trigger unnecessary API calls.
+
+
+P0 Fixes - Critical Startup and Pipeline Blockers
+-------------------------------------------------
+
+P0.1 - Enable the Avatar Pipeline
+
+Original problem:
+The Engineering Fixes document said ENABLE_AVATAR_PIPELINE was defaulting to "0".
+Because of that, the avatar pipeline never ran after the LLM produced a reply. The
+user could receive text, but the system would not generate audio, phonemes, visemes,
+or mouth animation data.
+
+Implemented solution:
+In docker-compose.yml, the server environment now includes:
+
+ENABLE_AVATAR_PIPELINE=1
+
+Why this solves it:
+Client_services.py checks this environment variable before starting the avatar
+pipeline. When it is enabled, the backend creates a background task that runs the
+pipeline after a response is generated.
+
+Relevant behavior:
+When a message is sent, the backend logs:
+
+Starting viseme pipeline for <folder_path>
+
+How to explain it:
+"The first blocker was that the pipeline was disabled by configuration. I enabled it
+in Docker Compose so every generated LLM response can trigger the downstream TTS,
+phoneme, alignment, viseme mapping, and VSIM generation steps."
+
+
+P0.2 - Fix Hardcoded Cache Path
+
+Original problem:
+The old phoneme cache path pointed to a developer-specific absolute path such as
+/home/selvan/soraminds/..., which would fail on any other machine or inside Docker.
+
+Implemented solution:
+text_to_phoneme.py now builds the cache path from the project directory and stores it
+under:
+
+media/output/phoneme_cache.json
+
+Why this solves it:
+The path is now portable. It works on Windows, Linux, and Docker because it is based
+on the project structure instead of one developer's home directory.
+
+How to explain it:
+"I removed a machine-specific path and replaced it with a project-relative media
+output path. That makes the phoneme cache portable across local machines and
+containers."
+
+
+P0.3 - Fix Duplicate JSON Key
+
+Original problem:
+The response payload had duplicate "text" keys. In Python dictionaries, duplicate keys
+are silently overwritten, so the frontend could receive the wrong or unexpected text.
+
+Implemented solution:
+main.py now sends one text field in the websocket response payload. It also includes
+output_id and visemes.
+
+Example payload shape:
+
+{
+  "type": "text_message",
+  "payload": {
+    "text": "...",
+    "output_id": "...",
+    "visemes": []
+  }
+}
+
+Why this solves it:
+The response is now deterministic. The frontend receives one clear text value and can
+also use output_id to fetch the generated viseme file.
+
+How to explain it:
+"I cleaned up the websocket response so there is only one text field. That avoids
+silent overwriting in Python and makes the frontend contract predictable."
+
+
+P1 Fixes - User Experience and Responsiveness
+---------------------------------------------
+
+P1.1 - Move Face and Emotion Inference Off the Event Loop
+
+Original problem:
+MTCNN, FaceNet, and FER inference were running synchronously inside async websocket
+handlers. These operations can take hundreds of milliseconds or even seconds. When
+they run directly in the event loop, the entire server can stall, causing dropped
+audio chunks, delayed websocket responses, and poor user experience.
+
+Implemented solution:
+The blocking inference calls were wrapped using asyncio.to_thread or executor calls.
+Examples include:
+
+- MTCNN face detection
+- FaceNet embedding generation
+- FER emotion detection
+- Whisper transcription
+- Groq LLM calls
+- file reads/writes around cached responses
+
+Why this solves it:
+FastAPI websocket handlers run on the async event loop. Blocking CPU or model calls
+should not run directly there. Moving those calls to worker threads lets the event
+loop keep accepting websocket messages while inference happens in the background.
+
+How to explain it:
+"The main backend is async, but model inference is blocking. I moved those blocking
+calls into worker threads so the websocket loop remains responsive while face
+detection, embeddings, emotion detection, transcription, and LLM calls are running."
+
+
+P1.2 - Add Static File Serving
+
+Original problem:
+The frontend needed to fetch output.vsim.json, but media/output was not publicly
+served by the backend.
+
+Implemented solution:
+main.py mounts the media directory using FastAPI StaticFiles:
+
+app.mount("/media", StaticFiles(directory="media"), name="media")
+
+Why this solves it:
+Generated pipeline files inside media/output can now be fetched by the browser with
+URLs like:
+
+/media/output/<output_id>/output.vsim.json
+
+How to explain it:
+"The backend generates the viseme timeline as a file, so I exposed the media folder
+through FastAPI static serving. That gives the frontend a stable URL to fetch the
+generated output."
+
+
+P1.3 - Frontend Viseme Consumer
+
+Original problem:
+The frontend had a visemes field, but it did not actually fetch or animate the
+generated viseme timeline.
+
+Implemented solution:
+The backend now returns an output_id when a response is generated. The frontend listens
+for that output_id, polls for:
+
+/media/output/<output_id>/output.vsim.json
+
+Once the file is available, it schedules mouth movement updates based on offset_ms and
+viseme_id.
+
+Why this solves it:
+The avatar pipeline runs asynchronously after the LLM response. The frontend cannot
+expect the viseme file to exist immediately. Polling allows the frontend to wait until
+the backend has finished generating the file, then animate the mouth in sync with the
+timeline.
+
+How to explain it:
+"I connected the backend pipeline output to the frontend. The backend returns an
+output_id, and the frontend polls for the generated output.vsim.json. Once available,
+it uses the timestamps in that file to drive mouth-viseme changes."
+
+
+P2 Fixes - Scale and Performance
+--------------------------------
+
+P2.1 - Model Singletons for Whisper, FaceNet, MTCNN, and FER
+
+Original problem:
+Each session was loading its own model instances. That is expensive because models
+like Whisper, FaceNet, MTCNN, and FER consume significant memory. With multiple users,
+memory usage could spike quickly.
+
+Implemented solution:
+The models are loaded once during FastAPI startup and stored on app.state:
+
+- app.state.whisper
+- app.state.facenet
+- app.state.mtcnn
+- app.state.fer
+
+Then Session_Manger injects those shared model instances into each CLientLLMSession.
+
+Why this solves it:
+Model weights are reused across sessions instead of duplicated. This improves memory
+efficiency and allows more concurrent users on the same machine.
+
+How to explain it:
+"Instead of loading heavy ML models per websocket session, I load them once at startup
+and inject shared references into each session. That reduces per-user memory overhead
+and helps the system scale beyond a few users."
+
+
+P2.2 - Lightweight Embedding Model
+
+Original problem:
+The old embedding model all-mpnet-base-v2 is large for a small menu knowledge base.
+It uses more memory and has larger embedding dimensions.
+
+Implemented solution:
+The project now uses:
+
+all-MiniLM-L6-v2
+
+The FAISS index dimension was updated to 384 to match the MiniLM embedding size.
+
+Additional improvement:
+The current changes also make faiss and sentence-transformers optional. If those
+libraries are not available, the system falls back to a simple keyword-based menu
+search instead of crashing.
+
+Why this solves it:
+MiniLM is much smaller and faster to load while still being good enough for menu
+retrieval. The fallback makes the app more robust in environments where semantic
+search dependencies are missing.
+
+How to explain it:
+"I replaced the heavy embedding model with all-MiniLM-L6-v2 and changed the FAISS
+index dimension accordingly. I also added a keyword fallback so the menu search does
+not break completely if semantic-search dependencies are unavailable."
+
+
+P3 Fixes - Production Readiness
+-------------------------------
+
+P3.1 - Domain Configuration File
+
+Original problem:
+The persona, system prompts, knowledge base path, TTS voice, TTS model, STT language,
+and face matching threshold were hardcoded in multiple places.
+
+Implemented solution:
+The project now has app_config.py and app_config.example.json. The app loads
+configuration from app_config.json if present, otherwise it falls back to
+app_config.example.json and default values.
+
+Configurable values include:
+
+- persona_name
+- system_prompt_base
+- system_prompt_emotion
+- system_prompt_user_emotion
+- knowledge_base_path
+- greeting_response
+- llm_model
+- tts_voice_id
+- tts_model
+- stt_language
+- face_match_threshold
+
+Why this solves it:
+The same codebase can now support a different restaurant, persona, menu file, voice,
+or model settings by changing configuration instead of editing source code.
+
+How to explain it:
+"I moved domain-specific values into configuration. That means changing the persona or
+knowledge base no longer requires a code change, which is important for deploying the
+same pipeline to different businesses."
+
+
+P3.2 - Pipeline Error Reporting
+
+Original problem:
+The avatar pipeline previously caught broad exceptions and printed errors to the
+backend console. The frontend had no way to know whether TTS, phoneme generation,
+alignment, or viseme mapping failed.
+
+Implemented solution:
+The pipeline is now split into named stages:
+
+- tts
+- phoneme
+- alignment
+- viseme_mapping
+- vsim
+
+If a stage fails, the backend reports an error frame through the websocket:
+
+{
+  "type": "error",
+  "payload": {
+    "stage": "...",
+    "message": "..."
+  }
+}
+
+The frontend displays that error in the chat/status area.
+
+Why this solves it:
+The user and developer can now see which stage failed instead of only noticing that
+the avatar did not speak or animate.
+
+How to explain it:
+"I changed the pipeline from a single silent failure block into stage-by-stage error
+reporting. If TTS, phoneme generation, alignment, or VSIM generation fails, the
+frontend receives a structured error with the failed stage."
+
+
+P3.3 - Adaptive TTS Chunk Count
+
+Original problem:
+The old code used a fixed chunk count for ElevenLabs TTS. For very short replies, that
+could trigger unnecessary API calls, increasing latency and cost.
+
+Implemented solution:
+audio_generation.py now computes the number of chunks dynamically using the response
+length. Short replies use fewer chunks, while longer replies can still be split for
+better processing.
+
+Why this solves it:
+This reduces unnecessary ElevenLabs calls for short answers while preserving chunking
+for longer responses.
+
+How to explain it:
+"I made TTS chunking adaptive. A short response should not be split into many API
+calls. The code now chooses the chunk count based on response length, reducing cost
+and latency."
+
+
+Additional Improvements Beyond the PDF
+--------------------------------------
+
+1. Docker runtime dependencies were fixed
+
+The Dockerfiles now install important system packages:
+
+- espeak-ng
+- ffmpeg
+- build-essential
+- gcc
+- libgomp1
+
+Why this matters:
+The avatar pipeline depends on system tools. espeak-ng is needed for phoneme
+generation, and ffmpeg/audio libraries are commonly needed for audio processing.
+Without these packages, a fresh Docker build could install Python dependencies but
+still fail at runtime.
+
+How to explain it:
+"I made the Docker image closer to a real runtime environment by installing the system
+tools required by the audio and phoneme pipeline."
+
+
+2. Docker dependency installation was moved to uv
+
+The Dockerfiles now install uv, create a virtual environment, copy pyproject.toml and
+uv.lock, and run:
+
+uv sync --frozen
+
+Why this matters:
+This makes dependency installation reproducible. The lockfile pins the resolved
+dependency graph so Docker builds are less likely to change unexpectedly.
+
+How to explain it:
+"I switched Docker dependency installation to uv with a lockfile so fresh builds are
+more reproducible and less dependent on whatever versions happen to be latest."
+
+
+3. Aeneas alignment fallback was added
+
+Original risk:
+The alignment step could fail if Aeneas did not produce output. Previously that would
+break the avatar pipeline.
+
+Implemented solution:
+text_alingment.py now has a fallback alignment method. If Aeneas fails, it estimates
+timings by dividing the audio duration across the response text lines and writes an
+alignment.json file.
+
+Why this matters:
+This keeps the pipeline moving even when forced alignment fails. The fallback may not
+be as accurate as Aeneas, but it is better than producing no viseme output at all.
+
+How to explain it:
+"I added a graceful fallback for text/audio alignment. If Aeneas fails, the system
+still creates a basic alignment based on audio duration so the rest of the viseme
+pipeline can continue."
+
+
+4. Heavy optional semantic-search dependencies were removed from the app requirements
+
+requirements-app.txt no longer includes sentence-transformers, faiss-cpu,
+openai-whisper, librosa, scikit-learn, or full tensorflow in the clean app install
+file. Instead, the backend code handles missing semantic-search dependencies more
+gracefully.
+
+Why this matters:
+It reduces the size and fragility of a basic backend install. The app can still answer
+using a keyword fallback even without semantic search installed.
+
+How to explain it:
+"I separated the core backend dependencies from heavier ML extras and added fallback
+logic, so the application is easier to install and less likely to fail on a fresh
+machine."
+
+
+Interview Talking Points
+------------------------
+
+If asked "What was the main issue with the original project?"
+
+Answer:
+"The original project had the pieces of an avatar pipeline, but several production
+blockers prevented it from working reliably: the pipeline was disabled, generated
+files were not served to the frontend, heavy model calls blocked the websocket event
+loop, and model loading was inefficient. I focused on making the pipeline actually
+run, making the frontend consume its output, and improving runtime stability."
+
+
+If asked "How did you make the avatar mouth move?"
+
+Answer:
+"The backend generates an output folder for each LLM response and returns the folder
+identifier as output_id. The frontend uses that ID to poll for output.vsim.json under
+the media route. Once the viseme file is ready, the frontend reads each viseme_id and
+offset_ms and schedules mouth state changes using timers."
+
+
+If asked "Why use asyncio.to_thread?"
+
+Answer:
+"FastAPI websocket handlers are async, so blocking model inference inside them can
+freeze the event loop. asyncio.to_thread moves those blocking operations to worker
+threads, allowing the event loop to keep receiving audio, video, and text messages."
+
+
+If asked "How did you reduce memory usage?"
+
+Answer:
+"I changed the architecture so heavy models are loaded once at startup and shared
+across sessions. Previously each session could create its own Whisper, FaceNet, or
+MTCNN instance, which wastes memory. Shared singletons make concurrent sessions much
+more practical."
+
+
+If asked "How did you make the system configurable?"
+
+Answer:
+"I introduced app_config.py and app_config.example.json. Persona, prompts, menu path,
+voice ID, TTS model, STT language, and face matching threshold can now be changed
+through config instead of source code."
+
+
+If asked "How did you improve reliability?"
+
+Answer:
+"I added stage-level pipeline error reporting, frontend error display, static file
+serving, Docker system dependencies, reproducible uv-based installs, and a fallback
+for text/audio alignment. Together these make failures easier to diagnose and reduce
+the chance that one missing tool breaks the whole pipeline."
+
+
+Recommended Verification Checklist
+----------------------------------
+
+1. Start the app with Docker Compose.
+   Expected: server starts without missing espeak-ng or ffmpeg errors.
+
+2. Send a text message.
+   Expected: backend logs "Starting viseme pipeline".
+
+3. Check the websocket response.
+   Expected: payload contains text, output_id, and visemes.
+
+4. Check generated media.
+   Expected: media/output/<output_id>/output.vsim.json is created.
+
+5. Open the frontend.
+   Expected: frontend polls for output.vsim.json and updates viseme status.
+
+6. Send video frames or register a face while sending audio.
+   Expected: websocket remains responsive because inference runs off the event loop.
+
+7. Temporarily break one pipeline stage, such as invalid TTS credentials.
+   Expected: frontend receives an error payload with the failed stage name.
+
+8. Change app_config.json.
+   Expected: persona, prompt, menu, or voice changes without editing code.
+
+
+Short Final Interview Summary
+-----------------------------
+
+"I implemented the engineering fixes by enabling the avatar pipeline, removing
+machine-specific paths, cleaning up websocket response payloads, exposing generated
+media files through FastAPI static serving, and connecting the frontend to the
+generated viseme timeline. I also moved blocking model inference off the async event
+loop, converted heavy models into startup-loaded shared singletons, switched to a
+lighter embedding model with fallback search, added configurable domain settings,
+implemented stage-level pipeline error reporting, and made TTS chunking adaptive.
+Finally, I improved Docker reproducibility and runtime reliability by adding required
+system packages, uv lockfile installs, and an alignment fallback."
+
