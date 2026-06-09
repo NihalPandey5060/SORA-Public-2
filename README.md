@@ -396,48 +396,53 @@ Start Docker Desktop, wait for the engine to run, and verify with:
 docker info
 ```
 
-## One-Week Implementation Approach
+## Validation
 
-The work was handled in priority order so that critical runtime blockers were fixed before performance and production-readiness improvements.
+### P0.1 Enable Avatar Pipeline
 
-### Day 1: Project Audit and Runtime Mapping
+Validation was performed by tracing the request flow from WebSocket message handling to the avatar generation pipeline. The check was that requests continue into the audio and viseme generation stages when `ENABLE_AVATAR_PIPELINE=1` is set, instead of exiting early due to configuration.
 
-The first step was to understand the full codebase: backend entry points, frontend WebSocket flow, pipeline scripts, Docker files, media folders, and config/dependency layout. The main finding was that the project was WebSocket-first, with several REST route modules present but not mounted.
+### P0.2 Fix Hardcoded Cache Path
 
-### Day 2: P0 Stability Fixes
+Validation was performed by reviewing all phoneme cache read and write operations. The check was that cache files are resolved relative to the project root rather than a machine-specific absolute path, allowing the application to run across different environments without path-related failures.
 
-The next focus was on blockers that could prevent the pipeline from running at all:
+### P0.3 Fix Duplicate JSON Key
 
-- enabled the avatar pipeline in Docker,
-- removed the hardcoded phoneme cache path,
-- fixed the duplicate JSON response key.
+Validation was performed by inspecting the final WebSocket response payload. The check was that only a single `text` field is present and that the payload consistently exposes both the generated response and the associated `output_id` required by the frontend.
 
-This made the basic text-to-output pipeline structurally reliable.
+### P1.1 Move Inference Off the Event Loop
 
-### Day 3: Media Serving and WebSocket Responsiveness
+Validation was performed by reviewing all inference-heavy execution paths including face detection, face embeddings, emotion detection, speech transcription, retrieval, and LLM generation. The check was that these operations execute through `asyncio.to_thread(...)` rather than directly inside async WebSocket handlers, preventing event loop blocking.
 
-The next priority was user experience. Static media serving was verified through FastAPI and cleaned in Caddy. Blocking model calls were moved off the event loop so audio/video streaming would not freeze while face detection or LLM calls were running.
+### P1.2 Add Static File Serving
 
-### Day 4: Frontend Viseme Consumption
+Validation was performed by tracing the lifecycle of generated media files. The check was that FastAPI and Caddy expose the same media directory and that generated artifacts such as `output.vsim.json` can be accessed through the `/media` endpoint.
 
-The frontend was updated to use the backend `output_id`. It now polls for `output.vsim.json` and drives a simple avatar mouth display. This closed the gap between generating visemes and actually using them in the UI.
+### P1.3 Frontend Viseme Consumer
 
-### Day 5: Scaling and Memory Improvements
+Validation was performed by reviewing the frontend flow after a backend response is received. The check was that `output_id` is extracted from the payload, used to locate the generated viseme file, and that the returned timeline data is consumed by the avatar mouth-state logic.
 
-The model-sharing path was reviewed and kept as the standard approach: load Whisper, FaceNet, MTCNN, and FER once at startup and pass references into sessions. The menu embedding model was replaced with the lighter MiniLM model to reduce memory and startup cost.
+### P2.1 Model Singletons
 
-### Day 6: Configuration and Maintainability
+Validation was performed by reviewing application startup and session creation paths. The check was that Whisper, FaceNet, MTCNN, and FER models are initialized once during startup and shared across sessions rather than being loaded separately for each user connection.
 
-Hardcoded domain values were moved into `app_config.json`. This made it possible to change the restaurant identity, prompts, menu file, LLM model, TTS settings, language, and face threshold without editing source code.
+### P2.2 Lightweight Embedding Model
 
-### Day 7: Debugging and Cost Control
+Validation was performed by reviewing the retrieval initialization flow. The check was that `all-MiniLM-L6-v2` is used as the embedding model and that the FAISS index configuration matches the model's embedding dimensions.
 
-The final pass focused on production readiness:
+### P3.1 Domain Configuration File
 
-- pipeline failures now report stage-specific WebSocket errors,
-- TTS chunk count now adapts to response length,
-- backend syntax checks were run,
-- frontend build requirements were identified.
+Validation was performed by tracing configuration usage throughout the application. The check was that prompts, persona settings, menu paths, model configuration, language settings, thresholds, and TTS configuration are loaded from configuration files rather than hardcoded values.
+
+### P3.2 Pipeline Error Reporting
+
+Validation was performed by reviewing the error handling path for each pipeline stage. The check was that failures generate structured WebSocket error responses containing both the failing stage and the associated error details instead of being silently logged.
+
+### P3.3 Adaptive TTS Chunk Count
+
+Validation was performed by reviewing the chunk selection logic against different response lengths. The check was that shorter responses result in fewer TTS requests while longer responses continue to support chunked audio generation.
+
+Overall validation focused on confirming that each fix resolves the identified issue, integrates correctly with the existing pipeline architecture, and preserves the expected flow of data between backend services and the frontend client.
 
 ## How to Run
 
